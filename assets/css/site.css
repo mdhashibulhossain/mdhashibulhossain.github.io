@@ -1,5 +1,5 @@
-/* Layout: single 72rem column; track colour (moss = wet lab, cobalt = Earth observation, ochre = bridge) marks every chip, rule and hero.
-   Change the palette here only — components read the tokens. */
+/* Layout: single 72rem column. Base tokens below are refined in section 1 at the end of
+   this file (Inter + Lora, one forest-green accent, neutral borders); edit colours there. */
 :root {
   /* Palette "canopy, soil, sky": forest green = fungi, plants, wet lab ·
      petrol blue = satellites and remote sensing · soil brass = the bridge (used sparingly).
@@ -317,7 +317,7 @@ a.lens:hover { transform: scale(1.03); }
 .link-list a { display: grid; gap: .35rem; padding-block: var(--s-4); border-bottom: 1px solid var(--rule); text-decoration: none; }
 .link-list a strong { font: 600 1rem/1.3 var(--f-display); }
 .link-list a:hover strong { text-decoration: underline; text-underline-offset: .2em; }
-.mono-title { font-family: var(--f-mono) !important; font-size: .92rem !important; font-weight: 500 !important; overflow-wrap: anywhere; }
+.link-list .mono-title { font-family: var(--f-mono); font-size: .92rem; font-weight: 500; overflow-wrap: anywhere; }
 @media (max-width: 860px) { .two-col { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); } }
 
 /* CTA */
@@ -456,8 +456,6 @@ a.lens:hover { transform: scale(1.03); }
 }
 
 .cv-head > .wrap { width: 100%; }
-.scroll-hint { display: none; font-size: .72rem; color: var(--muted); margin-bottom: var(--s-2); }
-@media (max-width: 800px) { .scroll-hint { display: block; } }
 
 /* ═════ v3: Code page ═════════════════════════════════ */
 .is-hidden { display: none !important; }
@@ -588,14 +586,13 @@ a.repo-small:hover { border-color: var(--ink); }
 @media (max-width: 760px) {
   .diagram { display: none; }
   .dg-mobile { display: grid; gap: var(--s-2); margin: 0; padding: 0; list-style: none; }
-  .scroll-hint { display: none !important; }
 }
 .m-core { font: italic 600 1.15rem/1.35 var(--f-display); padding: var(--s-4); border-radius: var(--radius); background: var(--bridge-soft); border: 2px solid var(--bridge); text-align: center; }
 .m-map .col-label { margin: var(--s-3) 0 0; }
 .m-nodes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
 .m-nodes a { display: grid; gap: .15rem; padding: var(--s-3) var(--s-4); background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--c); border-radius: var(--radius); text-decoration: none; }
 .m-nodes strong { font: 600 1rem var(--f-display); } .m-nodes .mono { font-size: .72rem; color: var(--muted); }
-.m-steps { gap: 0 !important; }
+.dg-mobile.m-steps { gap: 0; }
 .m-steps li { display: grid; justify-items: start; }
 .m-steps a, .m-box { display: grid; gap: .15rem; width: 100%; padding: var(--s-3) var(--s-4); background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--c); border-radius: var(--radius); text-decoration: none; }
 .m-steps strong { font: 600 1.05rem var(--f-display); }
@@ -683,17 +680,14 @@ a:hover .more::after, a:focus-visible .more::after { transform: translateX(4px);
   :root { --radius: 18px; }
   .section { padding-block: var(--s-6); }
   .section + .section { padding-top: var(--s-4); }
-  .project, .repo, .strength, .chain-step, .interest, .cv-skill, .track-card, .practices a, .m-nodes a, .m-steps a, .m-box, .flagship, .cv-ref { border: 0 !important; box-shadow: var(--shadow); }
   .strengths, .project-list, .repo-list, .interests, .chain { gap: var(--s-4); }
   .metrics { border: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3); }
-  .metrics > li, .metrics > li:last-child { border: 0 !important; }
+  .metrics > li, .metrics > li:last-child { border: 0; }
   .metric { padding: var(--s-4); background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); }
   .metric-value { font-size: 1.6rem; } .metric-label { font-size: .78rem; }
   .code-stats, .cv-facts { border: 0; gap: var(--s-2); background: transparent; }
-  .code-stats li + li, .code-stats li:nth-child(n+3) { border: 0 !important; }
-  .code-stats a, .cv-facts a { background: var(--surface); border: 0 !important; border-radius: var(--radius); box-shadow: var(--shadow); }
-  .m-steps a, .m-box, .m-nodes a { border-left: 0 !important; position: relative; overflow: hidden; padding-left: 1.3rem; }
-  .m-steps a::before, .m-box::before, .m-nodes a::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--c); }
+  .code-stats li:nth-child(n) { border: 0; }
+  .code-stats a, .cv-facts a { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); }
   .cv-timeline > li .cv-what { border-left-width: 3px; }
   .link-list { border-top: 0; display: grid; gap: var(--s-3); }
   .link-list a { background: var(--surface); border: 0; border-radius: var(--radius); padding: var(--s-4); box-shadow: var(--shadow); }
@@ -709,17 +703,16 @@ a:hover .more::after, a:focus-visible .more::after { transform: translateX(4px);
 }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .more-link { text-decoration: none; margin-top: auto; --c: inherit; }
-.chain-step .more { color: var(--c); }
 .track-card .more, .feature .more { --c: var(--bridge); }
 .card-micro .more { --c: var(--micro); } .card-geo .more { --c: var(--geo); }
 .f-micro .more { --c: var(--micro); } .f-geo .more { --c: var(--geo); }
 .chain .more-link { margin-top: 0; } .chain .more { padding-top: var(--s-3); } .chain-link { margin-top: auto; }
 
 /* ═════ v8: calmer colour use ═════ */
-.more { color: var(--muted) !important; }
-a:hover .more, a:focus-visible .more { color: var(--ink) !important; }
+.more { color: var(--muted); }
+a:hover .more, a:focus-visible .more { color: var(--ink); }
 .hint { color: var(--muted); background: color-mix(in srgb, var(--ink) 6%, transparent); }
-.proof a { color: var(--ink) !important; border-color: var(--rule); display: inline-flex; align-items: center; gap: .4rem; background: var(--surface); }
+.proof a { color: var(--ink); border-color: var(--rule); display: inline-flex; align-items: center; gap: .4rem; background: var(--surface); }
 .proof a::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--c, var(--micro)); }
 .proof-micro { --c: var(--micro); } .proof-geo { --c: var(--geo); } .proof-bridge { --c: var(--bridge); }
 .proof a:hover { border-color: var(--c); }
@@ -745,3 +738,287 @@ h3, .strength strong, .feature strong, .link-list a strong, .pub-title, .repo-bo
 }
 .chain-step:last-child .more-link { margin-top: auto; }
 
+/* ═════════════════════════════════════════════════════════════════════
+   VISUAL REFINEMENT · v10
+   CSS-only overrides. Appended to the end of assets/css/site.css; the
+   @import line for Inter + Lora sits at the very top of that file.
+   Reuses the existing theme mechanism:
+     light  → :root
+     dark   → @media (prefers-color-scheme: dark) :root:not([data-theme="light"])
+              and :root[data-theme="dark"]  (set on <html> by assets/js/site.js)
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --paper: #fcfcfc;            /* main background */
+  --surface: #ffffff;          /* cards */
+  --ink: #1f2937;              /* primary text */
+  --muted: #64748b;            /* secondary text */
+  --muted-on-tint: #475569;    /* secondary text on tinted fills (AA) */
+  --rule: #e5e7eb;             /* borders */
+  --rule-strong: #d1d5db;      /* hover / button borders */
+  --tag-bg: #f1f5f2;           /* badges, muted fills */
+  --accent: #1b4332;           /* the one dominant accent */
+  --on-accent: #ffffff;
+  /* Existing track tokens, now muted so the accent dominates */
+  --micro: #1b4332;  --micro-soft: #f1f5f2;
+  --geo: #3d5a73;    --geo-soft: #eef2f5;
+  --bridge: #7a6248; --bridge-soft: #f6f4f0;
+  --todo: #b45309;
+  --shadow: 0 4px 6px rgba(0, 0, 0, .05);
+  --shadow-hover: 0 6px 14px rgba(0, 0, 0, .07);
+  --radius: 8px;
+  --radius-sm: 5px;
+  --f-heading: "Lora", Georgia, "Times New Roman", serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Retire the decorative faces: anything that used them now gets Inter */
+  --f-display: var(--f-body);
+  --f-mono: var(--f-body);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121417; --surface: #1b2022; --ink: #e2e8f0; --muted: #a8b4bd; --muted-on-tint: #a8b4bd;
+    --rule: rgba(255, 255, 255, .10); --rule-strong: rgba(255, 255, 255, .18); --tag-bg: #252c2b;
+    --accent: #52b788; --on-accent: #0e1a14;
+    --micro: #52b788; --micro-soft: #1f2a26; --geo: #8eb1cc; --geo-soft: #1e252b;
+    --bridge: #c2ae8e; --bridge-soft: #24231f; --todo: #f59e0b;
+    --shadow: none; --shadow-hover: none;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121417; --surface: #1b2022; --ink: #e2e8f0; --muted: #a8b4bd; --muted-on-tint: #a8b4bd;
+  --rule: rgba(255, 255, 255, .10); --rule-strong: rgba(255, 255, 255, .18); --tag-bg: #252c2b;
+  --accent: #52b788; --on-accent: #0e1a14;
+  --micro: #52b788; --micro-soft: #1f2a26; --geo: #8eb1cc; --geo-soft: #1e252b;
+  --bridge: #c2ae8e; --bridge-soft: #24231f; --todo: #f59e0b;
+  --shadow: none; --shadow-hover: none;
+}
+
+/* ── 2. Typography ─────────────────────────────────────────────────── */
+body { font: 400 1rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+h1, h2 { font-family: var(--f-heading); font-weight: 600; letter-spacing: -.012em; }
+h1 { font-size: clamp(1.9rem, 1.45rem + 1.9vw, 2.6rem); line-height: 1.15; }
+h2 { font-size: clamp(1.3rem, 1.12rem + .7vw, 1.6rem); line-height: 1.25; }
+h3 { font-family: var(--f-body); font-weight: 600; font-size: 1.05rem; line-height: 1.35; letter-spacing: -.005em; }
+.hero-name { font-size: clamp(2.2rem, 1.6rem + 2.2vw, 3.1rem); line-height: 1.08; letter-spacing: -.02em; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; }
+.mono { font-size: .8rem; font-variant-numeric: tabular-nums; }
+.eyebrow, .col-label, .cap-title, .group-title, .repo-facts dt, .repo-stats dt, .flag-stats dt, .cv-contact-row .mono, .step .mono, .dg-step {
+  font-family: var(--f-body); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+}
+.hero-tagline { font: 400 1.15rem/1.55 var(--f-body); color: var(--ink); max-width: 46ch; }
+.lede { font-size: 1.05rem; line-height: 1.6; color: var(--muted); }
+.cv-profile { font: 400 1.02rem/1.7 var(--f-body); }
+/* Italics only where they carry meaning (publication titles) */
+.question, .chain-q, .cv-role, .flag-tagline, .m-link, .card-bridge h3, .cta-text, .m-core, .dg-center-t, .dg-link-t { font-style: normal; }
+.question { font: 500 1.05rem/1.5 var(--f-body); }
+.chain-q { font: 400 .92rem/1.5 var(--f-body); color: var(--muted); }
+.cv-role, .flag-tagline { font: 400 1.05rem/1.4 var(--f-body); color: var(--muted); }
+.cta-text { font: 500 1.1rem/1.5 var(--f-body); }
+.m-core { font: 600 1.05rem/1.4 var(--f-heading); }
+.m-core { border: 1px solid var(--rule-strong); background: var(--tag-bg); }
+
+.metric-value, .code-stats strong, .flag-stats dd, .cv-facts .metric-value { font-family: var(--f-heading); font-weight: 600; letter-spacing: -.01em; }
+.metric-value small { font: 500 .78rem var(--f-body); }
+.strength strong, .feature strong, .link-list a strong, .pub-title, .chain-head strong, .journey strong, .hc-text strong,
+.flag-parts strong, .m-nodes strong, .m-steps strong, .practices a strong, .repo-small strong, .cv-ref strong, .footer-name, .brand-name {
+  font-family: var(--f-body); font-weight: 600; letter-spacing: -.005em;
+}
+.brand-name { font-family: var(--f-heading); font-size: 1.08rem; }
+.brand-role { font: 500 .72rem var(--f-body); letter-spacing: .02em; }
+.dg-title, .dg-center-t { font-family: var(--f-body); }
+.repo-name { font-size: .78rem; }
+
+/* ── 3. Header & navigation ────────────────────────────────────────── */
+.site-header { background: var(--paper); backdrop-filter: none; border-bottom: 1px solid var(--rule); }
+.site-nav { gap: var(--s-1) var(--s-5); }
+.nav-link { font: 500 .9rem var(--f-body); color: var(--muted); border-bottom-width: 1px; }
+.nav-link:hover { color: var(--ink); border-bottom-color: var(--rule-strong); }
+.nav-link.is-current { color: var(--ink); border-bottom-color: var(--accent); }
+.has-dot::before { display: none; }
+.theme-toggle, .nav-toggle { border-radius: 6px; border-color: var(--rule); color: var(--muted); font-size: .9rem; min-height: 2.25rem; }
+.theme-toggle:hover, .nav-toggle:hover { color: var(--ink); border-color: var(--rule-strong); }
+
+/* ── 4. Buttons ────────────────────────────────────────────────────── */
+.btn, .nav-cta {
+  border-radius: 6px; font: 500 .875rem/1 var(--f-body); padding: .68rem 1.05rem; min-height: 2.5rem;
+  border: 1px solid var(--rule-strong); background: transparent; color: var(--ink);
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.btn:hover { background: var(--tag-bg); border-color: var(--rule-strong); }
+.btn-solid, .nav-cta { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn-solid:hover, .nav-cta:hover { background: color-mix(in srgb, var(--accent) 88%, var(--ink)); border-color: transparent; }
+.btn-quiet { padding: .5rem .8rem; min-height: 2.1rem; font-size: .8rem; border-color: var(--rule); }
+.nav-cta { padding: .5rem .9rem; min-height: 2.25rem; display: inline-flex; align-items: center; }
+.filter { border-radius: 6px; font: 500 .8rem var(--f-body); border-color: var(--rule); color: var(--muted); }
+.filter.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ── 5. Badges, chips & tags ───────────────────────────────────────── */
+.tags li, .track-chip, .status, .practice-chips a, .proof a, .hint, .jump a, .doi-badge {
+  border-radius: var(--radius-sm); font: 600 .72rem/1.2 var(--f-body); letter-spacing: .03em;
+  background: var(--tag-bg); color: var(--ink); border: 1px solid transparent; text-transform: none;
+}
+.tags li { padding: .28rem .5rem; color: var(--muted-on-tint); font-weight: 500; letter-spacing: .01em; }
+.tags { gap: .4rem; }
+.track-chip, .status { padding: .28rem .5rem; text-transform: uppercase; letter-spacing: .05em; font-size: .66rem; }
+.chip-micro, .chip-geo, .chip-bridge { color: var(--muted-on-tint); background: var(--tag-bg); }
+.chip-micro { color: var(--accent); }
+.status { color: var(--muted-on-tint); }
+.status-ongoing, .status-published { color: var(--accent); background: var(--tag-bg); border-color: transparent; }
+.status-in-review { color: var(--bridge); background: var(--tag-bg); border-color: transparent; }
+.proof { gap: .45rem; }
+.proof a { padding: .4rem .6rem; font-weight: 500; background: transparent; border-color: var(--rule); }
+.proof a::before { display: none; }
+.proof a:hover { border-color: var(--rule-strong); background: var(--tag-bg); }
+.hint { padding: .3rem .55rem; font-weight: 500; color: var(--muted-on-tint); }
+.hint::before { display: none; }
+.jump a { padding: .38rem .65rem; font-weight: 500; }
+.jump a:hover { border-color: var(--rule-strong); }
+.practice-chips a { padding: .28rem .5rem; color: var(--muted-on-tint); }
+.practice-chips a:hover { background: var(--ink); color: var(--paper); }
+.doi-badge { padding: 0 .5rem 0 0; color: var(--ink); overflow: hidden; }
+.doi-badge span { background: var(--accent); color: var(--on-accent); padding: .32rem .45rem; }
+.more { font: 500 .78rem var(--f-body); letter-spacing: 0; }
+
+/* ── 6. Cards & panels ─────────────────────────────────────────────── */
+.project, .repo, .chain-step, .interest, .cv-skill, .track-card, .flagship, .step, .cv-ref, .m-nodes a, .m-steps a, .m-box, .code-stats, .cv-facts, .diagram {
+  border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); background: var(--surface);
+}
+.project, .repo, .interest, .flagship { padding: var(--s-5) var(--s-5) var(--s-5); }
+/* Remove coloured strips; the eyebrow labels already name each track */
+.strength::before, .chain-step::before, .cv-skill::before, .card-micro::before, .card-geo::before, .interest::before { display: none; }
+.track-card.card-micro, .track-card.card-geo { border-top: 1px solid var(--rule); }
+.flagship { border-color: var(--rule); box-shadow: var(--shadow); }
+/* Variation: strengths and practices read as an open editorial index, not cards */
+.strengths { gap: var(--s-5) var(--s-5); }
+.strength, .practices a {
+  background: transparent; border: 0; border-top: 1px solid var(--rule); border-radius: 0; box-shadow: none;
+  padding: var(--s-4) 0 var(--s-2);
+}
+.strength .eyebrow { color: var(--accent); }
+.strength strong { font-size: 1.02rem; line-height: 1.35; }
+.strength:hover { border-top-color: var(--accent); }
+.practices a .mono { color: var(--muted); }
+.practices a:hover { border-top-color: var(--accent); }
+/* The bridge card stays the one tinted panel */
+.track-card.card-bridge { background: var(--tag-bg); border-color: transparent; box-shadow: none; }
+.track-card.card-bridge p, .track-card.card-bridge .track-count { color: var(--muted-on-tint); }
+/* Restrained hover: border and shadow only */
+a.track-card:hover, a.repo-small:hover, .m-nodes a:hover, .m-steps a:hover, .pipeline a.step:hover {
+  border-color: var(--rule-strong); box-shadow: var(--shadow-hover); transform: none;
+}
+.track-card:hover, .strength:hover, .pipeline a.step:hover, a.lens:hover { transform: none; }
+.feature:hover .feature-img img, .repo-fig:hover img { transform: none; }
+.feature:hover strong, .link-list a:hover strong, .chain-head:hover strong, .journey a:hover strong { text-decoration-thickness: 1px; }
+.metric:hover, a.metric:hover, .code-stats a:hover, .cv-facts a:hover { background: var(--tag-bg); }
+.step { border-top-width: 1px; }
+.step-geo, .step-micro, .step-bridge { border-top-color: var(--rule); }
+.interest { border-left: 1px solid var(--rule); }
+.cv-skill { border-top: 1px solid var(--rule); }
+.feature-img, .repo-fig, .project-fig, .wide-fig img, .flight, .pub-thumb img { border-radius: 6px; border-color: var(--rule); }
+.feature-img.fit-contain, .project-fig.fit-contain { background: var(--tag-bg); }
+
+/* ── 7. Dividers & decorative details ──────────────────────────────── */
+.metrics { border-block: 1px solid var(--rule); }
+.cap-title { border-bottom: 1px solid var(--rule); }
+.track-micro .cap-title, .track-geo .cap-title { border-color: var(--rule); }
+.cv-sec > h2 { border-bottom: 1px solid var(--rule); padding-bottom: var(--s-3); }
+.contact-band > h2 { border-bottom-color: var(--rule); }
+.chain-link { border-top: 1px solid var(--rule); color: var(--muted); font: 400 .78rem var(--f-body); }
+.seeking { border-left: 2px solid var(--rule-strong); }
+.seeking .mono { color: var(--muted); font-weight: 600; }
+.repo-facts .is-result dd { border-left: 2px solid var(--rule-strong); }
+.cv-what { border-left: 1px solid var(--rule); }
+.cv-timeline > li { --c: var(--rule); }
+.cv-grade { font: 600 .82rem var(--f-body); color: var(--accent); }
+/* Timeline & chain: one neutral line, accent markers */
+.journey::before, .hero-chain::before { background: var(--rule); }
+.journey li, .journey .j-geo, .journey .j-bridge { --c: var(--accent); }
+.journey a::before { border-width: 2px; }
+.journey a:hover::before { transform: none; background: var(--accent); }
+.journey .j-year, .hc-scale { color: var(--muted); font-weight: 600; }
+.hero-chain .chain-icon { border: 1px solid var(--rule); background: var(--surface); }
+.hero-chain .hc-geo, .hero-chain .hc-bridge, .hero-chain li { --c: var(--accent); }
+.chain-step.k-geo, .chain-step.k-bridge, .chain-step.k-micro { --c: var(--accent); }
+.chain-step:not(:last-child)::after { background: var(--surface); color: var(--muted); border: 1px solid var(--rule); font-family: var(--f-body); }
+.portrait { box-shadow: none; border: 1px solid var(--rule); }
+.flag-parts li { border-color: var(--rule); border-radius: 6px; }
+.flag-parts li::before { background: transparent; color: var(--accent); font: 600 .8rem/1.2rem var(--f-body); }
+.evidence a::before { color: var(--muted); font-family: var(--f-body); }
+.dg-center { fill: var(--tag-bg); stroke: var(--rule-strong); stroke-width: 1; }
+.dg-node { stroke-width: 1; }
+.dg-node.dg-micro, .dg-node.dg-geo, .dg-node.dg-bridge { stroke: var(--rule-strong); }
+.dg-scale { fill: var(--muted); font-family: var(--f-body); font-weight: 600; }
+.dg-sub, .dg-step { font-family: var(--f-body); }
+.dg-link.dg-micro, .dg-link.dg-geo, .dg-link.dg-bridge { stroke: var(--rule-strong); }
+.dg-dot { fill: var(--accent); }
+
+/* ── 8. Page headers: flat, no gradients ───────────────────────────── */
+.track-micro .track-hero, .track-geo .track-hero, .track-bridge .track-hero, .track-code .track-hero, .cv-head {
+  background: var(--paper);
+}
+.track-hero, .cv-head { border-bottom: 1px solid var(--rule); }
+.cta { background: var(--tag-bg); color: var(--ink); border-radius: var(--radius); }
+.cta .eyebrow { color: var(--muted-on-tint); }
+.cta .btn { border-color: var(--rule-strong); color: var(--ink); background: transparent; }
+.cta .btn:hover { background: var(--surface); }
+.cta .btn-solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.cta .btn-solid:hover { background: color-mix(in srgb, var(--accent) 88%, var(--ink)); }
+
+/* ── 9. Rhythm ─────────────────────────────────────────────────────── */
+.section { padding-block: var(--s-7); }
+.section-tight { padding-block: var(--s-3); }
+.section-head { margin-bottom: var(--s-5); gap: var(--s-2) var(--s-4); }
+.hero { padding-block: var(--s-8) var(--s-6); }
+.hero-text { gap: var(--s-4); }
+.track-hero { padding-block: var(--s-7) var(--s-6); }
+.site-footer { margin-top: var(--s-6); }
+
+/* ── 10. Phone & tablet (existing breakpoints) ─────────────────────── */
+@media (max-width: 760px) {
+  :root { --radius: 8px; }
+  .section { padding-block: var(--s-6); }
+  .m-steps a, .m-box, .m-nodes a { padding-left: var(--s-4); }
+  .metric, .code-stats a, .cv-facts a:nth-child(n), .link-list a, .pub, .feature { border: 1px solid var(--rule); box-shadow: none; }
+  .cta { border-radius: var(--radius); }
+  .cv-toc a { border-radius: 6px; }
+}
+@media (max-width: 520px) {
+  .project, .repo, .interest, .flagship, .chain-step { padding: var(--s-4); }
+}
+
+/* ── 11. Motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) { .btn, .nav-cta { transition: none; } }
+
+/* ── 12. Tablet: metric strip as a 2 x 2 grid, matching the phone layout ── */
+@media (min-width: 761px) and (max-width: 900px) {
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metrics > li:nth-child(2n) { border-right: 0; }
+  .metrics > li:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+}
+
+/* ── 13. Diagrams & illustrations: one accent, meaning carried by shape and labels ── */
+.i-geo, .i-box { stroke: var(--muted); }
+.i-geo-fill { fill: color-mix(in srgb, var(--muted) 12%, transparent); }
+.i-geo-text { fill: var(--muted); }
+.i-cell { fill: var(--muted); }
+.i-block { fill: color-mix(in srgb, var(--muted) 10%, transparent); stroke: var(--muted); }
+.i-bridge { stroke: var(--muted-on-tint); }
+.i-metal, .i-spot { fill: var(--muted-on-tint); }
+.i-soil { fill: color-mix(in srgb, var(--muted) 14%, transparent); }
+.i-water { fill: color-mix(in srgb, var(--muted) 9%, transparent); }
+.i-text { font-family: var(--f-body); }
+.dg-lens, .dg-lens-geo { fill: var(--tag-bg); stroke: var(--rule-strong); stroke-width: 1; }
+.dg-lens-geo { stroke-dasharray: 4 3; }          /* dashed = field & remote-sensing scales */
+.dg-bar.dg-micro, .dg-bar.dg-geo, .dg-bar.dg-bridge { fill: var(--accent); }
+.dg-loop { stroke: var(--muted); }
+.dg-node-link:hover .dg-node.dg-micro, .dg-node-link:hover .dg-node.dg-geo, .dg-node-link:hover .dg-node.dg-bridge { fill: var(--tag-bg); stroke: var(--accent); }
+.fl-cell { fill: var(--muted); }
+.fl-aoi { fill: color-mix(in srgb, var(--accent) 10%, transparent); stroke: var(--accent); stroke-width: 1.5; }
+.fl-foot { fill: color-mix(in srgb, var(--muted) 7%, transparent); stroke: var(--rule-strong); }
+.fl-path { stroke: var(--ink); stroke-width: 2; }
+.fl-home { fill: var(--accent); }
+.fl-label { font: 500 11px var(--f-body); fill: var(--muted); }
+.feature-placeholder { color: var(--muted); }
+.feature-placeholder::after { border-color: var(--muted); color: var(--muted); font-family: var(--f-body); }
