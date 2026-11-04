@@ -114,7 +114,7 @@ track: bridge
       <path class="i-bridge" d="M900 122 V72 M894 78 L900 70 L906 78"/>
       <!-- landscape raster -->
       {% for rr in (0..3) %}{% for cc in (0..3) %}<rect class="i-cell i-op{{ rr | times: 3 | plus: cc | modulo: 4 }}" x="{{ cc | times: 18 | plus: 1064 }}" y="{{ rr | times: 18 | plus: 76 }}" width="18" height="18"/>{% endfor %}{% endfor %}
-      <text class="dg-sub" x="600" y="300" text-anchor="middle">Wet lab (green) → field and remote sensing (blue). Click any scale to open its evidence.</text>
+      <text class="dg-sub" x="600" y="300" text-anchor="middle">Solid circles: lab scales. Dashed circles: field and remote-sensing scales. Click any scale to open its evidence.</text>
     </svg>
   </div>
   <ol class="dg-mobile m-steps">
