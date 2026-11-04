@@ -2,7 +2,7 @@
 # Repo name must be  mdhashibulhossain.github.io  (inside the mdhashibulhossain account or organisation).
 # If you use a project repo instead (e.g. /portfolio), set baseurl: "/portfolio".
 title: "Md Hashibul Hossain"
-description: "Fungal biology, analytical chemistry and geospatial machine learning — research portfolio."
+description: "Environmental microbiology, plant science and GIS & remote sensing: how ecosystems respond to environmental stress, from the lab bench to the satellite."
 url: "https://mdhashibulhossain.github.io"
 baseurl: ""
 lang: en
