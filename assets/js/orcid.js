@@ -8,7 +8,7 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
       var groups = data.group || [];
-      if (!groups.length) { box.innerHTML = '<p class="muted">No public works on ORCID yet.</p>'; return; }
+      if (!groups.length) { var sec = box.closest('section'); if (sec) sec.hidden = true; return; }
       box.innerHTML = '';
       groups.forEach(function (g) {
         var s = g['work-summary'][0];
@@ -31,5 +31,5 @@
         el.appendChild(body); box.appendChild(el);
       });
     })
-    .catch(function () { box.innerHTML = '<p class="muted">ORCID is unavailable right now.</p>'; });
+    .catch(function () { var sec = box.closest('section'); if (sec) sec.hidden = true; });
 })();

@@ -6,6 +6,21 @@ description: "Environmental microbiology, plant science and GIS & remote sensing
 url: "https://mdhashibulhossain.github.io"
 baseurl: ""
 lang: en
+locale: en_US
+author:
+  name: "Md Hashibul Hossain"
+  url: "https://mdhashibulhossain.github.io"
+# jekyll-seo-tag: links your identities together for search engines
+social:
+  name: "Md Hashibul Hossain"
+  links:
+    - "https://www.linkedin.com/in/hashib-miraz"
+    - "https://github.com/Mraz11"
+    - "https://www.researchgate.net/profile/Md-Hashibul-Hossain-2"
+    - "https://orcid.org/0009-0006-2148-9572"
+twitter:
+  card: summary_large_image
+logo: /assets/img/portrait.jpg
 image: /assets/img/portrait.jpg   # shown in link previews (LinkedIn, Slack, email)
 
 # Theme mode is handled in assets/css/site.css (auto light/dark).
@@ -14,6 +29,7 @@ plugins:
   - jekyll-sitemap        # whitelisted; builds /sitemap.xml for search engines
 
 exclude:
+  - .gitignore
   - README.md
   - BLUEPRINT.md
   - Gemfile

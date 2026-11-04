@@ -1,0 +1,75 @@
+{%- comment -%}
+  Structured data (schema.org JSON-LD). Tells search engines who you are and links your
+  profiles together, so your name search returns you rather than people with similar names.
+  Edit the facts in _data/profile.yml and _data/cv.yml, not here.
+{%- endcomment -%}
+{%- assign P = site.data.profile -%}
+{%- assign base = site.url | append: site.baseurl -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ base }}/#person",
+      "name": {{ P.name | jsonify }},
+      "givenName": "Md Hashibul",
+      "familyName": "Hossain",
+      "alternateName": ["Hashibul Hossain", "Md. Hashibul Hossain", "M. H. Hossain", "Hossain, M.H."],
+      "url": "{{ base }}/",
+      "image": "{{ base }}/assets/img/portrait.jpg",
+      "jobTitle": "Junior Research Scientist",
+      "worksFor": { "@type": "Organization", "name": "CredoSense Inc." },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Shahjalal University of Science and Technology", "sameAs": "https://www.sust.edu" },
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "MSc (Thesis) in Forestry, With Distinction" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "BSc (Honours) in Forestry" }
+      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Dhaka", "addressCountry": "BD" },
+      "knowsAbout": ["Environmental microbiology", "Mycoremediation", "Fungi–heavy metal interactions", "Bioremediation", "ICP-OES", "Plant pathology", "Plant physiology", "Remote sensing", "GIS", "Google Earth Engine", "Drone photogrammetry", "Computer vision", "Machine learning", "Forestry", "Urban green space"],
+      "sameAs": [
+        "{{ P.links.linkedin }}",
+        "{{ P.links.github }}",
+        "{{ P.links.researchgate }}"{% if P.links.orcid != "" %},
+        "https://orcid.org/{{ P.links.orcid }}"{% endif %}{% if P.links.scholar != "" %},
+        "{{ P.links.scholar }}"{% endif %}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ base }}/#website",
+      "url": "{{ base }}/",
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "en",
+      "author": { "@id": "{{ base }}/#person" }
+    },
+    {
+      "@type": {% if page.url == "/" or page.url == "/cv.html" %}"ProfilePage"{% else %}"WebPage"{% endif %},
+      "@id": "{{ base }}{{ page.url }}#webpage",
+      "url": "{{ base }}{{ page.url }}",
+      "name": {{ page.seo_title | default: page.title | default: site.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "isPartOf": { "@id": "{{ base }}/#website" },
+      {% if page.url == "/" or page.url == "/cv.html" %}"mainEntity": { "@id": "{{ base }}/#person" }{% else %}"author": { "@id": "{{ base }}/#person" }{% endif %}
+    }{% if page.url == "/publications.html" %}{% for pub in site.data.publications %}{% if pub.type == "conference" or pub.status == "published" %},
+    {
+      "@type": "ScholarlyArticle",
+      "headline": {{ pub.title | jsonify }},
+      "author": { "@id": "{{ base }}/#person" },
+      {% if pub.year != "" %}"datePublished": "{{ pub.year }}",{% endif %}
+      {% if pub.venue != "" %}"publisher": { "@type": "Organization", "name": {{ pub.venue | jsonify }} },{% endif %}
+      {% if pub.doi != "" %}"sameAs": "https://doi.org/{{ pub.doi }}", "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "{{ pub.doi }}" },{% endif %}
+      "url": "{{ base }}/publications.html#{{ pub.id }}"
+    }{% endif %}{% endfor %}{% endif %}{% if page.url == "/code.html" %}{% for r in site.data.repos %},
+    {
+      "@type": "SoftwareSourceCode",
+      "name": {{ r.title | jsonify }},
+      "codeRepository": "https://github.com/{{ P.links.github_user }}/{{ r.name }}",
+      "programmingLanguage": {{ r.language | jsonify }},
+      {% if r.license %}"license": {{ r.license | jsonify }},{% endif %}
+      "author": { "@id": "{{ base }}/#person" }
+    }{% endfor %}{% endif %}
+  ]
+}
+</script>
