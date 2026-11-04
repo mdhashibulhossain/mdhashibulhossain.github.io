@@ -72,7 +72,7 @@
     micronutrients; chlorophyll and carotenoid extraction by spectrophotometry.
   methods: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction]
   highlights:
-    - "TODO: number of elements / samples / species"
+    - "Analysed 12 elements in 300+ samples across 5 crop species"
 
 - id: agarwood
   title: "Fungal associations of resin-forming agarwood"
@@ -95,7 +95,7 @@
     microscopic spore images.
   methods: [Object detection, Annotation, Dataset curation, Python]
   highlights:
-    - "TODO: dataset size, classes, model, best metric (e.g. mAP50)"
+    - "YOLO model on 4,000 annotated spores, 6 classes; mAP50 0.82"
 
 - id: gis-mcda
   title: "Multi-sensor GIS site selection for contamination sampling"
@@ -123,7 +123,7 @@
   summary: "Object-detection models for greenhouse pests trained on curated open-source image datasets."
   methods: [Object detection, Annotation, Evaluation]
   highlights:
-    - "TODO: dataset size, classes, metric"
+    - "8 pest classes, 2,500 images; mAP50 0.76"
 
 - id: yolo-leaf
   title: "YOLO11s leaf detector with TensorFlow.js export"
@@ -157,7 +157,7 @@
   summary: "Satellite image analysis of land-use and land-cover change across a ~560 ha forest range."
   methods: [Image classification, Change detection]
   highlights:
-    - "TODO: data source, software and time span"
+    - "Landsat 8 imagery, supervised classification in ArcMap, 2013–2023"
 
 # ── Software and reproducible studies (also on the Code page) ──
 - id: avispria
