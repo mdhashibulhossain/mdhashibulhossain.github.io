@@ -1,0 +1,16 @@
+# Main navigation. `track` gives the item its colour marker.
+- title: "Research"
+  url: /research.html
+  track: bridge
+- title: "Microbiology"
+  url: /microbiology.html
+  track: micro
+- title: "Geospatial & CV"
+  url: /geospatial.html
+  track: geo
+- title: "Publications"
+  url: /publications.html
+- title: "Code"
+  url: /code.html
+- title: "CV"
+  url: /cv.html

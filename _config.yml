@@ -1,0 +1,22 @@
+# ── Site settings ─────────────────────────────────────────────
+# Repo name must be  mdhashibulhossain.github.io  (inside the mdhashibulhossain account or organisation).
+# If you use a project repo instead (e.g. /portfolio), set baseurl: "/portfolio".
+title: "Md Hashibul Hossain"
+description: "Fungal biology, analytical chemistry and geospatial machine learning — research portfolio."
+url: "https://mdhashibulhossain.github.io"
+baseurl: ""
+lang: en
+image: /assets/img/portrait.jpg   # shown in link previews (LinkedIn, Slack, email)
+
+# Theme mode is handled in assets/css/site.css (auto light/dark).
+plugins:
+  - jekyll-seo-tag        # whitelisted on GitHub Pages; adds OpenGraph/Twitter meta
+  - jekyll-sitemap        # whitelisted; builds /sitemap.xml for search engines
+
+exclude:
+  - README.md
+  - BLUEPRINT.md
+  - Gemfile
+  - Gemfile.lock
+  - tools/
+  - _preview/

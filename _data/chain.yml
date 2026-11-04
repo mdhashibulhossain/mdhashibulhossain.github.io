@@ -1,0 +1,83 @@
+# "From fungus to satellite" chain on the home page (hero + section).
+# `link` is the relationship to the next level; `evidence` links point to proof.
+- id: fungus
+  scale: "10 µm"
+  name: "Fungus"
+  kind: micro
+  line: "Spores, hyphae, metal tolerance"
+  url: /microbiology.html
+  question: "Which fungi tolerate and remove heavy metals, and which ones attack plants?"
+  link: "colonise roots, infect leaves, cycle nutrients"
+  evidence:
+    - label: "Metal tolerance & bioremediation (MSc)"
+      url: /microbiology.html#msc-thesis
+    - label: "27 landfill isolates"
+      url: /microbiology.html#landfill-isolates
+    - label: "Spore detection from microscopy"
+      url: /geospatial.html#spore-detection
+
+- id: plant
+  scale: "10 cm"
+  name: "Plant"
+  kind: micro
+  line: "Roots, leaves, pigments, nutrients"
+  url: /research.html#physiology
+  question: "How do fungi and metal stress change plant health, pigments and nutrition?"
+  link: "plants add up to canopy and cover"
+  evidence:
+    - label: "Pigments & ICP-OES nutrients"
+      url: /microbiology.html#credosense-lab
+    - label: "Plant pathology & agarwood fungi"
+      url: /research.html#pathology
+    - label: "Mycorrhizae & soil carbon (poster)"
+      url: /publications.html#poster-mycorrhizal-2023
+
+- id: canopy
+  scale: "10 m"
+  name: "Canopy"
+  kind: geo
+  line: "Tree crowns and vegetation cover from drones"
+  url: /code.html#avispria
+  question: "Can low-cost drones measure canopy structure and change reliably?"
+  link: "canopy shapes soil carbon and habitat"
+  evidence:
+    - label: "Avispria drone mapping toolkit"
+      url: /code.html#avispria
+    - label: "YOLO11 leaf detection"
+      url: /geospatial.html#yolo-leaf
+    - label: "i-Tree urban tree inventory"
+      url: /cv.html#training
+
+- id: ecosystem
+  scale: "1 km"
+  name: "Ecosystem"
+  kind: bridge
+  line: "Soil carbon, green space, wildlife"
+  url: /research.html#urban
+  question: "How do climate and land use shape soil carbon flux, green space and biodiversity?"
+  link: "patterns become visible from orbit"
+  evidence:
+    - label: "Global soil respiration, 1,247 studies"
+      url: /code.html#repo-climate-controls-soil-respiration
+    - label: "Urban green-space suitability"
+      url: /publications.html#ms-urban-green-sylhet
+    - label: "Urban carnivore refugia (camera traps)"
+      url: /publications.html#ms-carnivore-refugia
+    - label: "Protected-area field study (USAID)"
+      url: /cv.html#usaid
+
+- id: satellite
+  scale: "100 km"
+  name: "Satellite"
+  kind: geo
+  line: "Vegetation, land cover and pollution from orbit"
+  url: /geospatial.html
+  question: "Where should field and lab work go, and how do findings scale to landscapes?"
+  link: ""
+  evidence:
+    - label: "6-sensor MCDA incl. low-NDVI vegetation"
+      url: /geospatial.html#gis-mcda
+    - label: "Land-cover change, Karnaphuli"
+      url: /geospatial.html#karnaphuli
+    - label: "US soil metal enrichment, 4,857 sites"
+      url: /code.html#repo-soil-metal-enrichment

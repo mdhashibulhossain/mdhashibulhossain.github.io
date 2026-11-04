@@ -1,0 +1,27 @@
+---
+layout: track
+title: "Environmental Microbiology & Bioimaging"
+permalink: /microbiology.html
+track: micro
+eyebrow: "Track A · wet lab"
+heading: "Environmental Microbiology & Bioimaging"
+scale_label: "50 µm"
+intro: >-
+  How filamentous fungi tolerate, accumulate and remove heavy metals, measured with
+  culture assays, enzyme profiling and ICP-OES, and extended to plant nutrition,
+  pigments and fungal pathogens.
+capabilities:
+  - name: "Analytical chemistry"
+    items: ["ICP-OES: calibration, QC, sample prep (8-day certified)", "Microwave-assisted digestion", "UV-Vis spectrophotometry, colorimetric assays", "Chlorophyll and carotenoid extraction", "Soil geochemistry: enrichment factor, Igeo"]
+  - name: "Microbiology"
+    items: ["Aseptic culture, isolation streaking, serial dilution", "Morphological screening, −80 °C cryopreservation", "Metal-amended media, tolerance index, EC50", "Water and soil bioremediation microcosms"]
+  - name: "Plant physiology & pathology"
+    items: ["Antioxidant enzymes: CAT, SOD, GR", "Macro- and micronutrient analysis", "Plant–pathogen interaction, biocontrol", "Molecular biology and NGS (training)"]
+---
+<section class="wrap section">
+  <div class="section-head"><h2>Training</h2></div>
+  <ul class="training">
+    {% assign tr = site.data.training | where: "track", "micro" %}
+    {% for t in tr %}<li><strong>{{ t.title }}</strong><span class="muted"> · {{ t.org }}{% if t.date != "" %} · {{ t.date }}{% endif %}</span></li>{% endfor %}
+  </ul>
+</section>

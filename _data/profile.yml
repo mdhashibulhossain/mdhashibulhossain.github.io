@@ -1,0 +1,45 @@
+# Identity, links and headline metrics. Edit here; every page reads from this file.
+name: "Md Hashibul Hossain"
+short_name: "Hashibul Hossain"
+role: "Junior Research Scientist, CredoSense (Dhaka)"
+location: "Dhaka, Bangladesh"          # TODO confirm the city you want public
+email: "hashibul78@student.sust.edu"    # TODO consider a permanent address (student mail may expire)
+photo: "/assets/img/portrait-400.jpg"
+photo_large: "/assets/img/portrait.jpg"
+
+tagline: "I study how ecosystems respond to environmental stress, from fungi and plants at the lab bench to vegetation and land cover mapped by drones and satellites."
+
+bio: >-
+  I am an early-career researcher working where plant and fungal biology meet
+  analytical chemistry and geospatial machine learning. My MSc (With Distinction,
+  SUST) combined fungal metal-tolerance assays, ICP-OES, antioxidant enzyme
+  profiling and a GIS multi-criteria workflow on Sentinel, Landsat and VIIRS data
+  to choose where to sample metal-tolerant fungi. At CredoSense I now build models
+  that detect pathogenic fungi from microscopic spore images while running
+  ICP-OES nutrient and pigment analysis in the lab, and I am building Avispria,
+  an open-source toolkit for mapping canopy and vegetation with consumer drones.
+
+seeking: "PhD positions and research roles in environmental microbiology, plant pathology and plant–soil ecology, and in drone, satellite and computer-vision methods for vegetation and ecosystems."
+
+links:
+  github: "https://github.com/Mraz11"
+  github_user: "Mraz11"
+  researchgate: "https://www.researchgate.net/profile/Md-Hashibul-Hossain-2"
+  linkedin: "https://www.linkedin.com/in/hashib-miraz"
+  orcid: ""            # TODO e.g. "0000-0002-1234-5678" — enables the automatic ORCID works feed
+  scholar: ""          # TODO Google Scholar profile URL, if you create one
+
+# Highlight metrics shown on the home page. Keep each one verifiable from your CV.
+metrics:
+  - value: "3.80"
+    unit: "/4.00"
+    label: "MSc (Thesis) CGPA, With Distinction"
+  - value: "27"
+    unit: "isolates"
+    label: "fungi isolated from a landfill; 7 survive 500 ppm Cr/As"
+  - value: "6"
+    unit: "sensors"
+    label: "Sentinel-2/5P, Landsat, MAIAC, VIIRS, SRTM fused at 500 m"
+  - value: "3"
+    unit: "manuscripts"
+    label: "in review (1 first-author)"

@@ -1,0 +1,105 @@
+# type: article | conference | poster | report
+# status: published | in-review | presented | report
+# Leave doi/pdf/researchgate empty ("") when you do not have them; the card hides that button.
+# When a manuscript is accepted: change status to published, add year, venue and doi.
+
+- id: ms-biosorption-fungi
+  type: article
+  status: in-review
+  title: "Integrated screening of metal tolerance and short-contact dry-biomass biosorption reveals metal-specific performance in filamentous fungi"
+  authors: "Hossain, M.H., Haque, M.M.U., Ahmed, R., & Rahman, M.A."
+  venue: ""
+  year: ""
+  track: micro
+  first_author: true
+  doi: ""
+  researchgate: ""
+  pdf: ""
+
+- id: ms-urban-green-sylhet
+  type: article
+  status: in-review
+  title: "Potential urban green space suitability appraisal using GIS-based multi-criteria analysis: A case study of North-eastern Sylhet City, Bangladesh"
+  authors: "Aziz, F.B.A., Sultana, R., Masum, K.M., & Hossain, M.H."
+  venue: ""
+  year: ""
+  track: geo
+  doi: ""
+  researchgate: ""
+  pdf: ""
+
+- id: ms-carnivore-refugia
+  type: article
+  status: in-review
+  title: "Urban green spaces as carnivore refugia: A camera-trap study in a biodiversity-rich university campus in Bangladesh"
+  authors: "Rekha, P.R., Ghose, A., Hossain, M.H., & Masum, K.M."
+  venue: ""
+  year: ""
+  track: geo
+  doi: ""
+  researchgate: ""
+  pdf: ""
+
+- id: conf-rmstu-2025
+  type: conference
+  status: presented
+  title: "Heavy metal tolerance by fungi: A step toward mycoremediation strategy for contaminated soils"
+  authors: "Hossain, M.H., Ahmed, R., & Haque, M.M.U."
+  venue: "International Conference and Bioscience Carnival, Rangamati Science and Technology University"
+  year: "2025"
+  track: micro
+  first_author: true
+  doi: "10.13140/RG.2.2.29154.03525"
+  researchgate: ""
+  pdf: /assets/pdf/2025-rmstu-mycoremediation.pdf
+  thumb: /assets/img/thumb-2025-rmstu-mycoremediation.jpg
+
+- id: poster-mycorrhizal-2023
+  type: poster
+  status: presented
+  title: "Mycorrhizal role of carbon sequestration in forest soil"
+  authors: "Hossain, M.H."
+  venue: "Contemporary Trends in Forestry Research seminar, SUST"
+  year: "2023"
+  track: micro
+  first_author: true
+  doi: ""
+  pdf: /assets/pdf/2023-mycorrhizal-carbon.pdf
+  thumb: /assets/img/thumb-2023-mycorrhizal-carbon.jpg
+
+- id: poster-forest-day-2023
+  type: poster
+  status: presented
+  title: "Bioaccumulation of heavy metals by fungi and its possible effects on the environment"
+  authors: "Hossain, M.H."
+  venue: "International Day of Forests, SUST"
+  year: "2023"
+  track: micro
+  first_author: true
+  doi: ""
+  pdf: /assets/pdf/2023-forest-day-bioaccumulation.pdf
+  thumb: /assets/img/thumb-2023-forest-day-bioaccumulation.jpg
+
+- id: report-khadimnagar-2024
+  type: report
+  status: report
+  title: "Knowledge of office bearers and People's Forum members of Khadimnagar National Park about the Protected Area Management Rules, 2017"
+  authors: "Hossain, M.H., & Eva, N.J."
+  venue: "BSc internship report, USAID Ecosystems / Protibesh Activity"
+  year: "2024"
+  track: geo
+  doi: ""
+  researchgate: ""   # TODO paste the ResearchGate item URL
+  pdf: ""
+
+- id: report-karnaphuli-2023
+  type: report
+  status: report
+  title: "Image analysis of Karnaphuli Range"
+  authors: "Hossain, M.H."
+  venue: "Coursework report, SUST"
+  year: "2023"
+  track: geo
+  doi: ""
+  researchgate: ""   # TODO paste the ResearchGate item URL
+  pdf: ""

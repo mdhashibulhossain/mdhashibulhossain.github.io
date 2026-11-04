@@ -1,0 +1,193 @@
+---
+layout: default
+title: "Curriculum Vitae"
+permalink: /cv.html
+---
+{% assign P = site.data.profile %}
+{% assign C = site.data.cv %}
+{% assign cvpdf = '/assets/cv/Hashibul_Hossain_CV.pdf' | relative_url %}
+
+<section class="cv-head">
+  <div class="wrap cv-head-grid">
+    <div class="cv-id">
+      <div class="hero-id">
+        {% if P.photo != "" %}<img class="portrait portrait-cv" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="128" height="128">{% endif %}
+        <div>
+          <p class="eyebrow">Curriculum vitae</p>
+          <h1>{{ P.name }}</h1>
+        </div>
+      </div>
+      <p class="cv-role">{{ P.role }}</p>
+      <ul class="cv-contact-row">
+        <li><span class="mono">Email</span> {{ P.email }}</li>
+        <li><span class="mono">Based in</span> {{ P.location }}</li>
+        <li><a href="{{ P.links.linkedin }}">LinkedIn</a></li>
+        <li><a href="{{ P.links.researchgate }}">ResearchGate</a></li>
+        <li><a href="{{ P.links.github }}">GitHub</a></li>
+        {% if P.links.orcid != "" %}<li><a href="https://orcid.org/{{ P.links.orcid }}">ORCID</a></li>{% endif %}
+      </ul>
+    </div>
+    <div class="cv-facts">
+      <a href="#msc"><span class="metric-value">3.80<small>/4.00</small></span><span class="metric-label">MSc (Thesis), With Distinction</span></a>
+      <a href="#languages"><span class="metric-value">7.5<small>IELTS</small></span><span class="metric-label">Academic, CEFR C1</span></a>
+      <a href="#publications"><span class="metric-value">3<small>in review</small></span><span class="metric-label">manuscripts, 1 first-author</span></a>
+      <a href="#training"><span class="metric-value">{{ site.data.training | size }}<small>courses</small></span><span class="metric-label">certified trainings</span></a>
+    </div>
+  </div>
+  <div class="wrap"><p class="actions">
+    <a class="btn btn-solid" href="{{ cvpdf }}" download>Download PDF</a>
+    <a class="btn" href="#contact">Contact</a>
+  </p></div>
+</section>
+
+<div class="wrap cv-grid">
+  <nav class="cv-toc" aria-label="CV sections">
+    <p class="col-label mono">Sections</p>
+    <a href="#profile">Profile</a><a href="#education">Education</a><a href="#experience">Experience</a>
+    <a href="#projects">Research projects</a><a href="#software">Research software</a><a href="#publications">Publications</a><a href="#skills">Skills</a>
+    <a href="#training">Training</a><a href="#leadership">Leadership</a><a href="#awards">Awards</a>
+    <a href="#languages">Languages</a><a href="#referees">Referees</a><a href="#contact">Contact</a>
+  </nav>
+
+  <div class="cv-main">
+    <section class="cv-sec" id="profile">
+      <h2>Profile</h2>
+      <p class="cv-profile">{{ C.profile }}</p>
+    </section>
+
+    <section class="cv-sec" id="education">
+      <h2>Education</h2>
+      <ol class="cv-timeline">
+        {% for e in C.education %}
+        <li id="{{ e.id }}">
+          <span class="cv-when mono">{{ e.period }}</span>
+          <div class="cv-what">
+            <h3>{{ e.degree }}</h3>
+            <p class="cv-org">{{ e.org }}</p>
+            <p class="cv-grade">{{ e.grade }}</p>
+            <ul>{% for d in e.details %}<li>{{ d }}</li>{% endfor %}</ul>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <section class="cv-sec" id="experience">
+      <h2>Research experience</h2>
+      <ol class="cv-timeline">
+        {% for e in C.experience %}
+        <li id="{{ e.id }}" class="t-{{ e.kind }}">
+          <span class="cv-when mono">{{ e.period }}</span>
+          <div class="cv-what">
+            <h3>{{ e.role }}</h3>
+            <p class="cv-org">{{ e.org }}</p>
+            <ul>{% for d in e.details %}<li>{{ d }}</li>{% endfor %}</ul>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <section class="cv-sec" id="projects">
+      <h2>Research projects</h2>
+      <ul class="cv-projects">
+        {% for p in site.data.projects %}
+        {% if p.tracks[0] == "micro" %}{% assign ppage = '/microbiology.html' %}{% else %}{% assign ppage = '/geospatial.html' %}{% endif %}
+        <li><a href="{{ ppage | relative_url }}#{{ p.id }}">
+          <span class="cv-when mono">{{ p.period }}</span>
+          <span><strong>{{ p.title }}</strong><span class="muted small"> · {{ p.context }}</span></span>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-sec" id="software">
+      <h2>Research software &amp; open code</h2>
+      <ul class="cv-projects">
+        {% for r in site.data.repos %}
+        <li><a href="{{ '/code.html' | relative_url }}#{% if r.kind == 'flagship' %}avispria{% else %}repo-{{ r.name }}{% endif %}">
+          <span class="cv-when mono">{{ r.language }}{% if r.license %} · {{ r.license }}{% endif %}</span>
+          <span><strong>{{ r.title }}</strong><span class="muted small"> · github.com/{{ site.data.profile.links.github_user }}/{{ r.name }}</span></span>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-sec" id="publications">
+      <h2>Publications &amp; presentations</h2>
+      <ol class="cv-pubs">
+        {% for pub in site.data.publications %}
+        <li><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">
+          {{ pub.authors | replace: "Hossain, M.H.", "<strong>Hossain, M.H.</strong>" }}{% if pub.year != "" %} ({{ pub.year }}).{% endif %}
+          <em>{{ pub.title }}.</em>
+          {% if pub.venue != "" %}{{ pub.venue }}.{% endif %}
+          {% if pub.status == "in-review" %}<span class="status status-in-review">In review</span>{% endif %}
+          {% if pub.doi != "" %}<span class="mono">doi:{{ pub.doi }}</span>{% endif %}
+        </a></li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <section class="cv-sec" id="skills">
+      <h2>Skills</h2>
+      <div class="cv-skills">
+        {% for g in C.skills %}
+        <div class="cv-skill k-{{ g.kind }}">
+          <h3>{{ g.group }}</h3>
+          <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cv-sec" id="training">
+      <h2>Training &amp; certification</h2>
+      <ul class="cv-rows">
+        {% for t in site.data.training %}
+        <li><span class="cv-when mono">{{ t.date | default: "—" }}</span><span><strong>{{ t.title }}</strong><span class="muted"> · {{ t.org }}</span></span></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-sec" id="leadership">
+      <h2>Leadership &amp; service</h2>
+      <ul class="cv-rows">
+        {% for l in C.leadership %}<li><span class="cv-when mono">{{ l.period }}</span><span><strong>{{ l.role }}</strong><span class="muted"> · {{ l.org }}</span></span></li>{% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-sec" id="awards">
+      <h2>Awards &amp; honours</h2>
+      <ul class="cv-rows">
+        {% for a in C.awards %}<li><span class="cv-when mono">{{ a.year }}</span><span>{{ a.title }}</span></li>{% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-sec" id="languages">
+      <h2>Languages</h2>
+      <ul class="cv-rows">
+        {% for l in C.languages %}<li><span class="cv-when mono">{{ l.name }}</span><span>{{ l.level }}</span></li>{% endfor %}
+      </ul>
+    </section>
+
+    <section class="cv-sec" id="referees">
+      <h2>Referees</h2>
+      <div class="cv-refs">
+        {% for r in C.referees %}
+        <div class="cv-ref"><strong>{{ r.name }}</strong><span>{{ r.title }}</span><span class="muted small">{{ r.relation }}</span></div>
+        {% endfor %}
+      </div>
+      <p class="muted small">Contact details on request.</p>
+    </section>
+
+    <section class="cv-sec contact-band" id="contact">
+      <h2>Contact</h2>
+      <p>For PhD supervision, collaboration or research roles, email me directly. Transcripts and certificates are available on request.</p>
+      <div class="contact-row">
+        <p class="email">{{ P.email }}</p>
+        <button type="button" class="btn btn-solid copy" data-copy="{{ P.email }}">Copy email</button>
+        <a class="btn" href="mailto:{{ P.email }}">Open mail app</a>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+---
+layout: default
+title: "Code"
+permalink: /code.html
+github: true
+track: code
+---
+{% assign L = site.data.profile.links %}
+{% assign gh = L.github_user %}
+{% assign flag = site.data.repos | where: "kind", "flagship" %}
+{% assign analyses = site.data.repos | where: "kind", "analysis" %}
+{% assign course = site.data.repos | where: "kind", "course" %}
+<section class="track-hero">
+  <div class="wrap">
+    <p class="eyebrow">Open source · github.com/{{ gh }}</p>
+    <h1>Research code</h1>
+    <p class="lede">A drone-mapping toolkit and three fully reproducible R studies, each with a stated hypothesis, pinned environment, tests and a decisions log. Stars, forks and last-push dates load live from GitHub.</p>
+    <ul class="code-stats" aria-label="Summary">
+      <li><a href="#avispria"><strong>14.7k</strong><span>lines of Python in Avispria</span></a></li>
+      <li><a href="#avispria"><strong>668</strong><span>automated tests</span></a></li>
+      <li><a href="#analyses"><strong>3</strong><span>reproducible R studies</span></a></li>
+      <li><a href="#practices"><strong>{{ site.data.practices | size }}</strong><span>reproducibility practices, each linked to proof</span></a></li>
+    </ul>
+    <p class="actions"><a class="btn btn-solid" href="{{ L.github }}">GitHub profile</a><a class="btn" href="#practices">How I write research code</a></p>
+  </div>
+</section>
+
+<!-- Flagship ────────────────────────────────────────────────────── -->
+{% for r in flag %}
+{% assign base = "https://github.com/" | append: gh | append: "/" | append: r.name %}
+<section class="wrap section" id="avispria">
+  <article class="flagship repo" data-repo="{{ gh }}/{{ r.name }}">
+    <div class="flag-text">
+      <div class="flag-id">
+        <img class="flag-logo only-light" src="{{ r.logo | relative_url }}" alt="" width="64" height="58">
+        <img class="flag-logo only-dark" src="{{ r.logo_dark | relative_url }}" alt="" width="64" height="58">
+        <div>
+          <p class="eyebrow">Flagship software · drone photogrammetry</p>
+          <h2><a href="{{ base }}">{{ r.name }}</a></h2>
+          <p class="flag-tagline">{{ r.tagline }}</p>
+        </div>
+      </div>
+      <p>{{ r.description }}</p>
+      <p class="flag-status"><span class="status status-in-review">{{ r.status }}</span> <span class="muted small">{{ r.status_note }}</span></p>
+      <ol class="flag-parts">
+        {% for p in r.parts %}<li><strong>{{ p.title }}</strong><span>{{ p.text }}</span></li>{% endfor %}
+      </ol>
+      <ul class="tags">{% for s in r.stack %}<li>{{ s }}</li>{% endfor %}</ul>
+      <p class="actions">
+        <a class="btn btn-solid" href="{{ base }}">Repository</a>
+        {% for l in r.links %}<a class="btn btn-quiet" href="{{ base }}{{ l.path }}">{{ l.label }}</a>{% endfor %}
+      </p>
+    </div>
+    <div class="flag-side">
+      <svg class="flight" viewBox="0 0 360 300" role="img" aria-labelledby="fl-t">
+        <title id="fl-t">Survey area with a lawnmower flight path and overlapping photo footprints</title>
+        {% for r2 in (0..9) %}{% for c2 in (0..11) %}<rect class="fl-cell fl-o{{ r2 | times: 7 | plus: c2 | modulo: 5 }}" x="{{ c2 | times: 30 }}" y="{{ r2 | times: 30 }}" width="30" height="30"/>{% endfor %}{% endfor %}
+        <path class="fl-aoi" d="M46 58 L262 34 L320 150 L276 262 L70 250 L28 150 Z"/>
+        {% for k in (0..5) %}{% assign fy = k | times: 36 | plus: 48 %}{% for q in (0..5) %}
+          <rect class="fl-foot" x="{{ q | times: 48 | plus: 38 }}" y="{{ fy }}" width="44" height="28"/>
+        {% endfor %}{% endfor %}
+        <path class="fl-path" d="M60 62 H300 V98 H60 V134 H300 V170 H60 V206 H300 V242 H60"/>
+        <circle class="fl-home" cx="60" cy="62" r="6"/>
+        <circle class="fl-home" cx="14" cy="286" r="4"/>
+        <text class="fl-label" x="24" y="290">take-off · photo footprints · terrain-aware GSD</text>
+      </svg>
+      <dl class="flag-stats">
+        {% for s in r.stats %}<div><dt>{{ s.label }}</dt><dd>{{ s.value }}</dd></div>{% endfor %}
+        <div><dt>Stars</dt><dd data-field="stars">–</dd></div>
+        <div><dt>Last push</dt><dd data-field="updated">–</dd></div>
+        <div><dt>Licence</dt><dd>{{ r.license }}</dd></div>
+      </dl>
+    </div>
+  </article>
+</section>
+{% endfor %}
+
+<!-- Analyses ────────────────────────────────────────────────────── -->
+<section class="wrap section" id="analyses">
+  <div class="section-head">
+    <h2>Reproducible research studies</h2>
+    <div class="filters" role="group" aria-label="Filter repositories">
+      <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter" data-filter="micro" aria-pressed="false">Microbiology</button>
+      <button type="button" class="filter" data-filter="geo" aria-pressed="false">Geospatial</button>
+    </div>
+  </div>
+  <div class="repo-list">
+    {% for r in analyses %}{% include repo-card.html %}{% endfor %}
+  </div>
+</section>
+
+<!-- Practices ───────────────────────────────────────────────────── -->
+<section class="wrap section" id="practices">
+  <div class="section-head">
+    <h2>How I write research code</h2>
+    <span class="hint">Click a card to see the proof on GitHub</span>
+  </div>
+  <ul class="practices">
+    {% for p in site.data.practices %}
+    <li id="practice-{{ p.id }}">
+      <a href="https://github.com/{{ gh }}/{{ p.repo }}{{ p.path }}">
+        <strong>{{ p.title }}</strong>
+        <span>{{ p.text }}</span>
+        <span class="mono small">{{ p.repo }} ↗</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- Course work ─────────────────────────────────────────────────── -->
+<section class="wrap section" id="early">
+  <div class="section-head"><h2>Course and early work</h2></div>
+  <div class="repo-grid">
+    {% for r in course %}
+    <a class="repo repo-small" href="https://github.com/{{ gh }}/{{ r.name }}" data-repo="{{ gh }}/{{ r.name }}" data-track-item="{{ r.track }}" id="repo-{{ r.name }}">
+      <span class="meta"><span class="track-chip chip-{{ r.track }}">{% if r.track == "micro" %}Microbiology{% else %}Geospatial{% endif %}</span><span class="mono" data-field="language">{{ r.language }}</span>{% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}</span>
+      <strong>{{ r.title }}</strong>
+      <span class="repo-name mono">{{ gh }}/{{ r.name }}</span>
+      <span class="small">{{ r.description }}</span>
+      <span class="tags-inline mono">{{ r.stack | join: " · " }}</span>
+      <span class="repo-stats"><span><b data-field="stars">–</b> stars</span><span>pushed <b data-field="updated">–</b></span></span>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="muted small api-note" hidden>GitHub's API is unavailable right now, so live stats are not shown.</p>
+</section>

@@ -1,0 +1,17 @@
+{% assign L = site.data.profile.links %}
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div>
+      <p class="footer-name">{{ site.data.profile.name }}</p>
+      <p class="muted small">{{ site.data.profile.role }} · {{ site.data.profile.location }}</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="{{ L.github }}" rel="me">GitHub</a></li>
+      <li><a href="{{ L.researchgate }}" rel="me">ResearchGate</a></li>
+      <li><a href="{{ L.linkedin }}" rel="me">LinkedIn</a></li>
+      {% if L.orcid != "" %}<li><a href="https://orcid.org/{{ L.orcid }}" rel="me">ORCID</a></li>{% endif %}
+      {% if L.scholar != "" %}<li><a href="{{ L.scholar }}" rel="me">Scholar</a></li>{% endif %}
+    </ul>
+  </div>
+  <div class="wrap"><p class="muted tiny">Built with Jekyll on GitHub Pages. Content updated from <code>_data/*.yml</code>.</p></div>
+</footer>

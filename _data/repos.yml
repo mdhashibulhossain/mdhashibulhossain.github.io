@@ -1,0 +1,122 @@
+# Repositories shown on the Code page (and linked from projects, research and CV).
+# kind: flagship | analysis | course
+# Live stars / forks / last push load in the browser from the GitHub API (assets/js/github.js);
+# everything else here is the fallback and the curated story.
+# `practices` keys must match _data/practices.yml ids.
+
+- name: Avispria
+  kind: flagship
+  track: geo
+  title: "Avispria: drone mapping toolkit for researchers"
+  tagline: "Canopy structure and change, seen from above."
+  logo: /assets/img/avispria-logo.png
+  logo_dark: /assets/img/avispria-logo-dark.png
+  description: "Free, offline-first toolkit for mapping with consumer RGB drones: plan DJI Fly missions with predicted resolution and overlap over real terrain, check photo overlap from metadata before processing, build orthophotos, surface models and point clouds with WebODM, and carry a no-signal field page on your phone."
+  parts:
+    - title: "Plan a flight"
+      text: "DJI Fly (WPML) missions with terrain-aware GSD and overlap prediction"
+    - title: "Check your photos"
+      text: "EXIF/XMP overlap QA that finds weak spots before processing"
+    - title: "Make maps"
+      text: "Orthophoto, DSM and point cloud via WebODM, with a processing record"
+    - title: "Field page"
+      text: "Offline checklists, calculators and flight log for the phone"
+  stats:
+    - value: "14.7k"
+      label: "lines of Python"
+    - value: "668"
+      label: "automated tests"
+    - value: "68"
+      label: "test modules"
+  stack: [Python 3.12, uv, Typer, Shapely, pyproj, rasterio, lxml, WebODM, pytest]
+  license: AGPL-3.0
+  language: Python
+  status: "Pre-alpha · not yet flight-tested"
+  status_note: "Planning and photo checks are tested against real DJI Fly files and public datasets; no Avispria mission has been flown yet."
+  practices: [tests, lockfile, adr, citation, disclaimer]
+  links:
+    - label: "Install guide"
+      path: "#install-and-run"
+    - label: "Architecture decisions"
+      path: "/tree/HEAD/docs/adr"
+
+- name: dose-response-ec50
+  kind: analysis
+  track: micro
+  title: "Estimating stress tolerance: dose–response modelling done properly"
+  question: "How should EC50 and tolerance be estimated and compared across strains, and how sensitive are conclusions to model choice and replication design?"
+  finding: "LL.4 reproduces the published ryegrass ED50 exactly (3.058, 95% CI 2.671–3.445). On labelled synthetic data, RMSE of log-EC50 falls from 0.21 to 0.055 across 12 designs, 1,000 simulations each."
+  data: "drc ryegrass (published) + labelled SYNTHETIC 3 strains × 7 doses × 4 replicates"
+  methods: [LL.3 / LL.4 / Weibull, AIC selection, Delta-method vs bootstrap CI, EDcomp ratio tests, Simulation study]
+  figure: /assets/img/code-ec50-curves.jpg
+  figure_alt: "Fitted dose–response curves for three synthetic strains"
+  scripts: 8
+  stack: [R 4.5, drc, renv, Make, R test scripts]
+  license: MIT
+  language: R
+  practices: [validate, synthetic, decisions, tests, lockfile, make, citation]
+  links:
+    - label: "Methods"
+      path: "/blob/HEAD/docs/methods.md"
+    - label: "Decisions log"
+      path: "/blob/HEAD/docs/decisions.md"
+
+- name: soil-metal-enrichment
+  kind: analysis
+  track: micro
+  title: "Natural background vs anthropogenic enrichment of toxic elements in US soils"
+  question: "Which of Cu, Zn, Pb, Cd, As, Ni and Cr exceed the geochemical background predicted from Al (cross-checked with Ti), signalling human enrichment?"
+  finding: "Zn, Cd and Ni show land-cover-linked enrichment robust to the normaliser. Pb's strongest Al-based signal (p = 6.2e-13) did not replicate with Ti (p = 0.68) and is reported as unconfirmed."
+  data: "USGS DS-801, 4,857 sites, 0–5 cm horizon"
+  data_doi: "10.3133/ds801"
+  methods: [Robust regression (lmrob), Enrichment factor, Geoaccumulation index, CLR compositional PCA, Censored-value handling, Normaliser sensitivity]
+  figure: /assets/img/code-pb-residual-map.jpg
+  figure_alt: "Map of Pb residuals against Al-predicted background across US sample sites"
+  scripts: 10
+  stack: [R 4.5, robustbase, compositions, ggplot2, maps, renv, Make]
+  license: MIT
+  language: R
+  practices: [prereg, sensitivity, decisions, tests, lockfile, make, citation]
+  links:
+    - label: "Element predictions (written first)"
+      path: "/blob/HEAD/docs/element_notes.md"
+    - label: "Decisions log"
+      path: "/blob/HEAD/docs/decisions.md"
+
+- name: climate-controls-soil-respiration
+  kind: analysis
+  track: geo
+  title: "Climate and ecosystem controls on global soil respiration"
+  question: "How much of annual soil respiration do temperature and precipitation explain, and does ecosystem type change the temperature response?"
+  finding: "MAT × biome interaction is supported by LRT (p = 0.036; 0.0019 after removing 28 influential points) but does not improve prediction: exact leave-one-study-out CV over 1,247 studies (2,494 refits) gives predictive R² ≈ 0.11."
+  data: "Global Soil Respiration Database: 5,980 observations, 1,247 studies"
+  methods: [Linear mixed model, Likelihood-ratio tests, Apparent Q10, Cook's distance sensitivity, Study-grouped CV, Leave-one-study-out CV]
+  figure: /assets/img/code-rs-temperature.jpg
+  figure_alt: "Model-predicted soil respiration against mean annual temperature by biome"
+  scripts: 14
+  stack: [R 4.5, lme4, renv, Make]
+  license: MIT
+  language: R
+  practices: [sensitivity, cv, decisions, tests, lockfile, make, citation]
+  links:
+    - label: "Methods"
+      path: "/blob/HEAD/docs/methods.md"
+    - label: "Data provenance"
+      path: "/blob/HEAD/docs/data_provenance.md"
+
+- name: dose-time-metallotolerance-fungi
+  kind: course
+  track: micro
+  title: "Dose–time metallotolerance screening in fungi"
+  description: "R pipeline producing Figures 1–8 for A. niger, T. asperellum and R. stolonifer under As, Pb and Hg: tolerance index, growth rate, Tukey contrasts, TI heatmap, LL.4 curves, IC50 with bootstrap CI and censoring."
+  stack: [R, drc, ggplot2]
+  license: MIT
+  language: R
+
+- name: PDS-12-Project
+  kind: course
+  track: geo
+  title: "Python & data-science course projects"
+  description: "YOLO11s leaf detector (Roboflow, 100 epochs, val mAP50 0.43 on 46 images) exported to TensorFlow.js, and a pandas/seaborn analysis of plant growth against temperature and light."
+  stack: [Python, YOLO11, Ultralytics, Roboflow, pandas, seaborn]
+  language: Jupyter Notebook

@@ -1,0 +1,219 @@
+---
+layout: default
+title: ""
+permalink: /
+---
+{% assign P = site.data.profile %}
+{% assign CV = site.data.cv %}
+{% assign micro = site.data.projects | where: "tracks", "micro" %}
+{% assign geo = site.data.projects | where: "tracks", "geo" %}
+{% assign featured = site.data.projects | where: "featured", true %}
+
+<!-- 1 · HERO: thesis statement + proof chips ─────────────────────── -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="hero-id">
+        {% if P.photo != "" %}<img class="portrait" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="112" height="112">{% endif %}
+        <div>
+          <p class="eyebrow">Junior Research Scientist at CredoSense, Dhaka · MSc (Thesis) in Forestry, SUST</p>
+          <h1 class="hero-name">{{ P.name }}</h1>
+        </div>
+      </div>
+      <p class="hero-tagline">{{ P.tagline }}</p>
+      <ul class="proof" aria-label="At a glance">
+        <li><a href="{{ '/microbiology.html#capabilities' | relative_url }}" class="proof-micro">ICP-OES operator</a></li>
+        <li><a href="{{ '/microbiology.html#msc-thesis' | relative_url }}" class="proof-micro">Fungal dose–response</a></li>
+        <li><a href="{{ '/geospatial.html#gis-mcda' | relative_url }}" class="proof-geo">Google Earth Engine</a></li>
+        <li><a href="{{ '/geospatial.html#spore-detection' | relative_url }}" class="proof-geo">YOLO / spore vision</a></li>
+        <li><a href="{{ '/code.html#avispria' | relative_url }}" class="proof-geo">Drone mapping software</a></li>
+        <li><a href="{{ '/code.html#practices' | relative_url }}" class="proof-bridge">Reproducible R &amp; Python</a></li>
+      </ul>
+      <p class="actions">
+        <a class="btn btn-solid" href="{{ '/research.html' | relative_url }}">Explore my research</a>
+        <a class="btn" href="{{ '/cv.html' | relative_url }}">Read the CV</a>
+        <a class="btn" href="{{ '/cv.html#contact' | relative_url }}">Contact</a>
+      </p>
+    </div>
+    <ol class="hero-chain" aria-label="From fungus to satellite">
+      {% for c in site.data.chain %}
+      <li class="hc-{{ c.kind }}">
+        <a href="{{ c.url | relative_url }}">
+          {% include chain-icon.html %}
+          <span class="hc-text"><span class="mono hc-scale">{{ c.scale }}</span><strong>{{ c.name }}</strong><span class="hc-line">{{ c.line }}</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- 2 · METRICS: each number opens its evidence ───────────────────── -->
+<section class="wrap section-tight">
+  <ul class="metrics" aria-label="Highlights">
+    <li><a class="metric" href="{{ '/cv.html#msc' | relative_url }}"><span class="metric-value">3.80<small>/4.00</small></span><span class="metric-label">MSc (Thesis) in Forestry, With Distinction</span></a></li>
+    <li><a class="metric" href="{{ '/microbiology.html#landfill-isolates' | relative_url }}"><span class="metric-value">27<small>isolates</small></span><span class="metric-label">from a landfill; 7 survive 500 ppm Cr/As</span></a></li>
+    <li><a class="metric" href="{{ '/geospatial.html#gis-mcda' | relative_url }}"><span class="metric-value">6<small>sensors</small></span><span class="metric-label">fused on a 500 m grid, 10-year window</span></a></li>
+    <li><a class="metric" href="{{ '/publications.html' | relative_url }}"><span class="metric-value">3<small>manuscripts</small></span><span class="metric-label">in review, 1 first-author, + 1 DOI paper</span></a></li>
+  </ul>
+</section>
+
+<!-- 2b · FUNGUS TO SATELLITE: the connected chain ───────────────── -->
+<section class="wrap section" id="chain">
+  <div class="section-head">
+    <h2>From the lab bench to the satellite</h2>
+    <span class="hint">Click a level or link to know more</span>
+  </div>
+  <ol class="chain">
+    {% for c in site.data.chain %}
+    <li class="chain-step k-{{ c.kind }}">
+      <a class="chain-head" href="{{ c.url | relative_url }}">
+        {% include chain-icon.html %}
+        <span><span class="mono hc-scale">{{ c.scale }}</span><strong>{{ c.name }}</strong></span>
+      </a>
+      <p class="chain-q">{{ c.question }}</p>
+      <ul class="evidence">{% for e in c.evidence %}<li><a href="{{ e.url | relative_url }}">{{ e.label }}</a></li>{% endfor %}</ul>
+      {% if c.link != "" %}<p class="chain-link mono"><span aria-hidden="true">↓</span> {{ c.link }}</p>{% endif %}
+      <a class="more-link" href="{{ c.url | relative_url }}"><span class="more" aria-hidden="true"></span><span class="sr-only">Open {{ c.name }}</span></a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- 3 · WHAT I BRING: strengths as evidence ───────────────────────── -->
+<section class="wrap section">
+  <div class="section-head">
+    <h2>What I bring to a lab</h2>
+    <span class="hint">Click any card to know more</span>
+  </div>
+  <ul class="strengths">
+    {% for s in site.data.strengths %}
+    <li>
+      <a class="strength s-{{ s.kind }}" href="{{ s.url | relative_url }}">
+        <span class="eyebrow">{{ s.label }}</span>
+        <strong>{{ s.headline }}</strong>
+        <span class="strength-ev">{{ s.evidence }}</span>
+        <span class="more" aria-hidden="true"></span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- 4 · TRACKS ───────────────────────────────────────────────────── -->
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Two research paths, one environment</h2>
+    <span class="hint">Click a path to know more</span>
+  </div>
+  <div class="track-cards">
+    <a class="track-card card-micro" href="{{ '/microbiology.html' | relative_url }}">
+      <span class="eyebrow">Track A · wet lab</span>
+      <h3>Environmental Microbiology &amp; Bioimaging</h3>
+      <p>Fungal heavy-metal tolerance and bioremediation, ICP-OES, antioxidant enzymes, plant pigments and nutrients, plant pathology.</p>
+      <span class="track-count mono">{{ micro | size }} projects</span>
+      <span class="more" aria-hidden="true"></span>
+    </a>
+    <a class="track-card card-bridge" href="{{ '/research.html' | relative_url }}">
+      <span class="eyebrow">Where they meet: ecology &amp; environment</span>
+      <h3>How do ecosystems respond to environmental stress?</h3>
+      <p>The lab explains the mechanism; spatial analysis shows where it happens and how much. Both answer environmental and ecological questions.</p>
+      <span class="track-count mono">Interest map &amp; flowcharts</span>
+      <span class="more" aria-hidden="true"></span>
+    </a>
+    <a class="track-card card-geo" href="{{ '/geospatial.html' | relative_url }}">
+      <span class="eyebrow">Track B · dry lab</span>
+      <h3>GIS, Remote Sensing &amp; Computer Vision</h3>
+      <p>Multi-sensor suitability modelling, land-cover change and deep-learning object detection.</p>
+      <span class="track-count mono">{{ geo | size }} projects</span>
+      <span class="more" aria-hidden="true"></span>
+    </a>
+  </div>
+</section>
+
+<!-- 5 · JOURNEY ──────────────────────────────────────────────────── -->
+<section class="wrap section">
+  <div class="section-head">
+    <h2>From petri dish to pixels</h2>
+    <span class="hint">Click a step to know more</span>
+    <a class="muted" href="{{ '/cv.html#experience' | relative_url }}">Full experience →</a>
+  </div>
+  <ol class="journey">
+    {% for j in CV.journey %}
+    <li class="j-{{ j.kind }}">
+      <a href="{{ j.url | relative_url }}">
+        <span class="j-year mono">{{ j.year }}</span>
+        <strong>{{ j.label }}</strong>
+        <span class="muted">{{ j.note }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- 6 · SELECTED WORK ────────────────────────────────────────────── -->
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Selected work</h2>
+    <span class="hint">Click any card to know more</span>
+  </div>
+  <div class="featured">
+    {% for p in featured %}
+    {% if p.tracks[0] == "micro" %}{% assign ppage = '/microbiology.html' %}{% else %}{% assign ppage = '/geospatial.html' %}{% endif %}
+    <a class="feature f-{{ p.tracks[0] }}" href="{{ ppage | relative_url }}#{{ p.id }}">
+      {% if p.image %}
+      <span class="feature-img{% if p.image_fit == "contain" %} fit-contain{% endif %}"><img src="{{ p.image | relative_url }}" alt="{{ p.image_alt }}" loading="lazy"></span>
+      {% else %}
+      <span class="feature-img feature-placeholder" aria-hidden="true"><span class="mono">{{ p.context }}</span></span>
+      {% endif %}
+      <span class="meta"><span class="status status-{{ p.status }}">{{ p.status }}</span><span class="mono">{{ p.period }}</span></span>
+      <strong>{{ p.title }}</strong>
+      <span class="muted small">{{ p.summary }}</span>
+      <span class="more" aria-hidden="true"></span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- 7 · OUTPUTS + CODE ───────────────────────────────────────────── -->
+<section class="wrap section two-col">
+  <div>
+    <div class="section-head"><h2>Recent outputs</h2><a class="muted" href="{{ '/publications.html' | relative_url }}">All →</a></div>
+    <ul class="link-list">
+      {% for pub in site.data.publications limit: 4 %}
+      <li><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">
+        <span class="meta"><span class="status status-{{ pub.status }}">{% if pub.status == "in-review" %}In review{% elsif pub.status == "presented" %}Presented{% else %}{{ pub.status }}{% endif %}</span>{% if pub.first_author %}<span class="mono">First author</span>{% endif %}</span>
+        <strong>{{ pub.title }}</strong>
+        <span class="more" aria-hidden="true"></span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <div class="section-head"><h2>Open code</h2><a class="muted" href="{{ '/code.html' | relative_url }}">All →</a></div>
+    <ul class="link-list">
+      {% for r in site.data.repos limit: 4 %}
+      <li><a href="{{ '/code.html' | relative_url }}#{% if r.kind == 'flagship' %}avispria{% else %}repo-{{ r.name }}{% endif %}">
+        <span class="meta"><span class="track-chip chip-{{ r.track }}">{{ r.language }}</span>{% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}{% if r.kind == 'flagship' %}<span class="mono">Flagship</span>{% endif %}</span>
+        <strong>{{ r.title }}</strong>
+        <span class="muted small">{% if r.finding %}{{ r.finding | truncate: 150 }}{% else %}{{ r.tagline }} {{ r.status }}{% endif %}</span>
+        <span class="more" aria-hidden="true"></span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- 8 · CALL TO ACTION ───────────────────────────────────────────── -->
+<section class="wrap section">
+  <div class="cta">
+    <div>
+      <p class="eyebrow">Open to</p>
+      <p class="cta-text">{{ P.seeking }}</p>
+    </div>
+    <p class="actions">
+      <a class="btn btn-solid" href="{{ '/cv.html#contact' | relative_url }}">Get in touch</a>
+      <a class="btn" href="{{ '/assets/cv/Hashibul_Hossain_CV.pdf' | relative_url }}">Download CV (PDF)</a>
+    </p>
+  </div>
+</section>

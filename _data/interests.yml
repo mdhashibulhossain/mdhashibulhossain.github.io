@@ -1,0 +1,91 @@
+# Research interests (Research page). `kind`: micro | geo | bridge.
+# `done` links point to the evidence; `next` is what you want to pursue in a PhD.
+- id: mycoremediation
+  kind: micro
+  title: "Mycoremediation and fungi–metal interactions"
+  short: "Mycoremediation"
+  methods: "EC50 · enzymes · ICP-OES"
+  question: "Which fungi tolerate and remove arsenic, cadmium, chromium and lead, and which physiological responses let them do it?"
+  done:
+    - label: "MSc thesis: 4 metals, EC50, antioxidant enzymes, water and soil microcosms"
+      url: /microbiology.html#msc-thesis
+    - label: "27 landfill isolates, 7 viable at 500 ppm Cr/As"
+      url: /microbiology.html#landfill-isolates
+    - label: "Conference paper, RMSTU 2025 (DOI)"
+      url: /publications.html#conf-rmstu-2025
+    - label: "Code: EC50 methods study and US soil metal enrichment"
+      url: /code.html#analyses
+  next: "Separate biosorption from active uptake in the DMFT isolates and test them in real contaminated soil."
+
+- id: pathology
+  kind: bridge
+  title: "Plant pathology and automated pathogen detection"
+  short: "Pathogen detection"
+  methods: "culture · microscopy · YOLO"
+  question: "Can fungal spores and early symptoms be detected from images reliably enough to replace manual counts?"
+  done:
+    - label: "Spore-image detection models, CredoSense"
+      url: /geospatial.html#spore-detection
+    - label: "Fungal isolation from agarwood trees"
+      url: /microbiology.html#agarwood
+    - label: "Biocontrol of fungal pathogens, SUST"
+      url: /cv.html#research-associate
+  next: "Detection models validated against culture-based identification, built for routine screening."
+
+- id: physiology
+  kind: micro
+  title: "Plant physiology and nutrient chemistry"
+  short: "Plant physiology"
+  methods: "ICP-OES · UV-Vis · pigments"
+  question: "How do metal stress and nutrition change pigment, enzyme and nutrient profiles in plants?"
+  done:
+    - label: "Plant nutrient and pigment analytics, CredoSense"
+      url: /microbiology.html#credosense-lab
+    - label: "CAT, SOD and GR profiling under metal stress"
+      url: /microbiology.html#msc-thesis
+  next: "Link ICP-OES nutrient profiles to image-derived plant traits."
+
+- id: mycorrhiza
+  kind: micro
+  title: "Mycorrhizal ecology and soil carbon"
+  short: "Mycorrhizal ecology"
+  methods: "soil · carbon · fungi"
+  question: "How much do mycorrhizal fungi contribute to carbon storage in forest soils?"
+  done:
+    - label: "Poster: mycorrhizal role in soil carbon sequestration (2023)"
+      url: /publications.html#poster-mycorrhizal-2023
+    - label: "Code: climate controls on global soil respiration (1,247 studies)"
+      url: /code.html#repo-climate-controls-soil-respiration
+  next: "Quantify hyphal networks and soil carbon across land-use gradients."
+
+- id: geocv
+  kind: geo
+  title: "Geospatial and computer-vision methods for biology"
+  short: "Geospatial & vision"
+  methods: "GEE · drones · deep learning"
+  question: "How can satellite layers and deep learning point field and lab work to the places and samples that matter?"
+  done:
+    - label: "6-sensor MCDA site selection on a 500 m grid"
+      url: /geospatial.html#gis-mcda
+    - label: "Avispria drone mapping toolkit"
+      url: /code.html#avispria
+    - label: "YOLO11s leaf detector exported to TensorFlow.js"
+      url: /geospatial.html#yolo-leaf
+    - label: "Land-cover change, Karnaphuli Range"
+      url: /geospatial.html#karnaphuli
+  next: "Scale lab-derived indicators to landscapes with Earth observation."
+
+- id: urban
+  kind: geo
+  title: "Urban green space and landscape ecology"
+  short: "Urban green space"
+  methods: "suitability · camera traps"
+  question: "Where should cities add green space, and what wildlife does existing green space support?"
+  done:
+    - label: "Manuscript: green-space suitability, Sylhet"
+      url: /publications.html#ms-urban-green-sylhet
+    - label: "Manuscript: urban green spaces as carnivore refugia"
+      url: /publications.html#ms-carnivore-refugia
+    - label: "i-Tree urban tree inventory training"
+      url: /cv.html#training
+  next: "Combine suitability mapping with biodiversity and soil-health data."

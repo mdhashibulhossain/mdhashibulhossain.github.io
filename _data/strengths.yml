@@ -1,0 +1,42 @@
+# "What I bring" cards on the home page. Each headline states evidence, not an adjective.
+# `url` is where the card takes the viewer; `kind` sets the colour (micro | geo | bridge).
+- kind: micro
+  label: "Analytical chemistry"
+  headline: "Calibrates and runs the ICP-OES himself"
+  evidence: "8-day certified; independent operation for heavy metals in water, soil and digested biomass, now plant nutrients at CredoSense."
+  url: /microbiology.html#capabilities
+- kind: micro
+  label: "Experimental design"
+  headline: "Screened 27 landfill isolates down to 7 metal-tolerant fungi"
+  evidence: "Dose–response assays against As, Cd, Cr and Pb: tolerance index, LL.4 EC50 with bootstrap CI, two-way ANOVA, PCA and NMDS on antioxidant enzymes."
+  url: /microbiology.html#landfill-isolates
+- kind: geo
+  label: "Research software"
+  headline: "Wrote a 14.7k-line drone mapping toolkit"
+  evidence: "Avispria plans DJI missions, checks photo overlap and drives WebODM; 668 automated tests, open source."
+  url: /code.html#avispria
+- kind: geo
+  label: "Earth observation"
+  headline: "Fused 6 satellite sensors on one 500 m grid"
+  evidence: "Sentinel-2/5P, Landsat LST, MAIAC AOD, VIIRS and SRTM over a 10-year window in Google Earth Engine, MCDA with sensitivity analysis."
+  url: /geospatial.html#gis-mcda
+- kind: geo
+  label: "Computer vision"
+  headline: "Builds spore- and pest-detection models in industry"
+  evidence: "Junior Research Scientist at CredoSense, Dhaka; earlier fine-tuned YOLO11s and exported it to TensorFlow.js."
+  url: /geospatial.html#spore-detection
+- kind: bridge
+  label: "Reproducible science"
+  headline: "Reports the result that failed the check"
+  evidence: "Three public R studies with pre-written hypotheses, pinned environments, tests and decision logs."
+  url: /code.html#practices
+- kind: bridge
+  label: "Research output"
+  headline: "3 manuscripts in review, 1 first-author"
+  evidence: "International conference paper with DOI (RMSTU 2025) and two research posters."
+  url: /publications.html
+- kind: bridge
+  label: "Communication"
+  headline: "Mentors, presents and leads"
+  evidence: "Mentored junior researchers, led a 9th-committee society wing, IELTS Academic 7.5 (C1)."
+  url: /cv.html#leadership

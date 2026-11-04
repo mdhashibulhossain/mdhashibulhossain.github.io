@@ -1,0 +1,23 @@
+{%- comment -%} Expects a variable `pub` (one entry from _data/publications.yml). {%- endcomment -%}
+<article class="pub" id="{{ pub.id }}" data-type="{{ pub.type }}" data-track="{{ pub.track }}">
+  {% if pub.thumb %}
+  <a class="pub-thumb" href="{{ pub.pdf | relative_url }}" aria-label="Open PDF of {{ pub.title }}">
+    <img src="{{ pub.thumb | relative_url }}" alt="" loading="lazy">
+  </a>
+  {% endif %}
+  <div class="pub-body">
+    <p class="meta">
+      <span class="status status-{{ pub.status }}">{% if pub.status == "in-review" %}In review{% elsif pub.status == "presented" %}Presented{% elsif pub.status == "published" %}Published{% else %}Report{% endif %}</span>
+      <span class="mono">{{ pub.type }}{% if pub.year != "" %} · {{ pub.year }}{% endif %}</span>
+      <span class="track-chip chip-{{ pub.track }}">{% if pub.track == "micro" %}Microbiology{% else %}Geospatial{% endif %}</span>
+    </p>
+    <h3 class="pub-title">{{ pub.title }}</h3>
+    <p class="authors">{{ pub.authors | replace: "Hossain, M.H.", "<strong>Hossain, M.H.</strong>" }}</p>
+    {% if pub.venue != "" %}<p class="venue">{{ pub.venue }}</p>{% endif %}
+    <p class="actions">
+      {% if pub.doi != "" %}<a class="doi-badge" href="https://doi.org/{{ pub.doi }}"><span>DOI</span>{{ pub.doi }}</a>{% endif %}
+      {% if pub.researchgate and pub.researchgate != "" %}<a class="btn btn-quiet" href="{{ pub.researchgate }}">ResearchGate</a>{% endif %}
+      {% if pub.pdf != "" %}<a class="btn btn-quiet" href="{{ pub.pdf | relative_url }}">PDF</a>{% endif %}
+    </p>
+  </div>
+</article>

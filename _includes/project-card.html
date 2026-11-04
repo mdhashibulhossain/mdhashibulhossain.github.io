@@ -1,0 +1,32 @@
+{%- comment -%} Expects a variable `p` (one entry from _data/projects.yml). {%- endcomment -%}
+<article class="project{% if p.image %} has-image{% endif %}" id="{{ p.id }}">
+  {% if p.image %}
+  <figure class="project-fig{% if p.image_fit == "contain" %} fit-contain{% endif %}">
+    <img src="{{ p.image | relative_url }}" alt="{{ p.image_alt }}" loading="lazy" decoding="async">
+  </figure>
+  {% endif %}
+  <div class="project-body">
+    <p class="meta">
+      <span class="status status-{{ p.status }}">{{ p.status }}</span>
+      <span class="mono">{{ p.period }}</span>
+      {% for t in p.tracks %}<span class="track-chip chip-{{ t }}">{% if t == "micro" %}Microbiology{% elsif t == "geo" %}Geospatial{% else %}Bridge{% endif %}</span>{% endfor %}
+    </p>
+    <h3>{{ p.title }}</h3>
+    {% if p.context %}<p class="context">{{ p.context }}</p>{% endif %}
+    <p>{{ p.summary }}</p>
+    {% if p.highlights %}
+    <ul class="highlights">
+      {% for h in p.highlights %}<li{% if h contains "TODO" %} class="todo"{% endif %}>{{ h }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if p.methods %}
+    <ul class="tags" aria-label="Methods">
+      {% for m in p.methods %}<li>{{ m }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    <p class="actions">
+      {% if p.repo %}<a class="btn btn-quiet" href="https://github.com/{{ site.data.profile.links.github_user }}/{{ p.repo }}">GitHub repository</a><a class="btn btn-quiet" href="{{ '/code.html' | relative_url }}#{% if p.repo == 'Avispria' %}avispria{% else %}repo-{{ p.repo }}{% endif %}">Code notes</a>{% endif %}
+      {% for l in p.links %}{% if l.url != "" %}<a class="btn btn-quiet" href="{{ l.url | relative_url }}">{{ l.label }}</a>{% endif %}{% endfor %}
+    </p>
+  </div>
+</article>

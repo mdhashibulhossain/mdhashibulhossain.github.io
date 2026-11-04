@@ -1,0 +1,44 @@
+---
+layout: default
+title: "Publications"
+permalink: /publications.html
+orcid: true
+---
+{% assign L = site.data.profile.links %}
+<section class="track-hero">
+  <div class="wrap">
+    <p class="eyebrow">Publications &amp; presentations</p>
+    <h1>Publications</h1>
+    <p class="lede">Three manuscripts are in review; none is published yet. Conference work and posters are listed with their PDFs.</p>
+    <p class="actions">
+      <a class="btn" href="{{ L.researchgate }}">Follow on ResearchGate</a>
+      {% if L.orcid != "" %}<a class="btn" href="https://orcid.org/{{ L.orcid }}">ORCID {{ L.orcid }}</a>{% endif %}
+      {% if L.scholar != "" %}<a class="btn" href="{{ L.scholar }}">Google Scholar</a>{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="filters" role="group" aria-label="Filter publications">
+    <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="filter" data-filter="micro" aria-pressed="false">Microbiology</button>
+    <button type="button" class="filter" data-filter="geo" aria-pressed="false">Geospatial</button>
+  </div>
+
+  {% assign groups = "article:Manuscripts,conference:Conference papers,poster:Posters,report:Reports" | split: "," %}
+  {% for g in groups %}
+    {% assign parts = g | split: ":" %}
+    {% assign items = site.data.publications | where: "type", parts[0] %}
+    {% if items.size > 0 %}
+    <h2 class="group-title">{{ parts[1] }}</h2>
+    <div class="pub-list">{% for pub in items %}{% include pub-card.html %}{% endfor %}</div>
+    {% endif %}
+  {% endfor %}
+</section>
+
+{% if L.orcid != "" %}
+<section class="wrap section">
+  <div class="section-head"><h2>From ORCID</h2><p class="muted">Pulled live from your public ORCID record.</p></div>
+  <div id="orcid-works" class="pub-list" data-orcid="{{ L.orcid }}"><p class="muted">Loading works…</p></div>
+</section>
+{% endif %}

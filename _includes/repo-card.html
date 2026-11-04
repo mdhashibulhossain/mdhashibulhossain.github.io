@@ -1,0 +1,40 @@
+{%- comment -%} Analysis repo card. Expects `r` (from _data/repos.yml). github.js fills live stats. {%- endcomment -%}
+{% assign gh = site.data.profile.links.github_user %}
+{% assign base = "https://github.com/" | append: gh | append: "/" | append: r.name %}
+<article class="repo repo-analysis" id="repo-{{ r.name }}" data-repo="{{ gh }}/{{ r.name }}" data-track-item="{{ r.track }}">
+  {% if r.figure %}
+  <a class="repo-fig" href="{{ base }}" tabindex="-1" aria-hidden="true"><img src="{{ r.figure | relative_url }}" alt="{{ r.figure_alt }}" loading="lazy"></a>
+  {% endif %}
+  <div class="repo-body">
+    <p class="meta">
+      <span class="track-chip chip-{{ r.track }}">{% if r.track == "micro" %}Microbiology{% else %}Geospatial{% endif %}</span>
+      <span class="mono" data-field="language">{{ r.language }}</span>
+      {% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}
+      {% if r.scripts %}<span class="mono">{{ r.scripts }} scripts</span>{% endif %}
+    </p>
+    <h3><a href="{{ base }}">{{ r.title }}</a></h3>
+    <p class="repo-name mono">{{ gh }}/{{ r.name }}</p>
+    <dl class="repo-facts">
+      <div><dt>Question</dt><dd>{{ r.question }}</dd></div>
+      <div class="is-result"><dt>Result</dt><dd>{{ r.finding }}</dd></div>
+      <div><dt>Data</dt><dd>{{ r.data }}{% if r.data_doi %} · <a class="doi-inline" href="https://doi.org/{{ r.data_doi }}">doi:{{ r.data_doi }}</a>{% endif %}</dd></div>
+    </dl>
+    <ul class="tags" aria-label="Methods">{% for m in r.methods %}<li>{{ m }}</li>{% endfor %}</ul>
+    {% if r.practices %}
+    <ul class="practice-chips" aria-label="Reproducibility practices">
+      {% for pid in r.practices %}{% assign pr = site.data.practices | where: "id", pid | first %}
+      <li><a href="#practice-{{ pr.id }}">{{ pr.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <dl class="repo-stats" aria-label="Repository statistics">
+      <div><dt>Stars</dt><dd data-field="stars">–</dd></div>
+      <div><dt>Forks</dt><dd data-field="forks">–</dd></div>
+      <div><dt>Last push</dt><dd data-field="updated">–</dd></div>
+    </dl>
+    <p class="actions">
+      <a class="btn btn-solid" href="{{ base }}">Repository</a>
+      {% for l in r.links %}<a class="btn btn-quiet" href="{{ base }}{{ l.path }}">{{ l.label }}</a>{% endfor %}
+    </p>
+  </div>
+</article>

@@ -1,0 +1,35 @@
+{%- comment -%} Icons for the fungus → satellite chain. Expects `c.id`. {%- endcomment -%}
+<svg class="chain-icon" viewBox="0 0 64 64" aria-hidden="true">
+{% case c.id %}
+{% when "fungus" %}
+  <circle class="i-frame" cx="32" cy="32" r="29"/>
+  <path class="i-micro i-fill" d="M11 31 C11 18 20 10 32 10 C44 10 53 18 53 31 Z"/>
+  <path class="i-micro i-thin" d="M17 31 H47"/>
+  <path class="i-micro" d="M27 31 C27 38 26 42 25 46 H39 C38 42 37 38 37 31"/>
+  <path class="i-micro i-thin" d="M25 46 C20 48 16 47 11 51 M29 46 C27 51 23 54 19 58 M35 46 C37 51 41 54 45 58 M39 46 C44 48 48 47 53 51"/>
+  <circle class="i-cap-spot" cx="23" cy="21" r="2.4"/><circle class="i-cap-spot" cx="35" cy="16" r="2.8"/><circle class="i-cap-spot" cx="44" cy="24" r="2"/>
+{% when "plant" %}
+  <path class="i-soil" d="M2 40 H62 V62 H2 Z"/>
+  <path class="i-micro" d="M32 40 V14"/>
+  <path class="i-micro i-fill" d="M32 24 C22 22 16 14 16 6 C26 6 32 14 32 24 Z"/>
+  <path class="i-micro i-fill" d="M32 30 C42 28 48 20 50 12 C40 12 33 20 32 30 Z"/>
+  <path class="i-bridge" d="M32 40 V56 M32 46 L22 54 M32 48 L42 58"/>
+  <path class="i-micro i-thin" d="M22 54 C18 52 16 56 12 54 M42 58 C46 54 50 58 54 54"/>
+{% when "canopy" %}
+  <rect class="i-geo-fill" x="2" y="2" width="60" height="60" rx="4"/>
+  <circle class="i-tree" cx="18" cy="20" r="10"/><circle class="i-tree" cx="42" cy="16" r="8"/>
+  <circle class="i-tree" cx="44" cy="42" r="12"/><circle class="i-tree" cx="16" cy="46" r="7"/>
+  <path class="i-box" d="M28 26 H54 V56 H28 Z"/>
+  <path class="i-geo" d="M8 8 L14 14 M14 8 L8 14"/>
+{% when "ecosystem" %}
+  <path class="i-soil" d="M2 46 H62 V62 H2 Z"/>
+  <circle class="i-tree" cx="18" cy="30" r="9"/><path class="i-micro" d="M18 39 V46"/>
+  <circle class="i-tree" cx="44" cy="34" r="7"/><path class="i-micro" d="M44 41 V46"/>
+  <path class="i-bridge" d="M30 44 V14 M25 19 L30 13 L35 19"/>
+  <text x="34" y="10" class="i-text">CO₂</text>
+{% when "satellite" %}
+  {% for r in (0..3) %}{% for k in (0..3) %}<rect class="i-cell i-op{{ r | plus: k | modulo: 4 }}" x="{{ k | times: 13 | plus: 6 }}" y="{{ r | times: 9 | plus: 26 }}" width="13" height="9"/>{% endfor %}{% endfor %}
+  <rect class="i-block" x="27" y="6" width="10" height="10"/>
+  <path class="i-geo" d="M15 11 H27 M37 11 H49"/><rect class="i-geo i-geo-fill" x="7" y="7" width="8" height="8"/><rect class="i-geo i-geo-fill" x="49" y="7" width="8" height="8"/>
+{% endcase %}
+</svg>

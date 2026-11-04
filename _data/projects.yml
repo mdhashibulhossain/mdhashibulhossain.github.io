@@ -1,0 +1,232 @@
+# One entry per project. Pages filter by `tracks`:
+#   micro  → Environmental Microbiology & Bioimaging
+#   geo    → GIS, Remote Sensing & Computer Vision
+#   bridge → also shown on the Interdisciplinary page
+# To add a project: copy a block, change the fields, commit. No HTML needed.
+#
+# Fields: id, title, period, status (ongoing|complete|planned), tracks, summary,
+#         methods (tags), highlights (bullets), image, image_alt, repo, links
+
+- id: msc-thesis
+  featured: true
+  title: "Heavy-metal tolerance, bioaccumulation and bioremediation by filamentous fungi"
+  period: "2024 – 2026"
+  status: complete
+  tracks: [micro, bridge]
+  context: "MSc thesis · SUST · Supervisors: Dr M. M. U. Haque, Prof. R. Ahmed"
+  summary: >-
+    Dose–response screening of Aspergillus niger and Trichoderma asperellum against
+    As(V), Cd(II), Cr(VI) and Pb(II), with enzyme profiling and removal tests in water
+    and soil microcosms.
+  methods: [PDA tolerance assay, ImageJ, EC50 / LL.4, CAT · SOD · GR, ICP-OES, PCA, NMDS, two-way ANOVA]
+  highlights:
+    - "Tolerance index and growth inhibition across 4 metals and full concentration series"
+    - "Antioxidant enzyme responses summarised with PCA and NMDS"
+    - "Biomass accumulation and % removal measured in water and soil microcosms"
+  image: /assets/img/fig-thesis-pipeline.jpg
+  image_alt: "Two-column workflow: laboratory pipeline from tolerance assays to soil bioremediation, and field discovery pipeline from GIS site selection to isolate screening"
+
+- id: landfill-isolates
+  title: "Metallo-tolerant fungi from the Lalmatia waste dump"
+  period: "2024 – 2025"
+  status: complete
+  tracks: [micro, geo, bridge]
+  context: "MSc field discovery pipeline · Sylhet"
+  summary: >-
+    GIS-chosen sampling site, 10 field samples (7 soil, 3 water), bioavailable metals by
+    ICP-OES, and isolation of 27 morphotypes by serial dilution.
+  methods: [Field sampling, ICP-OES, Serial dilution, −80 °C cryostorage, Selective media]
+  highlights:
+    - "27 morphologically distinct isolates recovered"
+    - "7 isolates (DMFT1–7) viable on 500 mg/L Cr and As"
+    - "Planned safety screen: brine-shrimp lethality and seed susceptibility"
+  image: /assets/img/fig-study-area.jpg
+  image_alt: "Satellite map of Lalmatia waste dump with sampling points and locator maps of Sylhet"
+
+- id: bsc-tolerance
+  title: "In-vitro heavy-metal tolerance of three fungi"
+  period: "2022 – 2023"
+  status: complete
+  tracks: [micro]
+  context: "BSc project · SUST"
+  summary: >-
+    A. niger, R. stolonifer and T. asperellum on PDA amended with Pb, Hg and As at
+    100–500 ppm, growth measured at 24, 48 and 72 h.
+  methods: [Factorial ANOVA, Tukey HSD, Shapiro–Wilk, R 4.3]
+  highlights:
+    - "T. asperellum ranked most tolerant"
+    - "R. stolonifer proposed as a biomonitoring candidate"
+  repo: dose-time-metallotolerance-fungi
+  links:
+    - label: "Project report (PDF)"
+      url: ""      # TODO upload only if your supervisor agrees
+
+- id: credosense-lab
+  title: "Plant nutrient and pigment analytics"
+  period: "2026 – present"
+  status: ongoing
+  tracks: [micro]
+  context: "CredoSense · Dhaka, Bangladesh"
+  summary: >-
+    Microwave-assisted digestion and ICP-OES quantification of macro- and
+    micronutrients; chlorophyll and carotenoid extraction by spectrophotometry.
+  methods: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction]
+  highlights:
+    - "TODO: number of elements / samples / species"
+
+- id: agarwood
+  title: "Fungal associations of resin-forming agarwood"
+  period: "2025"
+  status: complete
+  tracks: [micro]
+  context: "Research Associate · SUST"
+  summary: "Isolation of fungi from resin-forming Aquilaria trees to study fungus–plant associations."
+  methods: [Aseptic isolation, Morphological screening]
+
+- id: spore-detection
+  featured: true
+  title: "Pathogenic fungal spore detection from microscopy"
+  period: "2026 – present"
+  status: ongoing
+  tracks: [geo, micro, bridge]
+  context: "CredoSense · Dhaka, Bangladesh"
+  summary: >-
+    Machine-learning and computer-vision models that detect pathogenic fungi in
+    microscopic spore images.
+  methods: [Object detection, Annotation, Dataset curation, Python]
+  highlights:
+    - "TODO: dataset size, classes, model, best metric (e.g. mAP50)"
+
+- id: gis-mcda
+  title: "Multi-sensor GIS site selection for contamination sampling"
+  period: "2024 – 2025"
+  status: complete
+  tracks: [geo, bridge]
+  context: "MSc thesis · ArcMap 10.8 · Google Earth Engine · R"
+  summary: >-
+    Multi-criteria suitability model fusing atmospheric, thermal, vegetation,
+    terrain and hydrology layers on a common 500 m grid over a 10-year window,
+    with sensitivity analysis.
+  methods: [Google Earth Engine, ArcMap Spatial Analyst, MCDA, Sentinel-2, Sentinel-5P, Landsat LST, MAIAC AOD, VIIRS, SRTM]
+  highlights:
+    - "Night lights, LST, AOD, haze, NO₂, CO, SO₂ and low-NDVI frequency layers"
+    - "DEM, slope, flow accumulation and water-occurrence layers"
+  image: /assets/img/fig-atmos-layers.jpg
+  image_alt: "Grid of nine choropleth rasters: VIIRS night lights, Landsat LST, MAIAC AOD and Sentinel-5P gases"
+
+- id: pest-detection
+  title: "Greenhouse pest object detection"
+  period: "2026 – present"
+  status: ongoing
+  tracks: [geo]
+  context: "CredoSense"
+  summary: "Object-detection models for greenhouse pests trained on curated open-source image datasets."
+  methods: [Object detection, Annotation, Evaluation]
+  highlights:
+    - "TODO: dataset size, classes, metric"
+
+- id: yolo-leaf
+  title: "YOLO11s leaf detector with TensorFlow.js export"
+  period: "Dec 2024 – Feb 2025"
+  status: complete
+  tracks: [geo]
+  context: "Python & Data Science training · IICT-SUST"
+  summary: >-
+    Transfer-learned YOLO11s for 2-class leaf detection (1,107 train / 46 val images,
+    100 epochs), validated and exported for in-browser inference.
+  methods: [YOLO11, Ultralytics, Roboflow, TensorFlow.js]
+  highlights:
+    - "Validation: mAP50 0.43, mAP50-95 0.36, recall 0.80 on 46 images (136 instances)"
+  repo: PDS-12-Project
+
+- id: urban-green
+  title: "Urban green-space suitability, North-eastern Sylhet"
+  period: "2024 – 2025"
+  status: complete
+  tracks: [geo]
+  context: "Co-author · manuscript in review"
+  summary: "GIS multi-criteria analysis to identify suitable sites for new urban green space."
+  methods: [GIS-MCDA, Suitability mapping]
+
+- id: karnaphuli
+  title: "Land-cover change, Karnaphuli Range (Kaptai)"
+  period: "2023"
+  status: complete
+  tracks: [geo]
+  context: "Coursework · SUST"
+  summary: "Satellite image analysis of land-use and land-cover change across a ~560 ha forest range."
+  methods: [Image classification, Change detection]
+  highlights:
+    - "TODO: data source, software and time span"
+
+# ── Software and reproducible studies (also on the Code page) ──
+- id: avispria
+  featured: true
+  title: "Avispria: offline drone mapping toolkit"
+  period: "2026 – present"
+  status: ongoing
+  tracks: [geo, bridge]
+  context: "Open-source software · Python · AGPL-3.0"
+  summary: >-
+    Plans DJI Fly missions with terrain-aware resolution and overlap prediction,
+    checks photo overlap before processing, and builds orthophotos, surface models
+    and point clouds with WebODM.
+  methods: [UAV RGB photogrammetry, DJI WPML, WebODM, Python, pytest]
+  highlights:
+    - "14.7k lines of Python, 668 automated tests"
+    - "Pre-alpha: tested on real DJI Fly files and public datasets; not yet flight-tested"
+  image: /assets/img/avispria-logo.png
+  image_alt: "Avispria logo"
+  image_fit: contain
+  repo: Avispria
+
+- id: soil-enrichment
+  title: "Anthropogenic enrichment of toxic elements in US soils"
+  period: "2026"
+  status: complete
+  tracks: [micro, geo]
+  context: "Reproducible study · USGS DS-801 · R"
+  summary: >-
+    Separates geological background from human enrichment for 7 elements at 4,857
+    sites using robust element–Al regression, enrichment factors, Igeo and
+    compositional PCA, with a Ti normaliser check.
+  methods: [Robust regression, CLR PCA, Enrichment factor, Igeo, Sensitivity analysis]
+  highlights:
+    - "Zn, Cd, Ni enrichment robust to normaliser choice"
+    - "Pb signal did not replicate with Ti and is reported as unconfirmed"
+  image: /assets/img/code-pb-residual-map.jpg
+  image_alt: "US map of Pb residuals"
+  repo: soil-metal-enrichment
+
+- id: ec50-methods
+  title: "Dose–response modelling done properly"
+  period: "2026"
+  status: complete
+  tracks: [micro]
+  context: "Reproducible methods study · R"
+  summary: >-
+    Validates EC50 fitting against a published result, then uses labelled synthetic
+    data and 12,000 simulations to show how dose and replicate design drive EC50 precision.
+  methods: [LL.4, AIC, Bootstrap CI, Simulation study]
+  highlights:
+    - "Reproduces published ryegrass ED50 exactly (3.058)"
+    - "RMSE of log-EC50: 0.21 → 0.055 from cheapest to richest design"
+  image: /assets/img/code-ec50-curves.jpg
+  image_alt: "Synthetic dose–response curves"
+  repo: dose-response-ec50
+
+- id: soil-respiration
+  title: "Climate controls on global soil respiration"
+  period: "2026"
+  status: complete
+  tracks: [geo]
+  context: "Reproducible study · SRDB · R"
+  summary: >-
+    Mixed-effects model of annual soil respiration against temperature, precipitation
+    and biome across 5,980 observations from 1,247 studies, with leave-one-study-out validation.
+  methods: [Linear mixed model, LRT, Apparent Q10, LOSO cross-validation]
+  highlights:
+    - "Biome × temperature interaction supported, but no gain in out-of-study prediction (R² ≈ 0.11)"
+  image: /assets/img/code-rs-temperature.jpg
+  image_alt: "Predicted soil respiration against temperature by biome"
+  repo: climate-controls-soil-respiration

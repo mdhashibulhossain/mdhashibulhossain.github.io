@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% assign projects = site.data.projects | where: "tracks", page.track %}
+<section class="track-hero">
+  <div class="wrap">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.heading }}</h1>
+    <p class="lede">{{ page.intro }}</p>
+    {% assign bar_label = page.scale_label %}{% assign bar_kind = page.track %}
+    {% include scale-bar.html %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="capabilities" id="capabilities">
+    {% for group in page.capabilities %}
+    <div class="cap">
+      <h2 class="cap-title">{{ group.name }}</h2>
+      <ul>{% for item in group.items %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Projects</h2>
+    <p class="muted">{{ projects | size }} projects · projects marked “bridge” also appear on the <a href="{{ '/research.html#bridge' | relative_url }}">Research page</a>.</p>
+  </div>
+  <div class="project-list">
+    {% for p in projects %}{% include project-card.html %}{% endfor %}
+  </div>
+</section>
+
+{{ content }}

@@ -1,0 +1,5 @@
+{%- comment -%} Microscope / map scale bar. Expects `bar_label` and optional `bar_kind` (micro|geo). {%- endcomment -%}
+<div class="scale-bar scale-{{ bar_kind | default: 'micro' }}" aria-hidden="true">
+  <span class="scale-ticks"><i></i><i></i><i></i><i></i></span>
+  <span class="scale-label mono">{{ bar_label }}</span>
+</div>

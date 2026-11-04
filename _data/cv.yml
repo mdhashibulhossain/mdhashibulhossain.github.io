@@ -1,0 +1,164 @@
+# Structured CV. Feeds the CV page and the home-page timeline.
+
+profile: >-
+  Forestry-trained environmental scientist working on how ecosystems respond to
+  environmental stress through two complementary paths. In the wet lab I study
+  fungal heavy-metal tolerance and bioremediation, plant pigments and nutrition,
+  and plant pathogens, using culture assays, antioxidant enzyme profiling and
+  ICP-OES. In the dry lab I use satellite remote sensing, drone photogrammetry and
+  computer vision to map vegetation, land cover and contamination risk, and I write
+  reproducible R and Python analyses. MSc (Thesis) in Forestry With Distinction;
+  currently Junior Research Scientist at CredoSense, Dhaka. Seeking a PhD that
+  links lab-measured mechanisms with landscape-scale environmental and ecological
+  questions.
+
+education:
+  - id: msc
+    degree: "MSc (Thesis) in Forestry"
+    org: "Shahjalal University of Science & Technology (SUST), Sylhet"
+    period: "Session 2022 – 2024"
+    year: "2026"
+    grade: "CGPA 3.80 / 4.00 · With Distinction · result published Feb 2026"
+    details:
+      - "Classes began Mar 2024; thesis defended Jan 2026 (schedule delayed by the 2024 campus closures)"
+      - "Thesis: tolerance, bioaccumulation and bioremediation of heavy metals in water and soil by Aspergillus niger and Trichoderma asperellum, with screening of metallo-tolerant landfill isolates"
+      - "Supervisor: Dr Mohammed Masum Ul Haque · Co-supervisor: Prof. Romel Ahmed"
+      - "Data Analysis and Visualization in R (A+); Dissertation and Thesis both A+"
+  - id: bsc
+    degree: "BSc (Honours) in Forestry"
+    org: "Shahjalal University of Science & Technology (SUST), Sylhet"
+    period: "Session 2018 – 2022"
+    year: "2024"
+    grade: "CGPA 3.43 / 4.00 · result published May 2024"
+    details:
+      - "Final examinations held Dec 2023 (schedule delayed by COVID-19)"
+      - "Final-year project (2022 – 2023): in-vitro assessment of heavy-metal tolerance of selected fungi"
+      - "Coursework: Remote Sensing and GIS, Mycology and Forest Pathology, Genetics and Tree Improvement, Research Methodology"
+
+experience:
+  - id: credosense
+    role: "Junior Research Scientist"
+    org: "CredoSense (Canada-based) · Dhaka office, Bangladesh"
+    period: "Jul 2026 – present"
+    year: "2026"
+    kind: bridge
+    details:
+      - "Machine-learning and computer-vision models that detect pathogenic fungi from microscopic spore images"
+      - "Object-detection models for greenhouse pests: curation, annotation and evaluation"
+      - "Plant pigment extraction (chlorophyll, carotenoids) and spectrophotometry"
+      - "Plant-tissue digestion and macro/micronutrient analysis by ICP-OES"
+  - id: research-associate
+    role: "Research Associate"
+    org: "Dept. of Forestry & Environmental Science, SUST"
+    period: "Jan – Dec 2025"
+    year: "2025"
+    kind: micro
+    details:
+      - "Designed and led a fungal bioremediation project, including landfill sampling and isolation"
+      - "Isolated fungi from resin-forming agarwood trees"
+      - "Operated ICP-OES independently; UV-Vis colorimetric and enzyme assays"
+      - "Statistics in R; presented at international conferences; mentored junior researchers"
+  - id: research-assistant
+    role: "Research Assistant"
+    org: "Dept. of Forestry & Environmental Science, SUST"
+    period: "Jan – Dec 2024"
+    year: "2024"
+    kind: micro
+    details:
+      - "Experiment design for plant–pathogen interaction and metal-stress studies"
+      - "Literature review, laboratory protocols, controlled sample handling"
+  - id: usaid
+    role: "Intern and Field Researcher"
+    org: "USAID Bangladesh Ecosystems / Protibesh Activity · Khadimnagar National Park"
+    period: "Jan 2024"
+    year: "2024"
+    kind: geo
+    details:
+      - "Mixed-methods study of 22 respondents on Protected Area Management Rules, 2017; analysis in R"
+
+skills:
+  - group: "Wet lab & analytical chemistry"
+    kind: micro
+    items: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction, CAT · SOD · GR assays, Aseptic culture, Serial dilution, Cryopreservation, Bioremediation microcosms, Plant pathology]
+  - group: "Statistics & code"
+    kind: bridge
+    items: [R, Python, pandas, ggplot2 / seaborn, LL.4 dose–response, Bootstrap CI, Mixed models (lme4), Cross-validation, ANOVA / Tukey, PCA · NMDS, renv · uv · Make, pytest, Git / GitHub]
+  - group: "GIS & remote sensing"
+    kind: geo
+    items: [Google Earth Engine, ArcMap 10.8, MCDA, Drone photogrammetry (WebODM), DJI WPML, Sentinel-2 / 5P, Landsat LST, MAIAC AOD, VIIRS, SRTM, Land-cover change, i-Tree]
+  - group: "Machine learning & vision"
+    kind: geo
+    items: [YOLO11 / Ultralytics, Transfer learning, Roboflow, Annotation, TensorFlow.js export, ImageJ, Microscopy image analysis]
+
+leadership:
+  - role: "G Studio Wing Chief"
+    org: "Green Explore Society, SUST · 9th Executive Committee"
+    period: "2023 – 2024"
+  - role: "Assistant Publication Secretary"
+    org: "Green Explore Society, SUST · 8th Executive Committee"
+    period: "2022 – 2023"
+  - role: "Mentor to junior researchers"
+    org: "Research Associate role, SUST"
+    period: "2025"
+
+awards:
+  - title: "MSc awarded With Distinction"
+    year: "2026"
+  - title: "National Eco Olympiad — National Round"
+    year: "2025"
+  - title: "Bangladesh Physics Olympiad — Regional round"
+    year: "2018"
+  - title: "Bangladesh Chemistry Olympiad — Preliminary rounds (7th, 8th)"
+    year: "2017 – 2018"
+  - title: "Bangladesh Mathematical Olympiad — Regional round"
+    year: "2017"
+  - title: "Bangladesh Botany Olympiad — Participant"
+    year: "2017"
+
+languages:
+  - name: "English"
+    level: "IELTS Academic 7.5 · CEFR C1"
+  - name: "Bengali"
+    level: "Native"
+
+referees:
+  - name: "Dr Mohammed Masum Ul Haque"
+    title: "Associate Professor, Forestry & Environmental Science, SUST"
+    relation: "BSc and MSc supervisor"
+  - name: "Prof. Romel Ahmed"
+    title: "Professor, Forestry & Environmental Science, SUST"
+    relation: "MSc co-supervisor"
+  # TODO add CredoSense supervisor
+
+# Home-page timeline, oldest first. Each step links to its CV entry.
+journey:
+  - year: "2018"
+    label: "BSc Forestry, SUST"
+    note: "Mycology, pathology, remote sensing coursework"
+    url: /cv.html#bsc
+    kind: micro
+  - year: "2023"
+    label: "First posters"
+    note: "Fungal bioaccumulation; mycorrhizal carbon"
+    url: /publications.html#poster-forest-day-2023
+    kind: micro
+  - year: "2024"
+    label: "Research Assistant + USAID field study"
+    note: "Metal-stress experiments; protected-area survey"
+    url: /cv.html#research-assistant
+    kind: micro
+  - year: "2025"
+    label: "Leads a bioremediation project"
+    note: "Research Associate; ICP-OES; Python & ML training"
+    url: /cv.html#research-associate
+    kind: bridge
+  - year: "2026"
+    label: "MSc (Thesis) With Distinction"
+    note: "Satellite-guided sampling meets fungal assays"
+    url: /cv.html#msc
+    kind: geo
+  - year: "2026"
+    label: "Industry research, CredoSense"
+    note: "Spore and pest detection, plant analytics (Dhaka)"
+    url: /cv.html#credosense
+    kind: bridge

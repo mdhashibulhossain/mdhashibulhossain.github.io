@@ -1,0 +1,61 @@
+# "How I write research code" — each practice links to a real file as proof.
+- id: validate
+  title: "Validate before trusting"
+  text: "Fitting code must reproduce a published result before it touches new data."
+  repo: dose-response-ec50
+  path: "/blob/HEAD/scripts/00_reproduce_drc_vignette.R"
+- id: prereg
+  title: "Predictions written first"
+  text: "Per-element hypotheses committed before the analysis ran."
+  repo: soil-metal-enrichment
+  path: "/blob/HEAD/docs/element_notes.md"
+- id: synthetic
+  title: "Synthetic data labelled everywhere"
+  text: "Known ground truth for testing estimators, never presented as biology."
+  repo: dose-response-ec50
+  path: "/blob/HEAD/docs/data_provenance.md"
+- id: sensitivity
+  title: "Sensitivity analyses reported, even when they hurt"
+  text: "Pb enrichment failed the Ti check and is reported as unconfirmed."
+  repo: soil-metal-enrichment
+  path: "/blob/HEAD/results/tables/sensitivity_al_vs_ti.csv"
+- id: cv
+  title: "Out-of-sample checks"
+  text: "Leave-one-study-out CV across 1,247 studies, 2,494 refits."
+  repo: climate-controls-soil-respiration
+  path: "/blob/HEAD/scripts/13_loso_cross_validation.R"
+- id: decisions
+  title: "Decisions logged with reasons"
+  text: "Bugs and design flaws documented, not quietly patched."
+  repo: dose-response-ec50
+  path: "/blob/HEAD/docs/decisions.md"
+- id: tests
+  title: "Automated tests"
+  text: "Shape, NaN-leakage and seed checks in R; 668 pytest tests in Avispria."
+  repo: Avispria
+  path: "/tree/HEAD/tests"
+- id: lockfile
+  title: "Pinned environments"
+  text: "renv.lock for R projects, uv.lock for Python."
+  repo: soil-metal-enrichment
+  path: "/blob/HEAD/renv.lock"
+- id: make
+  title: "One command to reproduce"
+  text: "make all rebuilds every table and figure."
+  repo: climate-controls-soil-respiration
+  path: "/blob/HEAD/Makefile"
+- id: citation
+  title: "Citable"
+  text: "CITATION.cff in each repo, crediting upstream data and packages."
+  repo: soil-metal-enrichment
+  path: "/blob/HEAD/CITATION.cff"
+- id: adr
+  title: "Architecture decision records"
+  text: "Design choices recorded as ADRs."
+  repo: Avispria
+  path: "/tree/HEAD/docs/adr"
+- id: disclaimer
+  title: "Honest status"
+  text: "Safety disclaimer and 'not yet flight-tested' stated up front."
+  repo: Avispria
+  path: "/blob/HEAD/DISCLAIMER.md"
