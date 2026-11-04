@@ -2,12 +2,6 @@
 
 Jekyll site for GitHub Pages. Full design rationale and launch checklist: `BLUEPRINT.md`.
 
-## Deploy (about 10 minutes)
-1. On GitHub create a public repo named exactly **`mdhashibulhossain.github.io`** (inside the mdhashibulhossain account or organisation).
-2. Upload the contents of this folder (keep the folder structure) or `git push` it.
-3. Repo → **Settings → Pages** → Source: *Deploy from a branch*, Branch: `main` / root → Save.
-4. Visit https://mdhashibulhossain.github.io after 1–2 minutes.
-
 ## Update content (no HTML)
 | To change | Edit |
 |---|---|
