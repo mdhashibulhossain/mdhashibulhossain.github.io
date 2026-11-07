@@ -66,6 +66,7 @@ experience:
     kind: micro
     details:
       - "Experiment design for plant–pathogen interaction and metal-stress studies"
+      - "Ran seed-susceptibility tests against fungi"
       - "Literature review, laboratory protocols, controlled sample handling"
   - id: usaid
     role: "Intern and Field Researcher"
@@ -76,10 +77,32 @@ experience:
     details:
       - "Mixed-methods study of 22 respondents on Protected Area Management Rules, 2017; analysis in R"
 
+# Fieldwork section on the CV page (after Research experience).
+fieldwork:
+  - label: "11 sites"
+    title: "Agarwood plantation survey"
+    text: "Surveyed 11 plantations alone in about 10 days; soil sampling and tree inventory in plots covering 5% of plantation area"
+    url: /microbiology.html#agarwood
+  - label: "Camera traps"
+    title: "Camera-trap study"
+    text: "Chose camera-trap sites for nocturnal carnivores from food-resource distribution; mapped and analysed detections in GIS"
+    url: /publications.html#ms-carnivore-refugia
+  - label: "Landfill"
+    title: "Landfill rhizosphere sampling"
+    text: "GIS-selected site; 7 root-zone soil and 3 water samples; aseptic collection, cold transport, −80 °C storage"
+    url: /microbiology.html#landfill-isolates
+  - label: "Forest types"
+    title: "Forest types worked in"
+    text: "Hill forest (Sylhet, Chittagong Hill Tracts), sal forest (Madhupur), mangrove (Sundarbans)"
+    url: ""
+
 skills:
   - group: "Wet lab & analytical chemistry"
     kind: micro
     items: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction, CAT · SOD · GR assays, Aseptic culture, Serial dilution, Cryopreservation, Bioremediation microcosms, Plant pathology]
+  - group: "Molecular"
+    kind: micro
+    items: ["DNA extraction (fungi, bacteria)", "PCR: ITS and 18S markers", BLAST, Phylogenetic analysis, "FastQC on NCBI sequence data", "ITS identification of DMFT1–7 (in progress)"]
   - group: "Statistics & code"
     kind: bridge
     items: [R, Python, pandas, ggplot2 / seaborn, LL.4 dose–response, Bootstrap CI, Mixed models (lme4), Cross-validation, ANOVA / Tukey, PCA · NMDS, renv · uv · Make, pytest, Git / GitHub]
@@ -128,6 +151,9 @@ referees:
   - name: "Prof. Romel Ahmed"
     title: "Professor, Forestry & Environmental Science, SUST"
     relation: "MSc co-supervisor"
+  - name: "Prof. Kazi Mohammad Masum"
+    title: "Professor, Forestry & Environmental Science, SUST"
+    relation: "Collaborator on the camera-trap manuscript and another ongoing paper"
   # TODO add CredoSense supervisor
 
 # Home-page timeline, oldest first. Each step links to its CV entry.

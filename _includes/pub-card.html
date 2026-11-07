@@ -14,6 +14,7 @@
     <h3 class="pub-title">{{ pub.title }}</h3>
     <p class="authors">{{ pub.authors | replace: "Hossain, M.H.", "<strong>Hossain, M.H.</strong>" }}</p>
     {% if pub.venue != "" %}<p class="venue">{{ pub.venue }}</p>{% endif %}
+    {% if pub.role %}<p class="pub-role small"><strong>My role:</strong> {{ pub.role }}</p>{% endif %}
     <p class="actions">
       {% if pub.doi != "" %}<a class="doi-badge" href="https://doi.org/{{ pub.doi }}"><span>DOI</span>{{ pub.doi }}</a>{% endif %}
       {% if pub.researchgate and pub.researchgate != "" %}<a class="btn btn-quiet" href="{{ pub.researchgate }}">ResearchGate</a>{% endif %}

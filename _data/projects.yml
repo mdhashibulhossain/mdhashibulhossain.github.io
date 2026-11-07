@@ -35,10 +35,13 @@
   summary: >-
     GIS-chosen sampling site, 10 field samples (7 soil, 3 water), bioavailable metals by
     ICP-OES, and isolation of 27 morphotypes by serial dilution.
-  methods: [Field sampling, ICP-OES, Serial dilution, −80 °C cryostorage, Selective media]
+  methods: [Field sampling, ICP-OES, Serial dilution, −80 °C cryostorage, Selective media, ITS PCR, Spore suspensions]
   highlights:
     - "27 morphologically distinct isolates recovered"
     - "7 isolates (DMFT1–7) viable on 500 mg/L Cr and As"
+    - "ITS-based identification in progress"
+    - "Factorial assays of up to 210 plates in one day (7 fungi × 2 metals × 5 concentrations × 3 replicates)"
+    - "Prepared and counted spore suspensions to inoculate soil in an ongoing study of the 7 isolates"
     - "Planned safety screen: brine-shrimp lethality and seed susceptibility"
   image: /assets/img/fig-study-area.jpg
   image_alt: "Satellite map of Lalmatia waste dump with sampling points and locator maps of Sylhet"
@@ -76,12 +79,32 @@
 
 - id: agarwood
   title: "Fungal associations of resin-forming agarwood"
-  period: "2025"
-  status: complete
+  period: "2025 – present"
+  status: ongoing
   tracks: [micro]
   context: "Research Associate · SUST"
   summary: "Isolation of fungi from resin-forming Aquilaria trees to study fungus–plant associations."
-  methods: [Aseptic isolation, Morphological screening]
+  methods: [Field survey, Soil sampling, Tree inventory, Aseptic isolation, Morphological screening]
+  highlights:
+    - "Isolated fungi from resinous wood and helped inoculate living agarwood trees (results pending)"
+    - "Surveyed 11 agarwood plantations alone in about 10 days"
+    - "Soil sampling and tree inventory in plots covering 5% of plantation area"
+    - "Sites: Sitakunda Eco Park (Chattogram); Kaiacchera Tea Estate (Fatikchhari, Chattogram); Karnafuli Tea Estate (Khagrachari); Kaptai National Park; Borduara Forest Beat (Bandarban); Holudia Forest Beat (Bandarban); Harbang (Chakaria, Cox's Bazar); Fasiakhali Wildlife Sanctuary (Cox's Bazar); Sagordighi Beat, Dholapara Range (Tangail); Dokhola Range (Madhupur, Tangail); Jolchatra (Madhupur, Tangail)"
+
+# 2 mycorrhizal culture card (species names pending your confirmation)
+- id: mycorrhizal-dipterocarp
+  title: "Mycorrhizal fungi of dipterocarp forest trees"
+  period: "2024"
+  status: ""
+  tracks: [micro, bridge]
+  context: "Culture work · SUST"
+  summary: >-
+    Cultured fungi from fruit bodies associated with telsur (<em>Hopea odorata</em>)
+    and garjan (<em>Dipterocarpus</em>) on MMN medium.
+  methods: [Fruit-body tissue culture, MMN medium, Aseptic culture]
+  links:
+    - label: "2023 poster: mycorrhizal carbon sequestration"
+      url: /publications.html#poster-mycorrhizal-2023
 
 - id: spore-detection
   featured: true

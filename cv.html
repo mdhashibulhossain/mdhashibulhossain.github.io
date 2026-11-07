@@ -44,7 +44,7 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
 <div class="wrap cv-grid">
   <nav class="cv-toc" aria-label="CV sections">
     <p class="col-label mono">Sections</p>
-    <a href="#profile">Profile</a><a href="#education">Education</a><a href="#experience">Experience</a>
+    <a href="#profile">Profile</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#fieldwork">Fieldwork</a>
     <a href="#projects">Research projects</a><a href="#software">Research software</a><a href="#publications">Publications</a><a href="#skills">Skills</a>
     <a href="#training">Training</a><a href="#leadership">Leadership</a><a href="#awards">Awards</a>
     <a href="#languages">Languages</a><a href="#referees">Referees</a><a href="#contact">Contact</a>
@@ -87,6 +87,13 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
         </li>
         {% endfor %}
       </ol>
+    </section>
+
+    <section class="cv-sec" id="fieldwork">
+      <h2>Fieldwork</h2>
+      <ul class="cv-rows">
+        {% for f in C.fieldwork %}<li><span class="cv-when mono">{{ f.label }}</span><span>{% if f.url != "" %}<a href="{{ f.url | relative_url }}"><strong>{{ f.title }}</strong></a>{% else %}<strong>{{ f.title }}</strong>{% endif %}<span class="muted"> · {{ f.text }}</span></span></li>{% endfor %}
+      </ul>
     </section>
 
     <section class="cv-sec" id="projects">

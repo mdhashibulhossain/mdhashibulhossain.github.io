@@ -7,8 +7,8 @@
   {% endif %}
   <div class="project-body">
     <p class="meta">
-      <span class="status status-{{ p.status }}">{{ p.status }}</span>
-      <span class="mono">{{ p.period }}</span>
+      {% if p.status != "" %}<span class="status status-{{ p.status }}">{{ p.status }}</span>{% endif %}
+      {% if p.period != "" %}<span class="mono">{{ p.period }}</span>{% endif %}
       {% for t in p.tracks %}<span class="track-chip chip-{{ t }}">{% if t == "micro" %}Microbiology{% elsif t == "geo" %}Geospatial{% else %}Bridge{% endif %}</span>{% endfor %}
     </p>
     <h3>{{ p.title }}</h3>

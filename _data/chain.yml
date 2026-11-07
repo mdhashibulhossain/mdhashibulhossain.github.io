@@ -29,6 +29,8 @@
       url: /microbiology.html#credosense-lab
     - label: "Plant pathology & agarwood fungi"
       url: /research.html#pathology
+    - label: "Mycorrhizal fungi of dipterocarps"
+      url: /microbiology.html#mycorrhizal-dipterocarp
     - label: "Mycorrhizae & soil carbon (poster)"
       url: /publications.html#poster-mycorrhizal-2023
 
@@ -61,7 +63,7 @@
       url: /code.html#repo-climate-controls-soil-respiration
     - label: "Urban green-space suitability"
       url: /publications.html#ms-urban-green-sylhet
-    - label: "Urban carnivore refugia (camera traps)"
+    - label: "Carnivore refugia: camera-trap siting & GIS"
       url: /publications.html#ms-carnivore-refugia
     - label: "Protected-area field study (USAID)"
       url: /cv.html#usaid

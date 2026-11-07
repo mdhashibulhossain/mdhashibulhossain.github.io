@@ -30,6 +30,8 @@
       url: /microbiology.html#agarwood
     - label: "Biocontrol of fungal pathogens, SUST"
       url: /cv.html#research-associate
+    - label: "Seed-susceptibility tests against fungi (2024)"
+      url: /cv.html#research-assistant
   next: "Detection models validated against culture-based identification, built for routine screening."
 
 - id: physiology
@@ -52,6 +54,8 @@
   methods: "soil · carbon · fungi"
   question: "How much do mycorrhizal fungi contribute to carbon storage in forest soils?"
   done:
+    - label: "Mycorrhizal fungi of telsur and garjan cultured on MMN medium"
+      url: /microbiology.html#mycorrhizal-dipterocarp
     - label: "Poster: mycorrhizal role in soil carbon sequestration (2023)"
       url: /publications.html#poster-mycorrhizal-2023
     - label: "Code: climate controls on global soil respiration (1,247 studies)"
