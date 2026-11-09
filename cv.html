@@ -12,12 +12,12 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
   <div class="wrap cv-head-grid">
     <div class="cv-id">
       <div class="hero-id">
-        {% if P.photo != "" %}<img class="portrait portrait-cv" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="128" height="128">{% endif %}
-        <div>
-          <p class="eyebrow">Curriculum vitae</p>
-          <h1>{{ P.name }}</h1>
-        </div>
+        <p class="eyebrow">Curriculum vitae</p>
+        <h1>{{ P.name }}</h1>
       </div>
+      <div class="hero-deck">
+        {% if P.photo != "" %}<img class="portrait" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="400" height="400">{% endif %}
+        <div class="cv-deck-text">
       <p class="cv-role">{{ P.role }}</p>
       <ul class="cv-contact-row">
         <li><span class="mono">Email</span> {{ P.email }}</li>
@@ -27,6 +27,8 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
         <li><a href="{{ P.links.github }}">GitHub</a></li>
         {% if P.links.orcid != "" %}<li><a href="https://orcid.org/{{ P.links.orcid }}">ORCID</a></li>{% endif %}
       </ul>
+        </div>
+      </div>
     </div>
     <div class="cv-facts">
       <a href="#msc"><span class="metric-value">3.80<small>/4.00</small></span><span class="metric-label">MSc (Thesis), With Distinction</span></a>

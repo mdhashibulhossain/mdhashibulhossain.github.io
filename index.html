@@ -16,13 +16,13 @@ description: "Md Hashibul Hossain: environmental scientist (MSc Forestry) workin
   <div class="wrap hero-grid">
     <div class="hero-text">
       <div class="hero-id">
-        {% if P.photo != "" %}<img class="portrait" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="112" height="112">{% endif %}
-        <div>
-          <p class="eyebrow">Junior Research Scientist at CredoSense, Dhaka · MSc (Thesis) in Forestry, SUST</p>
-          <h1 class="hero-name">{{ P.name }}</h1>
-        </div>
+        <p class="eyebrow">Junior Research Scientist at CredoSense, Dhaka · MSc (Thesis) in Forestry, SUST</p>
+        <h1 class="hero-name">{{ P.name }}</h1>
       </div>
-      <p class="hero-tagline">{{ P.tagline }}</p>
+      <div class="hero-deck">
+        {% if P.photo != "" %}<img class="portrait" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="400" height="400">{% endif %}
+        <p class="hero-tagline">{{ P.tagline }}</p>
+      </div>
       <ul class="proof" aria-label="At a glance">
         <li><a href="{{ '/microbiology.html#capabilities' | relative_url }}" class="proof-micro">ICP-OES operator</a></li>
         <li><a href="{{ '/microbiology.html#msc-thesis' | relative_url }}" class="proof-micro">Fungal dose–response</a></li>
