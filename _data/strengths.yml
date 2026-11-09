@@ -12,9 +12,9 @@
   url: /microbiology.html#landfill-isolates
 - kind: geo
   label: "Research software"
-  headline: "Wrote a 14.7k-line drone mapping toolkit"
-  evidence: "Avispria plans DJI missions, checks photo overlap and drives WebODM; 668 automated tests, open source."
-  url: /code.html#avispria
+  headline: "Wrote a 17.9k-line drone mapping and canopy toolkit"
+  evidence: "Dīvi plans DJI missions, checks photos, drives WebODM and measures canopy height and tree crowns; 1,053 automated tests, open source."
+  url: /code.html#divi
 - kind: geo
   label: "Earth observation"
   headline: "Fused 6 satellite sensors on one 500 m grid"

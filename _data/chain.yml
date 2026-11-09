@@ -39,12 +39,12 @@
   name: "Canopy"
   kind: geo
   line: "Tree crowns and vegetation cover from drones"
-  url: /code.html#avispria
+  url: /code.html#divi
   question: "Can low-cost drones measure canopy structure and change reliably?"
   link: "canopy shapes soil carbon and habitat"
   evidence:
-    - label: "Avispria drone mapping toolkit"
-      url: /code.html#avispria
+    - label: "Dīvi: canopy height and tree crowns from drones"
+      url: /code.html#divi
     - label: "YOLO11 leaf detection"
       url: /geospatial.html#yolo-leaf
     - label: "i-Tree urban tree inventory"

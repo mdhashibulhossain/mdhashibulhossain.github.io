@@ -102,7 +102,7 @@ skills:
     items: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction, CAT · SOD · GR assays, Aseptic culture, Serial dilution, Cryopreservation, Bioremediation microcosms, Plant pathology]
   - group: "Molecular"
     kind: micro
-    items: ["DNA extraction (fungi, bacteria)", "PCR: ITS and 18S markers", BLAST, Phylogenetic analysis, "FastQC on NCBI sequence data", "ITS identification of DMFT1–7 (in progress)"]
+    items: ["DNA extraction (fungi, bacteria)", "PCR: ITS and 18S markers", BLAST, Phylogenetic analysis, "FastQC on NCBI sequence data", "ITS identification of DMFT1–7 (in progress)", "Comparative genomics: DIAMOND, Mash"]
   - group: "Statistics & code"
     kind: bridge
     items: [R, Python, pandas, ggplot2 / seaborn, LL.4 dose–response, Bootstrap CI, Mixed models (lme4), Cross-validation, ANOVA / Tukey, PCA · NMDS, renv · uv · Make, pytest, Git / GitHub]

@@ -4,41 +4,47 @@
 # everything else here is the fallback and the curated story.
 # `practices` keys must match _data/practices.yml ids.
 
-- name: Avispria
+- name: Divi
   kind: flagship
   track: geo
-  title: "Avispria: drone mapping toolkit for researchers"
-  tagline: "Canopy structure and change, seen from above."
-  logo: /assets/img/avispria-logo.png
-  logo_dark: /assets/img/avispria-logo-dark.png
-  description: "Free, offline-first toolkit for mapping with consumer RGB drones: plan DJI Fly missions with predicted resolution and overlap over real terrain, check photo overlap from metadata before processing, build orthophotos, surface models and point clouds with WebODM, and carry a no-signal field page on your phone."
+  title: "Dīvi: drone mapping and canopy analysis for researchers"
+  display_name: "Dīvi"
+  tagline: "Fly. Analyze. Decide."
+  former_name: "Avispria"
+  logo: /assets/img/divi-logo.png
+  logo_dark: /assets/img/divi-logo-dark.png
+  description: "Free, offline-first toolkit for mapping with consumer RGB drones (formerly Avispria). It plans DJI Fly missions for flat maps, 3D models of an area or of a single tree, sends them to the phone, checks the photos before processing, builds orthophotos, surface models and point clouds with WebODM, and then measures canopy height, cover, gaps and single tree crowns."
   parts:
     - title: "Plan a flight"
-      text: "DJI Fly (WPML) missions with terrain-aware GSD and overlap prediction"
-    - title: "Check your photos"
-      text: "EXIF/XMP overlap QA that finds weak spots before processing"
+      text: "DJI Fly missions for flat maps, 3D areas or object scans, with terrain-aware resolution and overlap prediction"
+    - title: "Send to DJI Fly"
+      text: "Missions go straight to the Android phone over USB or Wi-Fi"
+    - title: "Check the photos"
+      text: "Overlap, blur, shutter speed, hovering repeats and sun angle, flagged before processing"
     - title: "Make maps"
-      text: "Orthophoto, DSM and point cloud via WebODM, with a processing record"
-    - title: "Field page"
-      text: "Offline checklists, calculators and flight log for the phone"
+      text: "Orthophoto, surface model and point cloud via WebODM, with a processing record"
+    - title: "Analyse"
+      text: "Canopy height model, cover, gaps, single tree crowns with dieback candidates, and land cover for forest, farm or town"
   stats:
-    - value: "14.7k"
+    - value: "17.9k"
       label: "lines of Python"
-    - value: "668"
+    - value: "1,053"
       label: "automated tests"
-    - value: "68"
+    - value: "80"
       label: "test modules"
-  stack: [Python 3.12, uv, Typer, Shapely, pyproj, rasterio, lxml, WebODM, pytest]
+  stack: [Python 3.12, uv, Typer, NiceGUI, Shapely, pyproj, rasterio, SciPy, lxml, WebODM, pytest]
   license: AGPL-3.0
   language: Python
-  status: "Pre-alpha · not yet flight-tested"
-  status_note: "Planning and photo checks are tested against real DJI Fly files and public datasets; no Avispria mission has been flown yet."
-  practices: [tests, lockfile, adr, citation, disclaimer]
+  status: "Early version · one test flight"
+  status_note: "First test flight with a DJI Lito X1 (73 waypoints, 79 photos; maps built from 67). It was flown at sunset, so its canopy and crown results are not yet reliable; more flights are needed."
+  practices: [tests, lockfile, honest, citation, disclaimer]
   links:
     - label: "Install guide"
       path: "#install-and-run"
-    - label: "Architecture decisions"
-      path: "/tree/HEAD/docs/adr"
+    - label: "Field guides"
+      path: "/tree/HEAD/docs/field"
+    - label: "Canopy analysis"
+      path: "/blob/HEAD/docs/field/canopy.md"
 
 - name: dose-response-ec50
   kind: analysis
@@ -103,6 +109,27 @@
       path: "/blob/HEAD/docs/methods.md"
     - label: "Data provenance"
       path: "/blob/HEAD/docs/data_provenance.md"
+
+- name: metal-resistance-genes-environment
+  kind: analysis
+  track: micro
+  title: "Metal-resistance genes in bacteria from contaminated vs reference environments"
+  question: "Do Pseudomonas genomes from metal-contaminated sites carry more metal-resistance genes than reference genomes, and does the association survive shared ancestry and shared sampling site?"
+  finding: "Contaminated genomes carry about 4% more metal-resistance genes per 1,000 proteins (rate ratio 1.039, 95% CI 0.996–1.083). Significant with HC1-robust errors (p = 0.030) but not once clustered by sampling site (p = 0.119) or clade (p = 0.076): 84 genomes cannot confirm the effect."
+  data: "84 NCBI RefSeq Pseudomonas genomes (59 contaminated, 25 reference, 48 sites) × BacMet 2.0, 485 metal-resistance genes"
+  methods: [DIAMOND blastp, Mash distance clades, BioSample text classification, Poisson / NB GLM, Cluster-robust SE, Manual label review]
+  figure: /assets/img/code-mrg-gene-content.jpg
+  figure_alt: "Metal-resistance genes per 1,000 proteins in 25 reference and 59 contaminated Pseudomonas genomes"
+  scripts: 13
+  stack: [Python 3.12, DIAMOND, Mash, NCBI datasets, statsmodels, pandas, Make]
+  license: MIT
+  language: Python
+  practices: [nonindep, decisions, tests, make, citation]
+  links:
+    - label: "Methods"
+      path: "/blob/HEAD/docs/methods.md"
+    - label: "Decisions log"
+      path: "/blob/HEAD/docs/decisions.md"
 
 - name: dose-time-metallotolerance-fungi
   kind: course

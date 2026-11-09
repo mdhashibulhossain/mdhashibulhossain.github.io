@@ -25,7 +25,7 @@
     </ul>
     {% endif %}
     <p class="actions">
-      {% if p.repo %}<a class="btn btn-quiet" href="https://github.com/{{ site.data.profile.links.github_user }}/{{ p.repo }}">GitHub repository</a><a class="btn btn-quiet" href="{{ '/code.html' | relative_url }}#{% if p.repo == 'Avispria' %}avispria{% else %}repo-{{ p.repo }}{% endif %}">Code notes</a>{% endif %}
+      {% if p.repo %}<a class="btn btn-quiet" href="https://github.com/{{ site.data.profile.links.github_user }}/{{ p.repo }}">GitHub repository</a><a class="btn btn-quiet" href="{{ '/code.html' | relative_url }}#{% if p.repo == 'Divi' %}divi{% else %}repo-{{ p.repo }}{% endif %}">Code notes</a>{% endif %}
       {% for l in p.links %}{% if l.url != "" %}<a class="btn btn-quiet" href="{{ l.url | relative_url }}">{{ l.label }}</a>{% endif %}{% endfor %}
     </p>
   </div>

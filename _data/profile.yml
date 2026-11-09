@@ -16,8 +16,9 @@ bio: >-
   profiling and a GIS multi-criteria workflow on Sentinel, Landsat and VIIRS data
   to choose where to sample metal-tolerant fungi. At CredoSense I now build models
   that detect pathogenic fungi from microscopic spore images while running
-  ICP-OES nutrient and pigment analysis in the lab, and I am building Avispria,
-  an open-source toolkit for mapping canopy and vegetation with consumer drones.
+  ICP-OES nutrient and pigment analysis in the lab, and I am building Dīvi
+  (formerly Avispria), an open-source toolkit for mapping canopy and vegetation with
+  consumer drones.
 
 seeking: "PhD positions and research roles in environmental microbiology, plant pathology and plant–soil ecology, and in drone, satellite and computer-vision methods for vegetation and ecosystems, and fungal–plant–animal interactions in tropical forest restoration."
 

@@ -183,25 +183,27 @@
     - "Landsat 8 imagery, supervised classification in ArcMap, 2013–2023"
 
 # ── Software and reproducible studies (also on the Code page) ──
-- id: avispria
+- id: divi
   featured: true
-  title: "Avispria: offline drone mapping toolkit"
+  title: "Dīvi: offline drone mapping and canopy analysis"
   period: "2026 – present"
   status: ongoing
   tracks: [geo, bridge]
   context: "Open-source software · Python · AGPL-3.0"
   summary: >-
     Plans DJI Fly missions with terrain-aware resolution and overlap prediction,
-    checks photo overlap before processing, and builds orthophotos, surface models
-    and point clouds with WebODM.
-  methods: [UAV RGB photogrammetry, DJI WPML, WebODM, Python, pytest]
+    checks photos before processing, builds orthophotos, surface models and point
+    clouds with WebODM, and measures canopy height, cover, gaps and tree crowns.
+    Formerly Avispria.
+  methods: [UAV RGB photogrammetry, DJI WPML, WebODM, Canopy height model, Crown segmentation, Python, pytest]
   highlights:
-    - "14.7k lines of Python, 668 automated tests"
-    - "Pre-alpha: tested on real DJI Fly files and public datasets; not yet flight-tested"
-  image: /assets/img/avispria-logo.png
-  image_alt: "Avispria logo"
+    - "17.9k lines of Python, 1,053 automated tests"
+    - "First test flight with a DJI Lito X1: 73 waypoints, 79 photos, maps built from 67"
+    - "Early version: that flight was at sunset, so canopy and crown results are not yet reliable"
+  image: /assets/img/divi-logo.png
+  image_alt: "Dīvi logo"
   image_fit: contain
-  repo: Avispria
+  repo: Divi
 
 - id: soil-enrichment
   title: "Anthropogenic enrichment of toxic elements in US soils"
@@ -220,6 +222,24 @@
   image: /assets/img/code-pb-residual-map.jpg
   image_alt: "US map of Pb residuals"
   repo: soil-metal-enrichment
+
+- id: metal-genes
+  title: "Metal-resistance genes and contaminated environments"
+  period: "2026"
+  status: complete
+  tracks: [micro]
+  context: "Reproducible comparative-genomics study · Python"
+  summary: >-
+    Scans 84 Pseudomonas genomes against 485 metal-resistance genes with DIAMOND and
+    tests whether contaminated-site isolates carry more of them, with errors clustered
+    by sampling site and by Mash-derived clade.
+  methods: [DIAMOND, Mash, BacMet 2.0, Poisson GLM, Cluster-robust SE]
+  highlights:
+    - "Rate ratio 1.039: p = 0.030 with HC1-robust errors, 0.119 clustered by site, 0.076 by clade"
+    - "Reported as not confirmed in this sample, not as no effect"
+  image: /assets/img/code-mrg-gene-content.jpg
+  image_alt: "Metal-resistance genes per 1,000 proteins in reference and contaminated Pseudomonas genomes"
+  repo: metal-resistance-genes-environment
 
 - id: ec50-methods
   title: "Dose–response modelling done properly"

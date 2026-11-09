@@ -4,7 +4,7 @@ title: "Code"
 permalink: /code.html
 github: true
 track: code
-description: "Open-source code by Md Hashibul Hossain: the Avispria drone mapping toolkit and reproducible R studies on EC50, soil metals and soil respiration."
+description: "Open-source code by Md Hashibul Hossain: the Dīvi drone mapping toolkit and reproducible studies on EC50, soil metals, metal-resistance genes and soil respiration."
 ---
 {% assign L = site.data.profile.links %}
 {% assign gh = L.github_user %}
@@ -15,11 +15,11 @@ description: "Open-source code by Md Hashibul Hossain: the Avispria drone mappin
   <div class="wrap">
     <p class="eyebrow">Open source · github.com/{{ gh }}</p>
     <h1>Research code</h1>
-    <p class="lede">A drone-mapping toolkit and three fully reproducible R studies, each with a stated hypothesis, pinned environment, tests and a decisions log. Stars, forks and last-push dates load live from GitHub.</p>
+    <p class="lede">A drone-mapping and canopy toolkit and four fully reproducible studies in R and Python, each with a stated hypothesis, pinned environment, tests and a decisions log. Stars, forks and last-push dates load live from GitHub.</p>
     <ul class="code-stats" aria-label="Summary">
-      <li><a href="#avispria"><strong>14.7k</strong><span>lines of Python in Avispria</span></a></li>
-      <li><a href="#avispria"><strong>668</strong><span>automated tests</span></a></li>
-      <li><a href="#analyses"><strong>3</strong><span>reproducible R studies</span></a></li>
+      <li><a href="#divi"><strong>17.9k</strong><span>lines of Python in Dīvi</span></a></li>
+      <li><a href="#divi"><strong>1,053</strong><span>automated tests</span></a></li>
+      <li><a href="#analyses"><strong>{{ analyses | size }}</strong><span>reproducible research studies</span></a></li>
       <li><a href="#practices"><strong>{{ site.data.practices | size }}</strong><span>reproducibility practices, each linked to proof</span></a></li>
     </ul>
     <p class="actions"><a class="btn btn-solid" href="{{ L.github }}">GitHub profile</a><a class="btn" href="#practices">How I write research code</a></p>
@@ -29,7 +29,7 @@ description: "Open-source code by Md Hashibul Hossain: the Avispria drone mappin
 <!-- Flagship ────────────────────────────────────────────────────── -->
 {% for r in flag %}
 {% assign base = "https://github.com/" | append: gh | append: "/" | append: r.name %}
-<section class="wrap section" id="avispria">
+<section class="wrap section" id="divi"><span id="avispria"></span>
   <article class="flagship repo" data-repo="{{ gh }}/{{ r.name }}">
     <div class="flag-text">
       <div class="flag-id">
@@ -37,7 +37,7 @@ description: "Open-source code by Md Hashibul Hossain: the Avispria drone mappin
         <img class="flag-logo only-dark" src="{{ r.logo_dark | relative_url }}" alt="" width="64" height="58">
         <div>
           <p class="eyebrow">Flagship software · drone photogrammetry</p>
-          <h2><a href="{{ base }}">{{ r.name }}</a></h2>
+          <h2><a href="{{ base }}">{{ r.display_name | default: r.name }}</a></h2>{% if r.former_name %}<p class="muted small">Formerly {{ r.former_name }}</p>{% endif %}
           <p class="flag-tagline">{{ r.tagline }}</p>
         </div>
       </div>

@@ -31,8 +31,8 @@
   path: "/blob/HEAD/docs/decisions.md"
 - id: tests
   title: "Automated tests"
-  text: "Shape, NaN-leakage and seed checks in R; 668 pytest tests in Avispria."
-  repo: Avispria
+  text: "Shape, NaN-leakage and seed checks in R and Python; 1,053 pytest tests in Dīvi."
+  repo: Divi
   path: "/tree/HEAD/tests"
 - id: lockfile
   title: "Pinned environments"
@@ -49,13 +49,18 @@
   text: "CITATION.cff in each repo, crediting upstream data and packages."
   repo: soil-metal-enrichment
   path: "/blob/HEAD/CITATION.cff"
-- id: adr
-  title: "Architecture decision records"
-  text: "Design choices recorded as ADRs."
-  repo: Avispria
-  path: "/tree/HEAD/docs/adr"
+- id: nonindep
+  title: "Pseudoreplication checked"
+  text: "A p = 0.03 effect re-tested with errors clustered by site and clade; reported as not confirmed."
+  repo: metal-resistance-genes-environment
+  path: "/blob/HEAD/scripts/11_fit_glm.py"
+- id: honest
+  title: "Field lessons written down"
+  text: "What the first real drone flight got wrong, and the camera settings that fix it, written into the field guide."
+  repo: Divi
+  path: "/blob/HEAD/docs/field/first-test-flight.md"
 - id: disclaimer
   title: "Honest status"
-  text: "Safety disclaimer and 'not yet flight-tested' stated up front."
-  repo: Avispria
+  text: "Safety disclaimer and early-version status stated up front."
+  repo: Divi
   path: "/blob/HEAD/DISCLAIMER.md"

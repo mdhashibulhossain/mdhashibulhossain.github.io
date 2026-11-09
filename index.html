@@ -28,7 +28,7 @@ description: "Md Hashibul Hossain: environmental scientist (MSc Forestry) workin
         <li><a href="{{ '/microbiology.html#msc-thesis' | relative_url }}" class="proof-micro">Fungal dose–response</a></li>
         <li><a href="{{ '/geospatial.html#gis-mcda' | relative_url }}" class="proof-geo">Google Earth Engine</a></li>
         <li><a href="{{ '/geospatial.html#spore-detection' | relative_url }}" class="proof-geo">YOLO / spore vision</a></li>
-        <li><a href="{{ '/code.html#avispria' | relative_url }}" class="proof-geo">Drone mapping software</a></li>
+        <li><a href="{{ '/code.html#divi' | relative_url }}" class="proof-geo">Drone mapping software</a></li>
         <li><a href="{{ '/code.html#practices' | relative_url }}" class="proof-bridge">Reproducible R &amp; Python</a></li>
       </ul>
       <p class="actions">
@@ -195,7 +195,7 @@ description: "Md Hashibul Hossain: environmental scientist (MSc Forestry) workin
     <div class="section-head"><h2>Open code</h2><a class="muted" href="{{ '/code.html' | relative_url }}">All →</a></div>
     <ul class="link-list">
       {% for r in site.data.repos limit: 4 %}
-      <li><a href="{{ '/code.html' | relative_url }}#{% if r.kind == 'flagship' %}avispria{% else %}repo-{{ r.name }}{% endif %}">
+      <li><a href="{{ '/code.html' | relative_url }}#{% if r.kind == 'flagship' %}divi{% else %}repo-{{ r.name }}{% endif %}">
         <span class="meta"><span class="track-chip chip-{{ r.track }}">{{ r.language }}</span>{% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}{% if r.kind == 'flagship' %}<span class="mono">Flagship</span>{% endif %}</span>
         <strong>{{ r.title }}</strong>
         <span class="muted small">{% if r.finding %}{{ r.finding | truncate: 150 }}{% else %}{{ r.tagline }} {{ r.status }}{% endif %}</span>

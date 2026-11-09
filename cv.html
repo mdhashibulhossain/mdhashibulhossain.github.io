@@ -113,7 +113,7 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
       <h2>Research software &amp; open code</h2>
       <ul class="cv-projects">
         {% for r in site.data.repos %}
-        <li><a href="{{ '/code.html' | relative_url }}#{% if r.kind == 'flagship' %}avispria{% else %}repo-{{ r.name }}{% endif %}">
+        <li><a href="{{ '/code.html' | relative_url }}#{% if r.kind == 'flagship' %}divi{% else %}repo-{{ r.name }}{% endif %}">
           <span class="cv-when mono">{{ r.language }}{% if r.license %} · {{ r.license }}{% endif %}</span>
           <span><strong>{{ r.title }}</strong><span class="muted small"> · github.com/{{ site.data.profile.links.github_user }}/{{ r.name }}</span></span>
         </a></li>

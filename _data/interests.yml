@@ -13,6 +13,8 @@
       url: /microbiology.html#landfill-isolates
     - label: "Conference paper, RMSTU 2025 (DOI)"
       url: /publications.html#conf-rmstu-2025
+    - label: "Code: metal-resistance genes in 84 bacterial genomes"
+      url: /code.html#repo-metal-resistance-genes-environment
     - label: "Code: EC50 methods study and US soil metal enrichment"
       url: /code.html#analyses
   next: "Separate biosorption from active uptake in the DMFT isolates and test them in real contaminated soil."
@@ -71,8 +73,8 @@
   done:
     - label: "6-sensor MCDA site selection on a 500 m grid"
       url: /geospatial.html#gis-mcda
-    - label: "Avispria drone mapping toolkit"
-      url: /code.html#avispria
+    - label: "Dīvi drone mapping and canopy toolkit"
+      url: /code.html#divi
     - label: "YOLO11s leaf detector exported to TensorFlow.js"
       url: /geospatial.html#yolo-leaf
     - label: "Land-cover change, Karnaphuli Range"
