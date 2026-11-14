@@ -1,9 +1,11 @@
+# project: the id of the project (in _data/projects.yml) this output came from; the card links to it.
 # type: article | conference | poster | report
 # status: published | in-review | presented | report
 # Leave doi/pdf/researchgate empty ("") when you do not have them; the card hides that button.
 # When a manuscript is accepted: change status to published, add year, venue and doi.
 
 - id: ms-biosorption-fungi
+  project: msc-thesis
   type: article
   status: in-review
   title: "Integrated screening of metal tolerance and short-contact dry-biomass biosorption reveals metal-specific performance in filamentous fungi"
@@ -17,6 +19,7 @@
   pdf: ""
 
 - id: ms-urban-green-sylhet
+  project: urban-green
   type: article
   status: in-review
   title: "Potential urban green space suitability appraisal using GIS-based multi-criteria analysis: A case study of North-eastern Sylhet City, Bangladesh"
@@ -29,6 +32,7 @@
   pdf: ""
 
 - id: ms-carnivore-refugia
+  project: camera-trap
   type: article
   status: in-review
   title: "Urban green spaces as carnivore refugia: A camera-trap study in a biodiversity-rich university campus in Bangladesh"
@@ -42,6 +46,7 @@
   pdf: ""
 
 - id: conf-rmstu-2025
+  project: msc-thesis
   type: conference
   status: presented
   title: "Heavy metal tolerance by fungi: A step toward mycoremediation strategy for contaminated soils"
@@ -56,6 +61,7 @@
   thumb: /assets/img/thumb-2025-rmstu-mycoremediation.jpg
 
 - id: poster-mycorrhizal-2023
+  project: mycorrhizal-dipterocarp
   type: poster
   status: presented
   title: "Mycorrhizal role of carbon sequestration in forest soil"
@@ -69,6 +75,7 @@
   thumb: /assets/img/thumb-2023-mycorrhizal-carbon.jpg
 
 - id: poster-forest-day-2023
+  project: bsc-tolerance
   type: poster
   status: presented
   title: "Bioaccumulation of heavy metals by fungi and its possible effects on the environment"
@@ -82,6 +89,7 @@
   thumb: /assets/img/thumb-2023-forest-day-bioaccumulation.jpg
 
 - id: report-khadimnagar-2024
+  project: khadimnagar
   type: report
   status: report
   title: "Knowledge of office bearers and People's Forum members of Khadimnagar National Park about the Protected Area Management Rules, 2017"
@@ -94,6 +102,7 @@
   pdf: ""
 
 - id: report-karnaphuli-2023
+  project: karnaphuli
   type: report
   status: report
   title: "Image analysis of Karnaphuli Range"

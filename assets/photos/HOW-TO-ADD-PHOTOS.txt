@@ -1,0 +1,22 @@
+HOW TO ADD A PHOTO TO THE SITE
+==============================
+
+1. Pick the slot. Every slot has a name (the list is on your site at /photos.html).
+   Examples:  soil-water   home-1   agarwood   landfill-isolates-2
+
+2. Rename your photo to the slot name, in lower case:
+       soil-water.jpg
+   .jpg, .jpeg, .png and .webp all work.
+
+3. Upload it into this folder (assets/photos/) on GitHub:
+   open the folder -> Add file -> Upload files -> drag the photo in -> Commit changes.
+
+That is all. The photo appears on the site about a minute later.
+You do not need to edit any code or data file.
+
+To replace a photo: upload a new one with the same name.
+To remove a photo: delete the file from this folder.
+To add a caption: open _data/photos.yml and fill in the caption for that slot.
+
+Keep photos fast: resize to about 1600 px wide and under 500 KB before uploading.
+Landscape photos work best. The site crops them to fit, keeping the centre.

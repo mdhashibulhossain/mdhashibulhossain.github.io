@@ -1,0 +1,136 @@
+# The four environmental problems the site is organised around.
+# Every project in _data/projects.yml points to one of these with `problem: <id>`.
+# `found` and `stat` link to a project on the same page with `project: <project id>`.
+
+- id: soil-water
+  n: "01"
+  url: /soil-water.html
+  short: "Soil & water"
+  title: "Contaminated soil and water"
+  solution: "Fungal clean-up"
+  question: "Can fungi clean metals out of contaminated soil and water?"
+  problem: >-
+    Landfills and industry leave arsenic, cadmium, chromium and lead in soil and
+    water. Some fungi survive these metals and bind them. I look for those fungi,
+    measure how much metal they tolerate and remove, and use satellite data to
+    decide where to sample.
+  stat:
+    value: "7 of 27"
+    label: "landfill fungi stayed viable at 500 mg/L chromium and arsenic"
+    project: landfill-isolates
+  measured:
+    - "Fungal growth on metal-amended plates: tolerance index and EC50"
+    - "Metals in water, soil and biomass by ICP-OES"
+    - "Antioxidant enzymes (CAT, SOD, GR) under metal stress"
+    - "Metal removal in water and soil microcosms"
+    - "Six satellite layers on a 500 m grid to choose the sampling site"
+  found:
+    - text: "7 of 27 landfill isolates stayed viable on 500 mg/L chromium and arsenic"
+      project: landfill-isolates
+    - text: "T. asperellum was the most tolerant of three fungi to lead, mercury and arsenic"
+      project: bsc-tolerance
+    - text: "Zinc, cadmium and nickel enrichment in US soils holds under a second normaliser; the lead signal does not"
+      project: soil-enrichment
+    - text: "Richer dose designs cut EC50 error about fourfold in simulation"
+      project: ec50-methods
+  next:
+    - "Separate biosorption from active uptake in the seven DMFT isolates"
+    - "Test them in real contaminated soil, beyond plates and microcosms"
+    - "Finish ITS identification and the safety screen of the isolates"
+
+- id: plant-disease
+  n: "02"
+  url: /plant-disease.html
+  short: "Plant disease"
+  title: "Plant stress and disease"
+  solution: "Early detection"
+  question: "Can we catch plant disease and stress before the damage shows?"
+  problem: >-
+    Fungal diseases and pests are usually confirmed by eye or by culture, after
+    the damage is done. I train models that find fungal spores and pests in
+    images, and I measure the nutrients and pigments that show a plant is under stress.
+  stat:
+    value: "0.82"
+    label: "mAP50 for a model that finds six classes of fungal spores in microscope images"
+    project: spore-detection
+  measured:
+    - "Fungal spores in microscope images: 4,000 annotated, six classes"
+    - "Greenhouse pests: 8 classes, 2,500 images"
+    - "12 elements in 300+ plant samples by ICP-OES"
+    - "Chlorophyll and carotenoids by spectrophotometry"
+    - "Isolation and re-isolation of leaf-spot fungi"
+  found:
+    - text: "The spore model reaches mAP50 0.82 across six classes"
+      project: spore-detection
+    - text: "The pest model reaches mAP50 0.76 across eight classes"
+      project: pest-detection
+    - text: "Two fungi cause the leaf spot of ulatkambal"
+      project: abroma-leaf-spot
+    - text: "A leaf detector exported to run in a web browser (recall 0.80)"
+      project: yolo-leaf
+  next:
+    - "Validate detection models against culture-based identification"
+    - "Build them for routine screening, beyond one-off tests"
+    - "Link ICP-OES nutrient profiles to plant traits measured from images"
+
+- id: forests-carbon
+  n: "03"
+  url: /forests-carbon.html
+  short: "Forests & carbon"
+  title: "Degraded forests and carbon"
+  solution: "Restoration and monitoring"
+  question: "How do we restore forests and check that it is working?"
+  problem: >-
+    Restoring forest depends on what happens below ground and has to be checked
+    from above. I work with the fungi that live with forest trees, measure carbon
+    and water exchange at the leaf, and build drone and satellite tools that
+    measure canopy and land cover.
+  stat:
+    value: "11"
+    label: "agarwood plantations surveyed alone in about 10 days, with soil sampling and tree inventory"
+    project: agarwood
+  measured:
+    - "Soil and tree inventory in plots covering 5% of plantation area"
+    - "Fungi cultured from fruit bodies of telsur and garjan on MMN medium"
+    - "Leaf photosynthesis, transpiration, stomatal conductance and water-use efficiency"
+    - "Canopy height, cover, gaps and tree crowns from drone photos"
+    - "Land cover from Landsat 8, 2013–2023"
+    - "Soil respiration across 5,980 observations from 1,247 studies"
+  found:
+    - text: "Biome changes how soil respiration responds to temperature, but does not improve prediction (R² ≈ 0.11)"
+      project: soil-respiration
+    - text: "Dīvi plans, checks and maps a drone flight offline; one test flight so far"
+      project: divi
+    - text: "11 agarwood plantations surveyed; fungi isolated from resinous wood (results pending)"
+      project: agarwood
+  next:
+    - "Quantify hyphal networks and soil carbon across land-use gradients"
+    - "Fly more Dīvi missions in good light and check canopy results against field measurements"
+    - "Scale plot and lab measurements to landscapes with Earth observation"
+
+- id: cities-wildlife
+  n: "04"
+  url: /cities-wildlife.html
+  short: "Cities & wildlife"
+  title: "Cities and wildlife"
+  solution: "Green-space planning"
+  question: "Where should a city add green space, and what already lives in it?"
+  problem: >-
+    Cities grow over the green space that cools them and shelters wildlife. I map
+    where new green space would do the most good, record which carnivores use
+    what is left, and study how people around a protected forest understand its rules.
+  stat:
+    value: "2"
+    label: "manuscripts in review, on green-space suitability and urban carnivores"
+    project: urban-green
+  measured:
+    - "Suitability for new green space by GIS multi-criteria analysis"
+    - "Carnivore sightings from camera traps against food sources and vegetation"
+    - "Knowledge of protected-area rules among 22 forum members and office bearers"
+  found:
+    - text: "Camera traps on a university campus recorded carnivores using urban green space (manuscript in review)"
+      project: camera-trap
+    - text: "North-eastern Sylhet mapped for new green space (manuscript in review)"
+      project: urban-green
+  next:
+    - "Combine suitability mapping with biodiversity and soil-health data"

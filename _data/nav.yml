@@ -1,16 +1,34 @@
-# Main navigation. `track` gives the item its colour marker.
-- title: "Research"
+# Main navigation.
+# group: problems → the numbered section bar (the four problem pages)
+# group: site     → the top row (everything else)
+- title: "Soil & water"
+  n: "01"
+  url: /soil-water.html
+  group: problems
+- title: "Plant disease"
+  n: "02"
+  url: /plant-disease.html
+  group: problems
+- title: "Forests & carbon"
+  n: "03"
+  url: /forests-carbon.html
+  group: problems
+- title: "Cities & wildlife"
+  n: "04"
+  url: /cities-wildlife.html
+  group: problems
+- title: "Methods"
+  url: /methods.html
+  group: site
+- title: "PhD direction"
   url: /research.html
-  track: bridge
-- title: "Microbiology"
-  url: /microbiology.html
-  track: micro
-- title: "Geospatial & CV"
-  url: /geospatial.html
-  track: geo
+  group: site
 - title: "Publications"
   url: /publications.html
+  group: site
 - title: "Code"
   url: /code.html
+  group: site
 - title: "CV"
   url: /cv.html
+  group: site

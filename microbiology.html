@@ -1,30 +1,26 @@
 ---
-layout: track
-title: "Environmental Microbiology & Bioimaging"
 permalink: /microbiology.html
-track: micro
-eyebrow: "Track A · wet lab"
-heading: "Environmental Microbiology & Bioimaging"
-scale_label: "50 µm"
-intro: >-
-  How filamentous fungi tolerate, accumulate and remove heavy metals, measured with
-  culture assays, enzyme profiling and ICP-OES, and extended to plant nutrition,
-  pigments and fungal pathogens.
-capabilities:
-  - name: "Analytical chemistry"
-    items: ["ICP-OES: calibration, QC, sample prep (8-day certified)", "Microwave-assisted digestion", "UV-Vis spectrophotometry, colorimetric assays", "Chlorophyll and carotenoid extraction", "Soil geochemistry: enrichment factor, Igeo"]
-  - name: "Microbiology"
-    items: ["Aseptic culture, isolation streaking, serial dilution", "Morphological screening, −80 °C cryopreservation", "Metal-amended media, tolerance index, EC50", "Water and soil bioremediation microcosms"]
-  - name: "Plant physiology & pathology"
-    items: ["Antioxidant enzymes: CAT, SOD, GR", "Macro- and micronutrient analysis", "Plant–pathogen interaction, biocontrol", "Seed-susceptibility tests against fungi"]
-  - name: "Molecular"
-    items: ["DNA extraction from fungi and bacteria (NGS training and later lab work)", "PCR with ITS and 18S markers", "BLAST and phylogenetic analysis (Bioinformatics Bootcamp 2.0)", "FastQC quality control on NCBI sequence data", "Molecular identification of the 7 landfill isolates (DMFT1–7): in progress"]
-description: "Md Hashibul Hossain's microbiology work: fungal heavy-metal tolerance, EC50, antioxidant enzymes, ICP-OES, bioremediation and plant nutrient analysis."
+sitemap: false
 ---
-<section class="wrap section">
-  <div class="section-head"><h2>Training</h2></div>
-  <ul class="training">
-    {% assign tr = site.data.training | where: "track", "micro" %}
-    {% for t in tr %}<li><strong>{{ t.title }}</strong><span class="muted"> · {{ t.org }}{% if t.date != "" %} · {{ t.date }}{% endif %}</span></li>{% endfor %}
-  </ul>
-</section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>This page has moved · Md Hashibul Hossain</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ site.url }}/methods.html">
+<script>
+// The old track pages were replaced by four problem pages. Send each old
+// project link (for example /microbiology.html#msc-thesis) to its new home.
+(function () {
+  var map = { {% for p in site.data.projects %}{% assign pb = site.data.problems | where: "id", p.problem | first %}"{{ p.id }}": "{{ pb.url | relative_url }}#{{ p.id }}", {% endfor %}"capabilities": "{{ '/methods.html#capabilities' | relative_url }}" };
+  var id = (location.hash || "").slice(1);
+  location.replace(map[id] || "{{ '/methods.html' | relative_url }}#mycology");
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url={{ '/methods.html' | relative_url }}"></noscript>
+</head>
+<body>
+<p>This page has moved. <a href="{{ '/methods.html' | relative_url }}">Go to Methods</a> or <a href="{{ '/' | relative_url }}">the home page</a>.</p>
+</body>
+</html>

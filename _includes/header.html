@@ -2,16 +2,23 @@
   <div class="wrap header-row">
     <a class="brand" href="{{ '/' | relative_url }}">
       <span class="brand-name">{{ site.data.profile.short_name }}</span>
-      <span class="brand-role">Fungi · Chemistry · Earth observation</span>
+      <span class="brand-role">Environmental solutions · fungus to satellite</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
-      {% for item in site.data.nav %}
-      {% assign item_url = item.url | relative_url %}
-      <a href="{{ item_url }}" class="nav-link{% if item.track %} has-dot dot-{{ item.track }}{% endif %}{% if page.url == item.url %} is-current{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
-      {% endfor %}
-      <a class="nav-cta" href="{{ '/cv.html#contact' | relative_url }}">Contact</a>
-      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Theme">◐</button>
+      <div class="nav-problems">
+        <span class="nav-label">The problems</span>
+        {% for item in site.data.nav %}{% if item.group == "problems" %}
+        <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url %} is-current{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}><span class="nav-n">{{ item.n }}</span> {{ item.title }}</a>
+        {% endif %}{% endfor %}
+      </div>
+      <div class="nav-site">
+        {% for item in site.data.nav %}{% if item.group == "site" %}
+        <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url %} is-current{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endif %}{% endfor %}
+        <a class="nav-cta" href="{{ '/cv.html#contact' | relative_url }}">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Theme">◐</button>
+      </div>
     </nav>
   </div>
 </header>

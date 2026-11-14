@@ -1,15 +1,15 @@
-# "What I bring" cards on the home page. Each headline states evidence, not an adjective.
+# "What I bring to a lab" cards on the PhD direction page. Each headline states evidence, not an adjective.
 # `url` is where the card takes the viewer; `kind` sets the colour (micro | geo | bridge).
 - kind: micro
   label: "Analytical chemistry"
   headline: "Calibrates and runs the ICP-OES himself"
   evidence: "8-day certified; independent operation for heavy metals in water, soil and digested biomass, now plant nutrients at CredoSense."
-  url: /microbiology.html#capabilities
+  url: /methods.html#capabilities
 - kind: micro
   label: "Experimental design"
   headline: "Screened 27 landfill isolates down to 7 metal-tolerant fungi"
   evidence: "Dose–response assays against As, Cd, Cr and Pb: tolerance index, LL.4 EC50 with bootstrap CI, two-way ANOVA, PCA and NMDS on antioxidant enzymes."
-  url: /microbiology.html#landfill-isolates
+  url: /soil-water.html#landfill-isolates
 - kind: geo
   label: "Research software"
   headline: "Wrote a 17.9k-line drone mapping and canopy toolkit"
@@ -19,12 +19,12 @@
   label: "Earth observation"
   headline: "Fused 6 satellite sensors on one 500 m grid"
   evidence: "Sentinel-2/5P, Landsat LST, MAIAC AOD, VIIRS and SRTM over a 10-year window in Google Earth Engine, MCDA with sensitivity analysis."
-  url: /geospatial.html#gis-mcda
+  url: /soil-water.html#gis-mcda
 - kind: geo
   label: "Computer vision"
   headline: "Builds spore- and pest-detection models in industry"
   evidence: "Junior Research Scientist at CredoSense, Dhaka; earlier fine-tuned YOLO11s and exported it to TensorFlow.js."
-  url: /geospatial.html#spore-detection
+  url: /plant-disease.html#spore-detection
 - kind: bridge
   label: "Reproducible science"
   headline: "Reports the result that failed the check"

@@ -1,0 +1,93 @@
+---
+layout: default
+title: "Methods"
+permalink: /methods.html
+description: "Methods used by Md Hashibul Hossain across mycology, plant pathology, plant physiology, ecology, and remote sensing, GIS and computer vision, mapped to four environmental problems."
+next_url: /research.html
+next_kicker: "Next · where this is going"
+next_label: "PhD direction: what I want to do with these tools"
+---
+{% assign D = site.data.disciplines %}
+{% assign PB = site.data.problems %}
+<section class="track-hero">
+  <div class="wrap">
+    <p class="eyebrow">Methods · the toolkit</p>
+    <h1>Five disciplines, one toolkit</h1>
+    <p class="lede">Mycology, plant pathology, plant physiology, ecology and remote sensing are the tools. The four problems are what they are for. This page shows which tool I used where.</p>
+    <nav class="jump" aria-label="On this page">
+      <a href="#matrix">Where each one is used</a>{% for d in D %}<a href="#{{ d.id }}">{{ d.name }}</a>{% endfor %}<a href="#capabilities">Shared tools</a><a href="#training">Training</a>
+    </nav>
+  </div>
+</section>
+
+<section class="wrap section" id="matrix">
+  <div class="section-head">
+    <h2>Where each one is used</h2>
+    <p class="muted">Number of projects per discipline and problem. Click a number to see them.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th scope="col"><span class="sr-only">Discipline</span></th>
+          {% for pb in PB %}<th scope="col"><a href="{{ pb.url | relative_url }}"><span class="mx-n">{{ pb.n }}</span><span class="mx-t">{{ pb.short }}</span></a></th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in D %}
+        <tr>
+          <th scope="row"><a href="#{{ d.id }}">{{ d.name }}</a></th>
+          {% for pb in PB %}{% assign n = site.data.projects | where: "problem", pb.id | where: "disciplines", d.id | size %}
+          <td>{% if n > 0 %}<a href="#{{ d.id }}-{{ pb.id }}" aria-label="{{ n }} {{ d.name }} projects in {{ pb.title }}">{{ n }}</a>{% else %}<span class="muted" aria-label="none">·</span>{% endif %}</td>{% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-key muted small">{% for pb in PB %}<a href="{{ pb.url | relative_url }}">{{ pb.n }} {{ pb.title }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+</section>
+
+{% for d in D %}
+<section class="wrap section discipline" id="{{ d.id }}">
+  <div class="disc-grid">
+    <div class="disc-what">
+      <p class="eyebrow">Discipline {{ forloop.index }} of 5</p>
+      <h2>{{ d.name }}</h2>
+      <p class="lede">{{ d.line }}.</p>
+      <ul class="disc-items">{% for it in d.items %}<li>{{ it }}</li>{% endfor %}</ul>
+    </div>
+    <div class="disc-where">
+      <p class="col-label">Used in</p>
+      {% for pb in PB %}{% assign ps = site.data.projects | where: "problem", pb.id | where: "disciplines", d.id %}{% if ps.size > 0 %}
+      <div class="disc-row" id="{{ d.id }}-{{ pb.id }}">
+        <a class="disc-problem" href="{{ pb.url | relative_url }}"><span class="mono">{{ pb.n }}</span> {{ pb.title }}</a>
+        <ul class="evidence">{% for p in ps %}<li><a href="{{ pb.url | relative_url }}#{{ p.id }}">{{ p.finding | default: p.title }}</a></li>{% endfor %}</ul>
+      </div>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="wrap section" id="capabilities">
+  <div class="section-head">
+    <h2>Shared lab and code tools</h2>
+    <a class="muted" href="{{ '/cv.html#skills' | relative_url }}">Full skill list on the CV →</a>
+  </div>
+  <div class="capabilities">
+    {% for group in site.data.shared_tools %}
+    <div class="cap">
+      <h3 class="cap-title">{{ group.name }}</h3>
+      <ul>{% for item in group.items %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="results-more"><a href="{{ '/code.html#practices' | relative_url }}">How I write and check research code</a> <span class="muted">·</span> <a href="{{ '/cv.html#fieldwork' | relative_url }}">Fieldwork record</a></p>
+</section>
+
+<section class="wrap section" id="training">
+  <div class="section-head"><h2>Training</h2><p class="muted">Certificates are available on request.</p></div>
+  <ul class="training">
+    {% for t in site.data.training %}<li><strong>{{ t.title }}</strong><span class="muted"> · {{ t.org }}{% if t.date != "" %} · {{ t.date }}{% endif %}</span></li>{% endfor %}
+  </ul>
+</section>

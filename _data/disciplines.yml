@@ -1,0 +1,54 @@
+# The five disciplines. They are the tools; the problems are the goal.
+# Projects list the disciplines they use with `disciplines: [id, ...]`.
+
+- id: mycology
+  name: "Mycology"
+  line: "Isolating, growing and stress-testing fungi"
+  items:
+    - "Aseptic culture, isolation streaking, serial dilution"
+    - "Morphological screening, −80 °C cryopreservation"
+    - "Metal-amended media, tolerance index, EC50"
+    - "Water and soil bioremediation microcosms"
+    - "Fruit-body tissue culture on MMN medium"
+    - "Spore suspensions: preparation and counting"
+
+- id: pathology
+  name: "Plant pathology"
+  line: "Finding which organism causes the damage"
+  items:
+    - "Isolation and re-isolation of leaf-spot fungi"
+    - "Plant–pathogen interaction, biocontrol"
+    - "Seed-susceptibility tests against fungi"
+    - "Spore detection in microscope images"
+    - "Greenhouse pest detection"
+
+- id: physiology
+  name: "Plant physiology"
+  line: "Measuring how a plant responds to stress"
+  items:
+    - "Leaf gas exchange: photosynthesis, transpiration, stomatal conductance, water-use efficiency"
+    - "Chlorophyll and carotenoid extraction"
+    - "Macro- and micronutrient analysis by ICP-OES"
+    - "Microwave-assisted digestion"
+    - "Antioxidant enzymes: CAT, SOD, GR"
+
+- id: ecology
+  name: "Ecology & environment"
+  line: "Sampling soil, plants and animals in the field"
+  items:
+    - "Vegetation plots and tree inventory"
+    - "Soil and water sampling, cold transport, −80 °C storage"
+    - "Camera-trap site selection"
+    - "Soil geochemistry: enrichment factor, Igeo"
+    - "Mixed-effects models of field data"
+    - "Mixed-methods stakeholder surveys"
+
+- id: rsgis
+  name: "Remote sensing, GIS & computer vision"
+  line: "Mapping and detecting from images"
+  items:
+    - "Google Earth Engine; Sentinel-2 / 5P, Landsat LST, MAIAC AOD, VIIRS, SRTM"
+    - "ArcMap 10.8 Spatial Analyst; multi-criteria analysis with sensitivity testing"
+    - "Land-use and land-cover change"
+    - "Drone photogrammetry: DJI mission planning, WebODM, canopy height and crowns"
+    - "YOLO11 / Ultralytics, transfer learning, Roboflow annotation"

@@ -4,6 +4,9 @@ title: "Code"
 permalink: /code.html
 github: true
 track: code
+next_url: /cv.html
+next_kicker: "Next · the full record"
+next_label: "CV: education, experience, skills and referees"
 description: "Open-source code by Md Hashibul Hossain: the Dīvi drone mapping toolkit and reproducible studies on EC50, soil metals, metal-resistance genes and soil respiration."
 ---
 {% assign L = site.data.profile.links %}
@@ -43,6 +46,7 @@ description: "Open-source code by Md Hashibul Hossain: the Dīvi drone mapping t
       </div>
       <p>{{ r.description }}</p>
       <p class="flag-status"><span class="status status-in-review">{{ r.status }}</span> <span class="muted small">{{ r.status_note }}</span></p>
+      <p class="pub-from small"><span class="col-label">Built for</span> <a href="{{ '/forests-carbon.html#divi' | relative_url }}">Problem 03: degraded forests and carbon</a> <span class="muted">·</span> <a href="{{ '/methods.html#rsgis' | relative_url }}">Method: remote sensing and GIS</a></p>
       <ol class="flag-parts">
         {% for p in r.parts %}<li><strong>{{ p.title }}</strong><span>{{ p.text }}</span></li>{% endfor %}
       </ol>
@@ -82,8 +86,7 @@ description: "Open-source code by Md Hashibul Hossain: the Dīvi drone mapping t
     <h2>Reproducible research studies</h2>
     <div class="filters" role="group" aria-label="Filter repositories">
       <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
-      <button type="button" class="filter" data-filter="micro" aria-pressed="false">Microbiology</button>
-      <button type="button" class="filter" data-filter="geo" aria-pressed="false">Geospatial</button>
+      {% for pb in site.data.problems %}{% assign pn = 0 %}{% for r in analyses %}{% assign rj = site.data.projects | where: "repo", r.name | first %}{% if rj.problem == pb.id %}{% assign pn = pn | plus: 1 %}{% endif %}{% endfor %}{% if pn > 0 %}<button type="button" class="filter" data-filter="{{ pb.id }}" aria-pressed="false">{{ pb.n }} {{ pb.short }}</button>{% endif %}{% endfor %}
     </div>
   </div>
   <div class="repo-list">
@@ -115,8 +118,8 @@ description: "Open-source code by Md Hashibul Hossain: the Dīvi drone mapping t
   <div class="section-head"><h2>Course and early work</h2></div>
   <div class="repo-grid">
     {% for r in course %}
-    <a class="repo repo-small" href="https://github.com/{{ gh }}/{{ r.name }}" data-repo="{{ gh }}/{{ r.name }}" data-track-item="{{ r.track }}" id="repo-{{ r.name }}">
-      <span class="meta"><span class="track-chip chip-{{ r.track }}">{% if r.track == "micro" %}Microbiology{% else %}Geospatial{% endif %}</span><span class="mono" data-field="language">{{ r.language }}</span>{% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}</span>
+    <a class="repo repo-small" href="https://github.com/{{ gh }}/{{ r.name }}" data-repo="{{ gh }}/{{ r.name }}" id="repo-{{ r.name }}">
+      <span class="meta"><span class="mono" data-field="language">{{ r.language }}</span>{% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}</span>
       <strong>{{ r.title }}</strong>
       <span class="repo-name mono">{{ gh }}/{{ r.name }}</span>
       <span class="small">{{ r.description }}</span>

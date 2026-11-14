@@ -1,0 +1,21 @@
+# Tools used across all five disciplines (Methods page, "Shared lab and code tools").
+- name: "Analytical chemistry"
+  items:
+    - "ICP-OES: calibration, QC, sample prep (8-day certified)"
+    - "Microwave-assisted digestion"
+    - "UV-Vis spectrophotometry, colorimetric assays"
+- name: "Molecular"
+  items:
+    - "DNA extraction from fungi and bacteria"
+    - "PCR with ITS and 18S markers"
+    - "BLAST and phylogenetic analysis"
+    - "FastQC quality control on NCBI sequence data"
+    - "Comparative genomics: DIAMOND, Mash"
+    - "ITS identification of the 7 landfill isolates (DMFT1–7): in progress"
+- name: "Statistics & reproducible code"
+  items:
+    - "R and Python; pandas, ggplot2, seaborn"
+    - "LL.4 dose–response, bootstrap confidence intervals"
+    - "Mixed models (lme4), ANOVA / Tukey, PCA, NMDS"
+    - "Cross-validation, sensitivity analysis"
+    - "renv, uv, Make, pytest, Git / GitHub"

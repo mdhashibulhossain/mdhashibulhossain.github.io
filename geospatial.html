@@ -1,36 +1,26 @@
 ---
-layout: track
-title: "GIS, Remote Sensing & Computer Vision"
 permalink: /geospatial.html
-track: geo
-eyebrow: "Track B · dry lab"
-heading: "GIS, Remote Sensing & Computer Vision"
-scale_label: "500 m grid"
-intro: >-
-  Vegetation cover, canopy and ecosystems measured from above: drone photogrammetry
-  of tree crowns, multi-sensor satellite layers including NDVI, land-cover change,
-  and deep-learning detection of leaves, pests and fungal spores.
-capabilities:
-  - name: "Earth observation"
-    items: ["Google Earth Engine", "Sentinel-2 / Sentinel-5P, Landsat LST", "MAIAC AOD, VIIRS night lights, SRTM", "10-year composites on a common 500 m grid", "Vegetation: low-NDVI frequency, land cover, i-Tree"]
-  - name: "Spatial modelling"
-    items: ["ArcMap 10.8 Spatial Analyst", "Multi-criteria decision analysis + sensitivity", "Hydrology: flow accumulation, water occurrence", "Land-use / land-cover change"]
-  - name: "Drone photogrammetry"
-    items: ["Dīvi: DJI Fly (WPML) mission planning", "Terrain-aware GSD and overlap prediction", "Photo-overlap QA from EXIF/XMP", "WebODM orthophoto, DSM, point cloud", "Canopy height model, cover, gaps, tree crowns"]
-  - name: "Machine learning & CV"
-    items: ["YOLO11 / Ultralytics, transfer learning", "Roboflow curation and annotation", "Microscopy spore-image detection", "Python packaging (uv), pytest, R mixed models"]
-description: "Md Hashibul Hossain's GIS and remote sensing work: Google Earth Engine, Sentinel/Landsat modelling, drone photogrammetry and YOLO object detection."
+sitemap: false
 ---
-<section class="wrap section">
-  <figure class="wide-fig">
-    <img src="{{ '/assets/img/fig-hydro-layers.jpg' | relative_url }}" alt="Grid of terrain and hydrology rasters: DEM, slope, flow accumulation, upstream drainage, water occurrence and seasonality" loading="lazy">
-    <figcaption>Terrain and hydrology criteria from the MSc suitability model (DEM, slope, flow accumulation, JRC water occurrence).</figcaption>
-  </figure>
-</section>
-<section class="wrap section">
-  <div class="section-head"><h2>Training</h2></div>
-  <ul class="training">
-    {% assign tr = site.data.training | where: "track", "geo" %}
-    {% for t in tr %}<li><strong>{{ t.title }}</strong><span class="muted"> · {{ t.org }}{% if t.date != "" %} · {{ t.date }}{% endif %}</span></li>{% endfor %}
-  </ul>
-</section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>This page has moved · Md Hashibul Hossain</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ site.url }}/methods.html">
+<script>
+// The old track pages were replaced by four problem pages. Send each old
+// project link (for example /geospatial.html#msc-thesis) to its new home.
+(function () {
+  var map = { {% for p in site.data.projects %}{% assign pb = site.data.problems | where: "id", p.problem | first %}"{{ p.id }}": "{{ pb.url | relative_url }}#{{ p.id }}", {% endfor %}"capabilities": "{{ '/methods.html#capabilities' | relative_url }}" };
+  var id = (location.hash || "").slice(1);
+  location.replace(map[id] || "{{ '/methods.html' | relative_url }}#rsgis");
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url={{ '/methods.html' | relative_url }}"></noscript>
+</head>
+<body>
+<p>This page has moved. <a href="{{ '/methods.html' | relative_url }}">Go to Methods</a> or <a href="{{ '/' | relative_url }}">the home page</a>.</p>
+</body>
+</html>

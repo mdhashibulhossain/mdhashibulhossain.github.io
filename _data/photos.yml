@@ -1,0 +1,54 @@
+# Photo slots. You do NOT need to edit this file to add a photo.
+#
+# To add a photo: upload it to  assets/photos/  with the slot name as its file name,
+# for example  assets/photos/soil-water.jpg . It then appears on the site by itself.
+# Open /photos.html on your site to see every slot and which ones are still empty.
+#
+# This file only holds the optional caption and description for each photo.
+#   caption: shown under the photo (leave "" for no caption)
+#   alt:     one short sentence describing the photo for screen readers
+#   idea:    what would work well here (only shown on /photos.html)
+#
+# Project photos use the project id as the name (e.g. agarwood.jpg, agarwood-2.jpg).
+# Add a caption for one by adding a block with that name below.
+
+soil-water:
+  where: "Top of the Soil & water page, and its tile on the home page"
+  idea: "You sampling soil at the landfill, or plates with fungal colonies on metal media"
+  caption: ""
+  alt: ""
+plant-disease:
+  where: "Top of the Plant disease page, and its tile on the home page"
+  idea: "A diseased leaf, or the microscope and screen you use for spore images"
+  caption: ""
+  alt: ""
+forests-carbon:
+  where: "Top of the Forests & carbon page, and its tile on the home page"
+  idea: "An agarwood plantation, a forest plot, or the drone in the field"
+  caption: ""
+  alt: ""
+cities-wildlife:
+  where: "Top of the Cities & wildlife page, and its tile on the home page"
+  idea: "A camera trap on a tree, or a camera-trap photo of an animal"
+  caption: ""
+  alt: ""
+home-1:
+  where: "Home page, 'In the field and lab' strip, 1st photo"
+  idea: "You at the lab bench or the ICP-OES"
+  caption: ""
+  alt: ""
+home-2:
+  where: "Home page, 'In the field and lab' strip, 2nd photo"
+  idea: "Fieldwork: sampling, plot survey or plantation"
+  caption: ""
+  alt: ""
+home-3:
+  where: "Home page, 'In the field and lab' strip, 3rd photo"
+  idea: "Close-up: plates, cultures or a micrograph"
+  caption: ""
+  alt: ""
+home-4:
+  where: "Home page, 'In the field and lab' strip, 4th photo"
+  idea: "Drone, laptop with a map, or presenting a poster"
+  caption: ""
+  alt: ""

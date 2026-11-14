@@ -82,15 +82,19 @@ fieldwork:
   - label: "11 sites"
     title: "Agarwood plantation survey"
     text: "Surveyed 11 plantations alone in about 10 days; soil sampling and tree inventory in plots covering 5% of plantation area"
-    url: /microbiology.html#agarwood
+    url: /forests-carbon.html#agarwood
   - label: "Camera traps"
     title: "Camera-trap study"
     text: "Chose camera-trap sites for nocturnal carnivores from food-resource distribution; mapped and analysed detections in GIS"
-    url: /publications.html#ms-carnivore-refugia
+    url: /cities-wildlife.html#camera-trap
   - label: "Landfill"
     title: "Landfill rhizosphere sampling"
     text: "GIS-selected site; 7 root-zone soil and 3 water samples; aseptic collection, cold transport, −80 °C storage"
-    url: /microbiology.html#landfill-isolates
+    url: /soil-water.html#landfill-isolates
+  - label: "Forest plots"
+    title: "Vegetation plot survey, Satchari National Park"
+    text: "Laid plots, identified the plants and counted all timber species in them"
+    url: /forests-carbon.html#satchari-plots
   - label: "Forest types"
     title: "Forest types worked in"
     text: "Hill forest (Sylhet, Chittagong Hill Tracts), sal forest (Madhupur), mangrove (Sundarbans)"

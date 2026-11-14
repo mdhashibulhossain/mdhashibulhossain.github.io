@@ -13,5 +13,13 @@
       {% if L.scholar != "" %}<li><a href="{{ L.scholar }}" rel="me">Scholar</a></li>{% endif %}
     </ul>
   </div>
-  <div class="wrap"><p class="muted tiny">Built with Jekyll on GitHub Pages. Content updated from <code>_data/*.yml</code>.</p></div>
+  <div class="wrap footer-map">
+    {% for pb in site.data.problems %}<a href="{{ pb.url | relative_url }}">{{ pb.n }} {{ pb.title }}</a>{% endfor %}
+    <a href="{{ '/methods.html' | relative_url }}">Methods</a>
+    <a href="{{ '/research.html' | relative_url }}">PhD direction</a>
+    <a href="{{ '/publications.html' | relative_url }}">Publications</a>
+    <a href="{{ '/code.html' | relative_url }}">Code</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
+    <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a>
+  </div>
 </footer>

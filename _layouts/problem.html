@@ -1,0 +1,86 @@
+---
+layout: default
+---
+{% assign pb = site.data.problems | where: "id", page.problem | first %}
+{% assign projects = site.data.projects | where: "problem", pb.id %}
+{% assign statp = site.data.projects | where: "id", pb.stat.project | first %}
+<section class="track-hero problem-hero">
+  <div class="wrap ph-grid">
+    <div class="ph-text">
+      <p class="eyebrow">Problem {{ pb.n }} of 04 · {{ pb.title }}</p>
+      <h1>{{ pb.question }}</h1>
+      <p class="lede">{{ pb.problem }}</p>
+    </div>
+    <a class="ph-stat" href="#{{ statp.id }}">
+      <span class="eyebrow">The approach · {{ pb.solution }}</span>
+      <span class="metric-value">{{ pb.stat.value }}</span>
+      <span class="metric-label">{{ pb.stat.label }}</span>
+    </a>
+  </div>
+  <div class="wrap">
+    <nav class="jump" aria-label="On this page">
+      <a href="#short">The short version</a><a href="#projects">The work ({{ projects | size }} projects)</a><a href="#outputs">Papers and code</a>
+    </nav>
+  </div>
+</section>
+
+{% assign slot = pb.id %}{% assign photo_class = "photo-banner" %}{% assign photo_alt = pb.title %}
+{% capture banner %}{% include photo.html %}{% endcapture %}
+{% assign banner_t = banner | strip %}
+{% if banner_t != "" %}<div class="wrap banner-wrap">{{ banner }}</div>{% endif %}
+
+<section class="wrap section" id="short">
+  <div class="section-head">
+    <h2>The short version</h2>
+    <p class="muted">What I measured, what came out, and what I would do with three more years.</p>
+  </div>
+  <div class="brief">
+    <div class="cap">
+      <h3 class="cap-title">What I measured</h3>
+      <ul>{% for m in pb.measured %}<li>{{ m }}</li>{% endfor %}</ul>
+    </div>
+    <div class="cap">
+      <h3 class="cap-title">What I found</h3>
+      <ul>{% for f in pb.found %}<li><a href="#{{ f.project }}">{{ f.text }}</a></li>{% endfor %}</ul>
+    </div>
+    <div class="cap">
+      <h3 class="cap-title">What I would do in a PhD</h3>
+      <ul>{% for n in pb.next %}<li>{{ n }}</li>{% endfor %}
+        <li><a href="{{ '/research.html' | relative_url }}">Read the full PhD direction</a></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" id="projects">
+  <div class="section-head">
+    <h2>The work</h2>
+    <p class="muted">{{ projects | size }} projects. The labels on each one open the method behind it.</p>
+  </div>
+  <div class="project-list">
+    {% for p in projects %}{% assign ni = forloop.index %}{% assign next_p = projects[ni] %}{% include project-card.html %}{% endfor %}
+  </div>
+</section>
+
+{% capture pubs_html %}{% for pub in site.data.publications %}{% assign pp = site.data.projects | where: "id", pub.project | first %}{% if pp.problem == pb.id %}
+  <li><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">
+    <span class="meta"><span class="status status-{{ pub.status }}">{% if pub.status == "in-review" %}In review{% elsif pub.status == "presented" %}Presented{% elsif pub.status == "published" %}Published{% else %}Report{% endif %}</span><span class="mono">{{ pub.type }}{% if pub.year != "" %} · {{ pub.year }}{% endif %}</span></span>
+    <strong>{{ pub.title }}</strong>
+  </a></li>{% endif %}{% endfor %}{% endcapture %}
+{% capture code_html %}{% for p in projects %}{% if p.repo %}{% assign r = site.data.repos | where: "name", p.repo | first %}
+  <li><a href="{{ '/code.html' | relative_url }}#{% if p.repo == 'Divi' %}divi{% else %}repo-{{ p.repo }}{% endif %}">
+    <span class="meta"><span class="mono">{{ r.language }}</span>{% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}</span>
+    <strong>{{ r.title }}</strong>
+  </a></li>{% endif %}{% endfor %}{% endcapture %}
+{% assign pubs_t = pubs_html | strip %}{% assign code_t = code_html | strip %}
+<section class="wrap section two-col" id="outputs">
+  <div>
+    <div class="section-head"><h2>Papers from this work</h2><a class="muted" href="{{ '/publications.html' | relative_url }}">All publications →</a></div>
+    {% if pubs_t != "" %}<ul class="link-list">{{ pubs_html }}</ul>{% else %}<p class="muted">Nothing written up from this problem yet. See <a href="{{ '/publications.html' | relative_url }}">all publications</a>.</p>{% endif %}
+  </div>
+  <div>
+    <div class="section-head"><h2>Open code</h2><a class="muted" href="{{ '/code.html' | relative_url }}">All code →</a></div>
+    {% if code_t != "" %}<ul class="link-list">{{ code_html }}</ul>{% else %}<p class="muted">No public code for this problem yet. See <a href="{{ '/code.html' | relative_url }}">all code</a>.</p>{% endif %}
+  </div>
+</section>
+
+{{ content }}

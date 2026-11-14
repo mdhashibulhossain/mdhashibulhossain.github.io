@@ -1,0 +1,23 @@
+{%- comment -%}
+  Photo slot. Shows assets/photos/<slot>.jpg (or .jpeg/.png/.webp) when that file
+  exists and prints nothing when it does not, so empty slots never show on the site.
+  Set `slot` before including; optional `photo_class` and `photo_alt`.
+  Captions live in _data/photos.yml. How-to: /photos.html
+{%- endcomment -%}
+{%- assign photo_src = "" -%}
+{%- for f in site.static_files -%}
+  {%- if f.path contains "/assets/photos/" -%}
+    {%- assign fb = f.basename | downcase -%}
+    {%- if fb == slot -%}{%- assign photo_src = f.path -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if photo_src != "" -%}
+{%- assign pm = site.data.photos[slot] -%}
+{%- assign p_alt = photo_alt -%}
+{%- if pm.caption and pm.caption != "" -%}{%- assign p_alt = pm.caption -%}{%- endif -%}
+{%- if pm.alt and pm.alt != "" -%}{%- assign p_alt = pm.alt -%}{%- endif -%}
+<figure class="photo {{ photo_class }}">
+  <img src="{{ photo_src | relative_url }}" alt="{{ p_alt | strip_html }}" loading="lazy" decoding="async">
+  {% if pm.caption and pm.caption != "" %}<figcaption>{{ pm.caption }}</figcaption>{% endif %}
+</figure>
+{%- endif -%}

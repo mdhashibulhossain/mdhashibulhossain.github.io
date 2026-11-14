@@ -3,11 +3,12 @@ name: "Md Hashibul Hossain"
 short_name: "Hashibul Hossain"
 role: "Junior Research Scientist, CredoSense (Dhaka)"
 location: "Dhaka, Bangladesh"          # TODO confirm the city you want public
-email: "hashibul78@student.sust.edu"    # TODO consider a permanent address (student mail may expire)
+email: "hossainmh.official@gmail.com"
 photo: "/assets/img/portrait-400.jpg"
 photo_large: "/assets/img/portrait.jpg"
 
-tagline: "I study how ecosystems respond to environmental stress, from fungi and plants at the lab bench to vegetation and land cover mapped by drones and satellites."
+tagline: "I work on environmental solutions, from fungus to satellite: fungi that can clean contaminated soil, models that catch plant disease early, and drones and satellites that track forests and green space."
+motto: "Environmental solutions, from fungus to satellite"
 
 bio: >-
   I am an early-career researcher working where plant and fungal biology meet

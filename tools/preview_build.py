@@ -2,7 +2,7 @@
 
 GitHub Pages builds the real site; this script only approximates Jekyll so you can
 check layout offline:  python3 tools/preview_build.py  → opens _preview/index.html
-Supports: front matter, layouts, includes, site.data, relative_url, where.
+Supports: front matter, layouts, includes, site.data, site.static_files, relative_url, where.
 """
 import re, sys, shutil, pathlib, yaml
 from liquid import Environment, FileSystemLoader
@@ -47,10 +47,17 @@ class Loader(FileSystemLoader):
 env = Environment(loader=Loader(str(ROOT / "_includes")))
 env.add_filter("relative_url", relative_url)
 env.add_filter("where", where)
+import json as _json
+env.add_filter("jsonify", lambda v: _json.dumps(v, ensure_ascii=False))
 
 site = yaml.safe_load((ROOT / "_config.yml").read_text())
 site["data"] = {p.stem: yaml.safe_load(p.read_text()) for p in (ROOT / "_data").glob("*.yml")}
 layouts = {p.stem: split_fm(p.read_text()) for p in (ROOT / "_layouts").glob("*.html")}
+# Jekyll's site.static_files (used by the photo slots): every file under assets/
+site["static_files"] = [
+    {"path": "/" + f.relative_to(ROOT).as_posix(), "name": f.name, "basename": f.stem, "extname": f.suffix}
+    for f in sorted((ROOT / "assets").rglob("*")) if f.is_file()
+]
 
 if OUT.exists():
     shutil.rmtree(OUT)

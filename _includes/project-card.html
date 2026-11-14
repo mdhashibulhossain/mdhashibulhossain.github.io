@@ -1,17 +1,37 @@
-{%- comment -%} Expects a variable `p` (one entry from _data/projects.yml). {%- endcomment -%}
-<article class="project{% if p.image %} has-image{% endif %}" id="{{ p.id }}">
-  {% if p.image %}
-  <figure class="project-fig{% if p.image_fit == "contain" %} fit-contain{% endif %}">
-    <img src="{{ p.image | relative_url }}" alt="{{ p.image_alt }}" loading="lazy" decoding="async">
-  </figure>
+{%- comment -%}
+  One project entry. Expects `p` (from _data/projects.yml).
+  Optional: `next_p` (the next project on the page) and `pb` (the current problem).
+{%- endcomment -%}
+{%- assign p_pubs = site.data.publications | where: "project", p.id -%}
+{%- assign slot = p.id -%}
+{%- assign photo_src = "" -%}
+{%- for f in site.static_files -%}{%- if f.path contains "/assets/photos/" -%}{%- assign fb = f.basename | downcase -%}{%- if fb == slot -%}{%- assign photo_src = f.path -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+{%- assign has_fig = false -%}
+{%- if p.image or photo_src != "" -%}{%- assign has_fig = true -%}{%- endif -%}
+<article class="project{% if has_fig %} has-image{% endif %}" id="{{ p.id }}">
+  {% if has_fig %}
+  <div class="project-figs">
+    {% if p.image %}
+    <figure class="project-fig{% if p.image_fit == "contain" %} fit-contain{% endif %}">
+      <img src="{{ p.image | relative_url }}" alt="{{ p.image_alt }}" loading="lazy" decoding="async">
+    </figure>
+    {% endif %}
+    {% assign photo_class = "photo-project" %}{% assign photo_alt = p.title %}{% include photo.html %}
+    {% assign slot = p.id | append: "-2" %}{% include photo.html %}
+  </div>
   {% endif %}
   <div class="project-body">
     <p class="meta">
       {% if p.status != "" %}<span class="status status-{{ p.status }}">{{ p.status }}</span>{% endif %}
       {% if p.period != "" %}<span class="mono">{{ p.period }}</span>{% endif %}
-      {% for t in p.tracks %}<span class="track-chip chip-{{ t }}">{% if t == "micro" %}Microbiology{% elsif t == "geo" %}Geospatial{% else %}Bridge{% endif %}</span>{% endfor %}
+      {% for did in p.disciplines %}{% assign d = site.data.disciplines | where: "id", did | first %}<a class="track-chip" href="{{ '/methods.html' | relative_url }}#{{ d.id }}">{{ d.name }}</a>{% endfor %}
     </p>
+    {% if p.finding %}
+    <p class="kicker">{{ p.title }}</p>
+    <h3>{{ p.finding }}</h3>
+    {% else %}
     <h3>{{ p.title }}</h3>
+    {% endif %}
     {% if p.context %}<p class="context">{{ p.context }}</p>{% endif %}
     <p>{{ p.summary }}</p>
     {% if p.highlights %}
@@ -24,9 +44,23 @@
       {% for m in p.methods %}<li>{{ m }}</li>{% endfor %}
     </ul>
     {% endif %}
-    <p class="actions">
-      {% if p.repo %}<a class="btn btn-quiet" href="https://github.com/{{ site.data.profile.links.github_user }}/{{ p.repo }}">GitHub repository</a><a class="btn btn-quiet" href="{{ '/code.html' | relative_url }}#{% if p.repo == 'Divi' %}divi{% else %}repo-{{ p.repo }}{% endif %}">Code notes</a>{% endif %}
-      {% for l in p.links %}{% if l.url != "" %}<a class="btn btn-quiet" href="{{ l.url | relative_url }}">{{ l.label }}</a>{% endif %}{% endfor %}
-    </p>
+    <dl class="connected" aria-label="Connected work">
+      {% for pub in p_pubs %}
+      <div><dt>{% if pub.type == "article" %}Manuscript{% elsif pub.type == "conference" %}Conference paper{% elsif pub.type == "poster" %}Poster{% else %}Report{% endif %}</dt>
+        <dd><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">{{ pub.title }}</a>{% if pub.status == "in-review" %} <span class="muted">· in review</span>{% elsif pub.year != "" %} <span class="muted">· {{ pub.year }}</span>{% endif %}</dd></div>
+      {% endfor %}
+      {% if p.repo %}
+      <div><dt>Code</dt>
+        <dd><a href="{{ '/code.html' | relative_url }}#{% if p.repo == 'Divi' %}divi{% else %}repo-{{ p.repo }}{% endif %}">How the code was written and checked</a> <span class="muted">·</span> <a href="https://github.com/{{ site.data.profile.links.github_user }}/{{ p.repo }}">GitHub repository</a></dd></div>
+      {% endif %}
+      {% for l in p.links %}{% if l.url != "" %}
+      <div><dt>See also</dt><dd><a href="{{ l.url | relative_url }}">{{ l.label }}</a></dd></div>
+      {% endif %}{% endfor %}
+      {% if next_p %}
+      <div><dt>Next project</dt><dd><a href="#{{ next_p.id }}">{{ next_p.finding | default: next_p.title }}</a></dd></div>
+      {% elsif pb %}
+      <div><dt>Next</dt><dd><a href="#outputs">Papers and code from this problem</a></dd></div>
+      {% endif %}
+    </dl>
   </div>
 </article>

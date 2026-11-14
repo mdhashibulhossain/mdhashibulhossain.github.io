@@ -3,6 +3,9 @@ layout: default
 title: "Publications"
 permalink: /publications.html
 orcid: true
+next_url: /code.html
+next_kicker: "Next · the working files"
+next_label: "Code: the drone toolkit and four reproducible studies"
 description: "Publications, manuscripts and conference papers by Md Hashibul Hossain (Hossain, M.H.) on fungal heavy-metal tolerance, mycoremediation and urban green space."
 ---
 {% assign L = site.data.profile.links %}
@@ -10,7 +13,7 @@ description: "Publications, manuscripts and conference papers by Md Hashibul Hos
   <div class="wrap">
     <p class="eyebrow">Publications &amp; presentations</p>
     <h1>Publications</h1>
-    <p class="lede">Three manuscripts are in review; none is published yet. Conference work and posters are listed with their PDFs.</p>
+    <p class="lede">Three manuscripts are in review; none is published yet. Conference work and posters are listed with their PDFs. Every entry links back to the project it came from.</p>
     <p class="actions">
       <a class="btn" href="{{ L.researchgate }}">Follow on ResearchGate</a>
       {% if L.orcid != "" %}<a class="btn" href="https://orcid.org/{{ L.orcid }}">ORCID {{ L.orcid }}</a>{% endif %}
@@ -22,8 +25,7 @@ description: "Publications, manuscripts and conference papers by Md Hashibul Hos
 <section class="wrap section">
   <div class="filters" role="group" aria-label="Filter publications">
     <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
-    <button type="button" class="filter" data-filter="micro" aria-pressed="false">Microbiology</button>
-    <button type="button" class="filter" data-filter="geo" aria-pressed="false">Geospatial</button>
+    {% for pb in site.data.problems %}<button type="button" class="filter" data-filter="{{ pb.id }}" aria-pressed="false">{{ pb.n }} {{ pb.short }}</button>{% endfor %}
   </div>
 
   {% assign groups = "article:Manuscripts,conference:Conference papers,poster:Posters,report:Reports" | split: "," %}

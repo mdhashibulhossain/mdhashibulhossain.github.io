@@ -1,5 +1,7 @@
 {%- comment -%} Expects a variable `pub` (one entry from _data/publications.yml). {%- endcomment -%}
-<article class="pub" id="{{ pub.id }}" data-type="{{ pub.type }}" data-track="{{ pub.track }}">
+{%- assign pj = site.data.projects | where: "id", pub.project | first -%}
+{%- assign ppb = site.data.problems | where: "id", pj.problem | first -%}
+<article class="pub" id="{{ pub.id }}" data-type="{{ pub.type }}" data-track="{{ ppb.id }}">
   {% if pub.thumb %}
   <a class="pub-thumb" href="{{ pub.pdf | relative_url }}" aria-label="Open PDF of {{ pub.title }}">
     <img src="{{ pub.thumb | relative_url }}" alt="" loading="lazy">
@@ -9,12 +11,13 @@
     <p class="meta">
       <span class="status status-{{ pub.status }}">{% if pub.status == "in-review" %}In review{% elsif pub.status == "presented" %}Presented{% elsif pub.status == "published" %}Published{% else %}Report{% endif %}</span>
       <span class="mono">{{ pub.type }}{% if pub.year != "" %} · {{ pub.year }}{% endif %}</span>
-      <span class="track-chip chip-{{ pub.track }}">{% if pub.track == "micro" %}Microbiology{% else %}Geospatial{% endif %}</span>
+      {% if ppb %}<a class="track-chip" href="{{ ppb.url | relative_url }}">{{ ppb.n }} {{ ppb.short }}</a>{% endif %}
     </p>
     <h3 class="pub-title">{{ pub.title }}</h3>
     <p class="authors">{{ pub.authors | replace: "Hossain, M.H.", "<strong>Hossain, M.H.</strong>" }}</p>
     {% if pub.venue != "" %}<p class="venue">{{ pub.venue }}</p>{% endif %}
     {% if pub.role %}<p class="pub-role small"><strong>My role:</strong> {{ pub.role }}</p>{% endif %}
+    {% if pj %}<p class="pub-from small"><span class="col-label">From the project</span> <a href="{{ ppb.url | relative_url }}#{{ pj.id }}">{{ pj.finding | default: pj.title }}</a></p>{% endif %}
     <p class="actions">
       {% if pub.doi != "" %}<a class="doi-badge" href="https://doi.org/{{ pub.doi }}"><span>DOI</span>{{ pub.doi }}</a>{% endif %}
       {% if pub.researchgate and pub.researchgate != "" %}<a class="btn btn-quiet" href="{{ pub.researchgate }}">ResearchGate</a>{% endif %}

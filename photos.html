@@ -1,0 +1,58 @@
+---
+layout: default
+title: "Photo slots"
+permalink: /photos.html
+sitemap: false
+noindex: true
+description: "Private helper page: where photos can be added on this site."
+---
+{% assign PH = site.data.photos %}
+<section class="track-hero">
+  <div class="wrap">
+    <p class="eyebrow">Helper page · not linked from the site, hidden from search engines</p>
+    <h1>Photo slots</h1>
+    <p class="lede">Every place on the site that can show a photo. Upload a file with the slot's name and it appears by itself. Empty slots show nothing to visitors.</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head"><h2>How to add a photo</h2></div>
+  <ol class="howto">
+    <li><strong>Pick a slot</strong> from the tables below and note its file name, for example <code>soil-water.jpg</code>.</li>
+    <li><strong>Rename your photo</strong> to that name, in lower case. <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code> and <code>.webp</code> all work.</li>
+    <li><strong>Upload it</strong> on GitHub: open the folder <code>assets/photos</code> → <em>Add file</em> → <em>Upload files</em> → drag the photo in → <em>Commit changes</em>.</li>
+    <li><strong>Wait about a minute</strong> and reload this page. The slot changes from “Empty” to “Added”.</li>
+  </ol>
+  <p class="muted small howto-note">Resize photos to about 1600 px wide and under 500 KB so pages stay fast. Landscape photos work best; the site crops them to fit and keeps the centre. For a caption, fill in <code>caption</code> for that slot in <code>_data/photos.yml</code>.</p>
+</section>
+
+<section class="wrap section">
+  <div class="section-head"><h2>Page and home photos</h2><p class="muted">Eight slots. The four problem photos also show on the home page tiles.</p></div>
+  <div class="matrix-wrap">
+  <table class="slots">
+    <thead><tr><th scope="col">File name</th><th scope="col">Where it shows</th><th scope="col">What would work</th><th scope="col">Status</th></tr></thead>
+    <tbody>
+      {% assign names = "soil-water,plant-disease,forests-carbon,cities-wildlife,home-1,home-2,home-3,home-4" | split: "," %}
+      {% for name in names %}{% assign s = PH[name] %}
+      {% assign found = "" %}{% for f in site.static_files %}{% if f.path contains "/assets/photos/" %}{% assign fb = f.basename | downcase %}{% if fb == name %}{% assign found = f.path %}{% endif %}{% endif %}{% endfor %}
+      <tr><th scope="row"><code>{{ name }}.jpg</code></th><td>{{ s.where }}</td><td class="muted">{{ s.idea }}</td><td>{% if found != "" %}<span class="status status-ongoing">Added</span>{% else %}<span class="status">Empty</span>{% endif %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head"><h2>Project photos</h2><p class="muted">Each project takes up to two photos: <code>name.jpg</code> and <code>name-2.jpg</code>.</p></div>
+  <div class="matrix-wrap">
+  <table class="slots">
+    <thead><tr><th scope="col">File name</th><th scope="col">Project</th><th scope="col">Page</th><th scope="col">Status</th></tr></thead>
+    <tbody>
+      {% for p in site.data.projects %}{% assign pb = site.data.problems | where: "id", p.problem | first %}
+      {% assign c = 0 %}{% assign second = p.id | append: "-2" %}{% for f in site.static_files %}{% if f.path contains "/assets/photos/" %}{% assign fb = f.basename | downcase %}{% if fb == p.id or fb == second %}{% assign c = c | plus: 1 %}{% endif %}{% endif %}{% endfor %}
+      <tr><th scope="row"><code>{{ p.id }}.jpg</code></th><td><a href="{{ pb.url | relative_url }}#{{ p.id }}">{{ p.title | strip_html }}</a></td><td class="muted">{{ pb.n }} {{ pb.short }}</td><td>{% if c > 0 %}<span class="status status-ongoing">{{ c }} added</span>{% else %}<span class="status">Empty</span>{% endif %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>

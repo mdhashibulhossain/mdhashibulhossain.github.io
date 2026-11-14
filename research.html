@@ -1,159 +1,60 @@
 ---
 layout: default
-title: "Research Interests"
+title: "PhD direction"
 permalink: /research.html
-track: bridge
-description: "Research interests of Md Hashibul Hossain: mycoremediation, plant pathology and physiology, mycorrhizal ecology, remote sensing and computer vision."
+description: "PhD direction of Md Hashibul Hossain: linking lab-measured mechanisms in fungi and plants with drone and satellite mapping to solve environmental problems."
+next_url: /publications.html
+next_kicker: "Next · the written record"
+next_label: "Publications: manuscripts, conference work and posters"
 ---
-{% assign I = site.data.interests %}
-{% assign bridge = site.data.projects | where: "tracks", "bridge" %}
+{% assign PJ = site.data.projects %}
+{% assign PB = site.data.problems %}
 <section class="track-hero">
   <div class="wrap">
-    <p class="eyebrow">Research interests</p>
-    <h1>How do ecosystems respond to environmental stress, and how can we measure it from the lab bench to the satellite?</h1>
-    <p class="lede">Six connected interests, one question.</p>
-    <p><span class="hint">Click any node, step or link to know more</span></p>
+    <p class="eyebrow">PhD direction</p>
+    <h1>What I want to do in a PhD</h1>
+    <p class="lede">Measure the mechanism in the lab, map where it matters from above, and use both to fix an environmental problem. There are three ways in, depending on what your group works on.</p>
     <nav class="jump" aria-label="On this page">
-      <a href="#map">Interest map</a><a href="#scales">Fungus → satellite</a><a href="#interests">Interests</a><a href="#direction">PhD direction</a><a href="#bridge">Field → lab → model</a>
+      <a href="#entry">Three ways in</a><a href="#direction">The loop I want to run</a><a href="#practice">Already in practice</a><a href="#bring">What I bring</a>
     </nav>
   </div>
 </section>
 
-<!-- Interest map ─────────────────────────────────────────────────── -->
-<section class="wrap section" id="map">
-  <div class="section-head"><h2>Interest map</h2><p class="muted">Left: wet-lab biology. Right: spatial and vision methods.</p></div>
-    <div class="diagram">
-    <svg class="dg" viewBox="0 0 960 480" role="img" aria-labelledby="map-t">
-      <title id="map-t">Map of six research interests connected to one central question</title>
-      <defs>
-        <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"><circle cx="5" cy="5" r="4" class="dg-dot"/></marker>
-      </defs>
-      {% assign ys = "30,202,374" | split: "," %}
-      {% assign left = "mycoremediation,physiology,mycorrhiza" | split: "," %}
-      {% assign right = "pathology,geocv,urban" | split: "," %}
-      {% for side in (0..1) %}
-        {% if side == 0 %}{% assign ids = left %}{% assign x = 30 %}{% assign ex = 290 %}{% assign cx = 345 %}{% else %}{% assign ids = right %}{% assign x = 670 %}{% assign ex = 670 %}{% assign cx = 615 %}{% endif %}
-        {% for id in ids %}
-          {% assign i = I | where: "id", id | first %}
-          {% assign y = ys[forloop.index0] | plus: 0 %}{% assign my = y | plus: 38 %}
-          <path class="dg-link dg-{{ i.kind }}" d="M{{ ex }} {{ my }} C{% if side == 0 %}{{ ex | plus: 40 }}{% else %}{{ ex | minus: 40 }}{% endif %} {{ my }} {% if side == 0 %}{{ cx | minus: 30 }}{% else %}{{ cx | plus: 30 }}{% endif %} 240 {{ cx }} 240" marker-end="url(#dot)"/>
-          <a href="#{{ i.id }}" class="dg-node-link">
-            <rect class="dg-node dg-{{ i.kind }}" x="{{ x }}" y="{{ y }}" width="260" height="76" rx="6"/>
-            <rect class="dg-bar dg-{{ i.kind }}" x="{{ x }}" y="{{ y }}" width="6" height="76"/>
-            <text class="dg-title" x="{{ x | plus: 22 }}" y="{{ y | plus: 33 }}">{{ i.short }}</text>
-            <text class="dg-sub" x="{{ x | plus: 22 }}" y="{{ y | plus: 56 }}">{{ i.methods }}</text>
-          </a>
+<!-- Three entry points ───────────────────────────────────────────── -->
+<section class="wrap section" id="entry">
+  <div class="section-head">
+    <h2>Three ways in</h2>
+    <p class="muted">Pick the one closest to your group. Each lists what to read first and what I would do next.</p>
+  </div>
+  <div class="entries">
+    {% assign titles = "Soil and microbes|Forests, plants and carbon|Earth observation and computer vision" | split: "|" %}
+    {% assign leads = "You work on soil microbiology, metals or bioremediation.|You work on forest ecology, mycorrhizae, restoration or plant ecophysiology.|You work on remote sensing, drones or machine learning for ecosystems." | split: "|" %}
+    {% assign reads = "landfill-isolates,msc-thesis,ec50-methods|agarwood,mycorrhizal-dipterocarp,gas-exchange,soil-respiration|gis-mcda,divi,spore-detection,karnaphuli" | split: "|" %}
+    {% assign probs = "soil-water|forests-carbon|forests-carbon" | split: "|" %}
+    {% assign discs = "mycology|ecology|rsgis" | split: "|" %}
+    {% for k in (0..2) %}
+    {% assign pb = PB | where: "id", probs[k] | first %}
+    {% assign dd = site.data.disciplines | where: "id", discs[k] | first %}
+    {% assign ids = reads[k] | split: "," %}
+    <article class="entry" id="entry-{{ forloop.index }}">
+      <p class="eyebrow">If your group works on</p>
+      <h3>{{ titles[k] }}</h3>
+      <p class="muted">{{ leads[k] }}</p>
+      <p class="col-label">Read first</p>
+      <ul class="evidence">
+        {% for id in ids %}{% assign p = PJ | where: "id", id | first %}{% assign ppb = PB | where: "id", p.problem | first %}
+        <li><a href="{{ ppb.url | relative_url }}#{{ p.id }}">{{ p.finding | default: p.title }}</a></li>
         {% endfor %}
-      {% endfor %}
-      <rect class="dg-center" x="345" y="172" width="270" height="136" rx="10"/>
-      <text class="dg-center-t" x="480" y="214" text-anchor="middle">How do ecosystems</text>
-      <text class="dg-center-t" x="480" y="240" text-anchor="middle">respond to stress,</text>
-      <text class="dg-center-t" x="480" y="266" text-anchor="middle">from bench to orbit?</text>
-      <text class="dg-sub" x="480" y="290" text-anchor="middle">core question</text>
-    </svg>
-  </div>
-  <div class="dg-mobile m-map">
-    <p class="m-core">How do ecosystems respond to environmental stress, from bench to orbit?</p>
-    {% assign groups = "Wet-lab biology:mycoremediation;physiology;mycorrhiza,Spatial and vision methods:pathology;geocv;urban" | split: "," %}
-    {% for g in groups %}{% assign gp = g | split: ":" %}
-    <p class="col-label mono">{{ gp[0] }}</p>
-    <ul class="m-nodes">
-      {% assign gids = gp[1] | split: ";" %}
-      {% for id in gids %}{% assign i = I | where: "id", id | first %}
-      <li><a class="k-{{ i.kind }}" href="#{{ i.id }}"><strong>{{ i.short }}</strong><span class="mono">{{ i.methods }}</span></a></li>
-      {% endfor %}
-    </ul>
-    {% endfor %}
-  </div>
-</section>
-
-<!-- Scale ladder ─────────────────────────────────────────────────── -->
-<section class="wrap section" id="scales">
-  <div class="section-head"><h2>From fungus to satellite: six scales</h2><p class="muted">Fungi act on plants, plants build canopy, canopy shapes ecosystems, satellites see the pattern.</p></div>
-    <div class="diagram">
-    <svg class="dg" viewBox="0 0 1200 330" role="img" aria-labelledby="sc-t">
-      <title id="sc-t">Six linked scales: fungal spore, colony, plant, canopy, ecosystem and satellite landscape, with the method and link at each step</title>
-      <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" class="dg-arrowhead"/></marker></defs>
-      {% assign labels = "10 µm,1 cm,10 cm,10 m,1 km,100 km" | split: "," %}
-      {% assign names = "Spore,Colony,Plant,Canopy,Ecosystem,Landscape" | split: "," %}
-      {% assign m1 = "Microscopy + CV,Tolerance index,ICP-OES · pigments,Drone RGB,Soil C flux,Sentinel · Landsat" | split: "," %}
-      {% assign m2 = "spore detection,EC50 · ImageJ,nutrients · pathogens,Dīvi · WebODM,green space · wildlife,NDVI · land cover" | split: "," %}
-      {% assign links = "grows into,colonises,builds,shapes,seen as" | split: "," %}
-      {% assign urls = "/geospatial.html#spore-detection,/microbiology.html#msc-thesis,/research.html#physiology,/code.html#divi,/research.html#urban,/geospatial.html#gis-mcda" | split: "," %}
-      {% for k in (0..5) %}
-        {% assign cxs = k | times: 200 | plus: 100 %}
-        <a href="{{ urls[k] | relative_url }}" class="dg-node-link">
-          <text class="dg-scale" x="{{ cxs }}" y="26" text-anchor="middle">{{ labels[k] }}</text>
-          <circle class="dg-lens{% if k > 2 %} dg-lens-geo{% endif %}" cx="{{ cxs }}" cy="112" r="56"/>
-          <text class="dg-title" x="{{ cxs }}" y="200" text-anchor="middle">{{ names[k] }}</text>
-          <text class="dg-sub" x="{{ cxs }}" y="226" text-anchor="middle">{{ m1[k] }}</text>
-          <text class="dg-sub" x="{{ cxs }}" y="246" text-anchor="middle">{{ m2[k] }}</text>
-        </a>
-        {% if k < 5 %}
-          <path class="dg-flow" d="M{{ cxs | plus: 62 }} 112 H{{ cxs | plus: 138 }}" marker-end="url(#arr)"/>
-          <text class="dg-link-t" x="{{ cxs | plus: 100 }}" y="100" text-anchor="middle">{{ links[k] }}</text>
-        {% endif %}
-      {% endfor %}
-      <!-- spore -->
-      <ellipse class="i-micro i-fill" cx="82" cy="100" rx="13" ry="8"/><ellipse class="i-micro i-fill" cx="114" cy="122" rx="12" ry="7"/><ellipse class="i-micro i-fill" cx="88" cy="134" rx="9" ry="6"/>
-      <rect class="i-box" x="98" y="108" width="32" height="28"/>
-      <!-- colony -->
-      <circle class="i-micro" cx="300" cy="112" r="44"/><path class="i-micro i-fill" d="M280 96 C292 82 318 86 324 102 C332 120 316 136 298 134 C278 132 270 110 280 96 Z"/>
-      <path class="i-bridge" d="M268 112 H332 M268 106 V118 M332 106 V118"/>
-      <!-- plant with mycorrhizal roots -->
-      <path class="i-soil" d="M450 118 H550 V150 C530 166 470 166 450 150 Z"/>
-      <path class="i-micro" d="M500 118 V70"/>
-      <path class="i-micro i-fill" d="M500 92 C484 90 474 78 474 66 C490 66 500 78 500 92 Z"/><path class="i-micro i-fill" d="M500 102 C516 100 526 88 528 76 C512 76 501 88 500 102 Z"/>
-      <path class="i-bridge" d="M500 118 V150 M500 128 L484 144 M500 132 L516 148"/>
-      <path class="i-micro i-thin" d="M484 144 C478 140 474 146 468 142 M516 148 C522 144 528 150 534 146"/>
-      <!-- canopy from above -->
-      <circle class="i-tree" cx="682" cy="94" r="16"/><circle class="i-tree" cx="716" cy="90" r="12"/><circle class="i-tree" cx="704" cy="126" r="18"/><circle class="i-tree" cx="674" cy="132" r="9"/>
-      <path class="i-box" d="M690 104 H730 V146 H690 Z"/>
-      <!-- ecosystem -->
-      <path class="i-soil" d="M852 124 H948 V150 C928 166 872 166 852 150 Z"/>
-      <circle class="i-tree" cx="874" cy="102" r="12"/><path class="i-micro" d="M874 114 V124"/><circle class="i-tree" cx="926" cy="106" r="9"/><path class="i-micro" d="M926 115 V124"/>
-      <path class="i-bridge" d="M900 122 V72 M894 78 L900 70 L906 78"/>
-      <!-- landscape raster -->
-      {% for rr in (0..3) %}{% for cc in (0..3) %}<rect class="i-cell i-op{{ rr | times: 3 | plus: cc | modulo: 4 }}" x="{{ cc | times: 18 | plus: 1064 }}" y="{{ rr | times: 18 | plus: 76 }}" width="18" height="18"/>{% endfor %}{% endfor %}
-      <text class="dg-sub" x="600" y="300" text-anchor="middle">Solid circles: lab scales. Dashed circles: field and remote-sensing scales. Click any scale to open its evidence.</text>
-    </svg>
-  </div>
-  <ol class="dg-mobile m-steps">
-    {% for k in (0..5) %}
-    <li class="{% if k > 2 %}k-geo{% else %}k-micro{% endif %}">
-      <a href="{{ urls[k] | relative_url }}">
-        <span class="mono m-scale">{{ labels[k] }}</span>
-        <strong>{{ names[k] }}</strong>
-        <span class="muted small">{{ m1[k] }} · {{ m2[k] }}</span>
-      </a>
-      {% if k < 5 %}<span class="m-link">↓ {{ links[k] }}</span>{% endif %}
-    </li>
-    {% endfor %}
-  </ol>
-</section>
-
-<!-- Interests ────────────────────────────────────────────────────── -->
-<section class="wrap section" id="interests">
-  <div class="section-head"><h2>Six interests</h2></div>
-  <div class="interests">
-    {% for i in I %}
-    <article class="interest k-{{ i.kind }}" id="{{ i.id }}">
-      <div class="interest-art">{% include illustration.html %}</div>
-      <div class="interest-body">
-        <p class="eyebrow">{% if i.kind == "micro" %}Track A · Microbiology{% elsif i.kind == "geo" %}Track B · Geospatial{% else %}Bridge{% endif %}</p>
-        <h3>{{ i.title }}</h3>
-        <p class="question">{{ i.question }}</p>
-        <div class="interest-cols">
-          <div>
-            <p class="col-label mono">What I have done</p>
-            <ul class="evidence">{% for d in i.done %}<li><a href="{{ d.url | relative_url }}">{{ d.label }}</a></li>{% endfor %}</ul>
-          </div>
-          <div>
-            <p class="col-label mono">What I want to do next</p>
-            <p>{{ i.next }}</p>
-          </div>
-        </div>
-      </div>
+      </ul>
+      <p class="col-label">What I would do next</p>
+      <ul class="entry-next">
+        {% if k == 2 %}
+        <li>Scale lab-derived indicators to landscapes with Earth observation</li>
+        <li>Fly more Dīvi missions in good light and check canopy results against field measurements</li>
+        <li>Validate detection models against culture-based identification</li>
+        {% else %}{% for n in pb.next %}<li>{{ n }}</li>{% endfor %}{% endif %}
+      </ul>
+      <p class="entry-links"><a href="{{ pb.url | relative_url }}">Problem {{ pb.n }}: {{ pb.title }}</a><a href="{{ '/methods.html' | relative_url }}#{{ dd.id }}">Method: {{ dd.name }}</a></p>
     </article>
     {% endfor %}
   </div>
@@ -161,7 +62,7 @@ description: "Research interests of Md Hashibul Hossain: mycoremediation, plant 
 
 <!-- PhD direction loop ───────────────────────────────────────────── -->
 <section class="wrap section" id="direction">
-  <div class="section-head"><h2>Proposed PhD direction</h2><p class="muted">Image-based detection and quantification of fungal responses to environmental stress.</p></div>
+  <div class="section-head"><h2>The loop I want to run</h2><p class="muted">Satellites choose where to sample, the lab explains what is happening, images scale it up, and the map says where to go next.</p></div>
     <div class="diagram">
     <svg class="dg" viewBox="0 0 960 340" role="img" aria-labelledby="ph-t">
       <title id="ph-t">Six-step research loop: Earth-observation sampling, culture assays, imaging, vision models, wet-lab validation, landscape mapping, then back to sampling</title>
@@ -204,21 +105,51 @@ description: "Research interests of Md Hashibul Hossain: mycoremediation, plant 
   </ol>
 </section>
 
-<!-- Bridge: the thesis already did this ──────────────────────────── -->
-<section class="wrap section" id="bridge">
-  <div class="section-head"><h2>Field → lab → model, already in practice</h2><p class="muted">My MSc pipeline and current industry work.</p></div>
+<!-- Already in practice ──────────────────────────────────────────── -->
+<section class="wrap section" id="practice">
+  <div class="section-head"><h2>Already in practice</h2><p class="muted">My MSc ran the first five steps once. Each step opens the work.</p></div>
   <ol class="pipeline">
-    <li><a class="step step-geo" href="{{ '/geospatial.html#gis-mcda' | relative_url }}"><span class="mono">01 · Earth observation</span><strong>Choose the site</strong><span>6 sensors, 500 m grid, MCDA</span></a></li>
-    <li><a class="step step-geo" href="{{ '/microbiology.html#landfill-isolates' | relative_url }}"><span class="mono">02 · Field</span><strong>Sample the gradient</strong><span>7 soil + 3 water samples</span></a></li>
-    <li><a class="step step-micro" href="{{ '/microbiology.html#capabilities' | relative_url }}"><span class="mono">03 · Chemistry</span><strong>Measure the metals</strong><span>Bioavailable metals by ICP-OES</span></a></li>
-    <li><a class="step step-micro" href="{{ '/microbiology.html#landfill-isolates' | relative_url }}"><span class="mono">04 · Culture</span><strong>Isolate and screen</strong><span>27 isolates → 7 at 500 mg/L</span></a></li>
-    <li><a class="step step-bridge" href="{{ '/geospatial.html#spore-detection' | relative_url }}"><span class="mono">05 · Vision</span><strong>Automate the readout</strong><span>Spore and colony detection</span></a></li>
+    <li><a class="step step-geo" href="{{ '/soil-water.html#gis-mcda' | relative_url }}"><span class="mono">01 · Earth observation</span><strong>Choose the site</strong><span>6 sensors, 500 m grid, MCDA</span></a></li>
+    <li><a class="step step-geo" href="{{ '/soil-water.html#landfill-isolates' | relative_url }}"><span class="mono">02 · Field</span><strong>Sample the gradient</strong><span>7 soil + 3 water samples</span></a></li>
+    <li><a class="step step-micro" href="{{ '/methods.html#capabilities' | relative_url }}"><span class="mono">03 · Chemistry</span><strong>Measure the metals</strong><span>Bioavailable metals by ICP-OES</span></a></li>
+    <li><a class="step step-micro" href="{{ '/soil-water.html#landfill-isolates' | relative_url }}"><span class="mono">04 · Culture</span><strong>Isolate and screen</strong><span>27 isolates → 7 at 500 mg/L</span></a></li>
+    <li><a class="step step-bridge" href="{{ '/plant-disease.html#spore-detection' | relative_url }}"><span class="mono">05 · Vision</span><strong>Automate the readout</strong><span>Spore detection from microscopy</span></a></li>
   </ol>
   <figure class="wide-fig">
     <img src="{{ '/assets/img/fig-thesis-pipeline.jpg' | relative_url }}" alt="Laboratory and field discovery pipelines from the MSc thesis" loading="lazy">
-    <figcaption>Laboratory and field discovery pipelines, MSc thesis (SUST, 2025).</figcaption>
+    <figcaption>Laboratory and field discovery pipelines, MSc thesis (SUST, 2025). <a href="{{ '/soil-water.html#msc-thesis' | relative_url }}">Open the thesis project →</a></figcaption>
   </figure>
-  <div class="project-list section">
-    {% for p in bridge %}{% include project-card.html %}{% endfor %}
+</section>
+
+<!-- What I bring ─────────────────────────────────────────────────── -->
+<section class="wrap section" id="bring">
+  <div class="section-head">
+    <h2>What I bring to a lab</h2>
+    <span class="hint">Each claim opens its evidence</span>
+  </div>
+  <ul class="strengths">
+    {% for s in site.data.strengths %}
+    <li>
+      <a class="strength s-{{ s.kind }}" href="{{ s.url | relative_url }}">
+        <span class="eyebrow">{{ s.label }}</span>
+        <strong>{{ s.headline }}</strong>
+        <span class="strength-ev">{{ s.evidence }}</span>
+        <span class="more" aria-hidden="true"></span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="wrap section">
+  <div class="cta">
+    <div>
+      <p class="eyebrow">Open to</p>
+      <p class="cta-text">{{ site.data.profile.seeking }}</p>
+    </div>
+    <p class="actions">
+      <a class="btn btn-solid" href="{{ '/cv.html#contact' | relative_url }}">Get in touch</a>
+      <a class="btn" href="{{ '/cv.html' | relative_url }}">Read the CV</a>
+    </p>
   </div>
 </section>

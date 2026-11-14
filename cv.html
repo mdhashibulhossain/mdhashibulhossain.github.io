@@ -2,6 +2,9 @@
 layout: default
 title: "Curriculum Vitae"
 permalink: /cv.html
+next_url: /
+next_kicker: "Back to the start"
+next_label: "The four problems I work on"
 description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distinction, Junior Research Scientist at CredoSense, publications, skills and training."
 ---
 {% assign P = site.data.profile %}
@@ -102,10 +105,10 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
       <h2>Research projects</h2>
       <ul class="cv-projects">
         {% for p in site.data.projects %}
-        {% if p.tracks[0] == "micro" %}{% assign ppage = '/microbiology.html' %}{% else %}{% assign ppage = '/geospatial.html' %}{% endif %}
-        <li><a href="{{ ppage | relative_url }}#{{ p.id }}">
-          <span class="cv-when mono">{{ p.period }}</span>
-          <span><strong>{{ p.title }}</strong><span class="muted small"> · {{ p.context }}</span></span>
+        {% assign ppb = site.data.problems | where: "id", p.problem | first %}
+        <li><a href="{{ ppb.url | relative_url }}#{{ p.id }}">
+          <span class="cv-when mono">{{ p.period | default: "" }}</span>
+          <span><strong>{{ p.title }}</strong><span class="muted small"> · {{ p.context }} · {{ ppb.n }} {{ ppb.short }}</span></span>
         </a></li>
         {% endfor %}
       </ul>

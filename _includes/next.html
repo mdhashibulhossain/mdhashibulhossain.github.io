@@ -1,0 +1,20 @@
+{%- comment -%} "Keep reading" band at the foot of every page. Set next_url, next_label and next_kicker in the page's front matter. {%- endcomment -%}
+{% if page.next_url %}
+<nav class="next-band" aria-label="Keep reading">
+  <div class="wrap">
+    <a class="next-link" href="{{ page.next_url | relative_url }}">
+      <span class="eyebrow">{{ page.next_kicker | default: "Keep reading" }}</span>
+      <strong>{{ page.next_label }}</strong>
+      <span class="next-arrow" aria-hidden="true">→</span>
+    </a>
+    <p class="next-also">
+      <span class="eyebrow">Or jump to</span>
+      {% for pb in site.data.problems %}{% if page.url != pb.url %}<a href="{{ pb.url | relative_url }}">{{ pb.n }} {{ pb.short }}</a>{% endif %}{% endfor %}
+      {% if page.url != "/methods.html" %}<a href="{{ '/methods.html' | relative_url }}">Methods</a>{% endif %}
+      {% if page.url != "/publications.html" %}<a href="{{ '/publications.html' | relative_url }}">Publications</a>{% endif %}
+      {% if page.url != "/code.html" %}<a href="{{ '/code.html' | relative_url }}">Code</a>{% endif %}
+      {% if page.url != "/cv.html" %}<a href="{{ '/cv.html' | relative_url }}">CV</a>{% endif %}
+    </p>
+  </div>
+</nav>
+{% endif %}

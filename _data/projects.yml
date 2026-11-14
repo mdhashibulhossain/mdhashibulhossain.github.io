@@ -1,36 +1,27 @@
-# One entry per project. Pages filter by `tracks`:
-#   micro  → Environmental Microbiology & Bioimaging
-#   geo    → GIS, Remote Sensing & Computer Vision
-#   bridge → also shown on the Interdisciplinary page
-# To add a project: copy a block, change the fields, commit. No HTML needed.
+# One entry per project. Each project belongs to ONE problem page and can use
+# several disciplines.
 #
-# Fields: id, title, period, status (ongoing|complete|planned), tracks, summary,
-#         methods (tags), highlights (bullets), image, image_alt, repo, links
+#   problem:      soil-water | plant-disease | forests-carbon | cities-wildlife
+#   disciplines:  mycology | pathology | physiology | ecology | rsgis
+#   finding:      the result in one line (shown as the headline). Leave it out and
+#                 the title is used instead.
+#   title:        the topic (shown as a small label above the finding)
+#
+# To add a project: copy a block, change the fields, commit. No HTML needed.
+# Projects appear on their problem page in the order they are listed here.
+# Photos: upload assets/photos/<id>.jpg and it appears in that project (see /photos.html).
+#
+# Other fields: id, period, status (ongoing|complete|planned|""), context, summary,
+#               methods (tags), highlights (bullets), image, image_alt, repo, links
 
-- id: msc-thesis
-  featured: true
-  title: "Heavy-metal tolerance, bioaccumulation and bioremediation by filamentous fungi"
-  period: "2024 – 2026"
-  status: complete
-  tracks: [micro, bridge]
-  context: "MSc thesis · SUST · Supervisors: Dr M. M. U. Haque, Prof. R. Ahmed"
-  summary: >-
-    Dose–response screening of Aspergillus niger and Trichoderma asperellum against
-    As(V), Cd(II), Cr(VI) and Pb(II), with enzyme profiling and removal tests in water
-    and soil microcosms.
-  methods: [PDA tolerance assay, ImageJ, EC50 / LL.4, CAT · SOD · GR, ICP-OES, PCA, NMDS, two-way ANOVA]
-  highlights:
-    - "Tolerance index and growth inhibition across 4 metals and full concentration series"
-    - "Antioxidant enzyme responses summarised with PCA and NMDS"
-    - "Biomass accumulation and % removal measured in water and soil microcosms"
-  image: /assets/img/fig-thesis-pipeline.jpg
-  image_alt: "Two-column workflow: laboratory pipeline from tolerance assays to soil bioremediation, and field discovery pipeline from GIS site selection to isolate screening"
-
+# ══ 01 · Contaminated soil and water ═══════════════════════════════════
 - id: landfill-isolates
+  problem: soil-water
+  disciplines: [mycology, ecology, rsgis]
+  finding: "Seven landfill fungi stay viable at 500 mg/L chromium and arsenic"
   title: "Metallo-tolerant fungi from the Lalmatia waste dump"
   period: "2024 – 2025"
   status: complete
-  tracks: [micro, geo, bridge]
   context: "MSc field discovery pipeline · Sylhet"
   summary: >-
     GIS-chosen sampling site, 10 field samples (7 soil, 3 water), bioavailable metals by
@@ -46,11 +37,52 @@
   image: /assets/img/fig-study-area.jpg
   image_alt: "Satellite map of Lalmatia waste dump with sampling points and locator maps of Sylhet"
 
+- id: msc-thesis
+  problem: soil-water
+  disciplines: [mycology]
+  finding: "Two fungi tested against four metals, from the plate to the soil microcosm"
+  title: "Heavy-metal tolerance, bioaccumulation and bioremediation by filamentous fungi"
+  period: "2024 – 2026"
+  status: complete
+  context: "MSc thesis · SUST · Supervisors: Dr M. M. U. Haque, Prof. R. Ahmed"
+  summary: >-
+    Dose–response screening of Aspergillus niger and Trichoderma asperellum against
+    As(V), Cd(II), Cr(VI) and Pb(II), with enzyme profiling and removal tests in water
+    and soil microcosms.
+  methods: [PDA tolerance assay, ImageJ, EC50 / LL.4, CAT · SOD · GR, ICP-OES, PCA, NMDS, two-way ANOVA]
+  highlights:
+    - "Tolerance index and growth inhibition across 4 metals and full concentration series"
+    - "Antioxidant enzyme responses summarised with PCA and NMDS"
+    - "Biomass accumulation and % removal measured in water and soil microcosms"
+  image: /assets/img/fig-thesis-pipeline.jpg
+  image_alt: "Two-column workflow: laboratory pipeline from tolerance assays to soil bioremediation, and field discovery pipeline from GIS site selection to isolate screening"
+
+- id: gis-mcda
+  problem: soil-water
+  disciplines: [rsgis]
+  finding: "Six satellite sensors on one 500 m grid chose the sampling site"
+  title: "Multi-sensor GIS site selection for contamination sampling"
+  period: "2024 – 2025"
+  status: complete
+  context: "MSc thesis · ArcMap 10.8 · Google Earth Engine · R"
+  summary: >-
+    Multi-criteria suitability model fusing atmospheric, thermal, vegetation,
+    terrain and hydrology layers on a common 500 m grid over a 10-year window,
+    with sensitivity analysis.
+  methods: [Google Earth Engine, ArcMap Spatial Analyst, MCDA, Sentinel-2, Sentinel-5P, Landsat LST, MAIAC AOD, VIIRS, SRTM]
+  highlights:
+    - "Night lights, LST, AOD, haze, NO₂, CO, SO₂ and low-NDVI frequency layers"
+    - "DEM, slope, flow accumulation and water-occurrence layers"
+  image: /assets/img/fig-atmos-layers.jpg
+  image_alt: "Grid of nine choropleth rasters: VIIRS night lights, Landsat LST, MAIAC AOD and Sentinel-5P gases"
+
 - id: bsc-tolerance
+  problem: soil-water
+  disciplines: [mycology]
+  finding: "T. asperellum was the most tolerant of three fungi to lead, mercury and arsenic"
   title: "In-vitro heavy-metal tolerance of three fungi"
   period: "2022 – 2023"
   status: complete
-  tracks: [micro]
   context: "BSc project · SUST"
   summary: >-
     A. niger, R. stolonifer and T. asperellum on PDA amended with Pb, Hg and As at
@@ -64,54 +96,73 @@
     - label: "Project report (PDF)"
       url: ""      # TODO upload only if your supervisor agrees
 
-- id: credosense-lab
-  title: "Plant nutrient and pigment analytics"
-  period: "2026 – present"
-  status: ongoing
-  tracks: [micro]
-  context: "CredoSense · Dhaka, Bangladesh"
+- id: soil-enrichment
+  problem: soil-water
+  disciplines: [ecology, rsgis]
+  finding: "Zinc, cadmium and nickel enrichment in US soils holds up; the lead signal does not"
+  title: "Anthropogenic enrichment of toxic elements in US soils"
+  period: "2026"
+  status: complete
+  context: "Reproducible study · USGS DS-801 · R"
   summary: >-
-    Microwave-assisted digestion and ICP-OES quantification of macro- and
-    micronutrients; chlorophyll and carotenoid extraction by spectrophotometry.
-  methods: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction]
+    Separates geological background from human enrichment for 7 elements at 4,857
+    sites using robust element–Al regression, enrichment factors, Igeo and
+    compositional PCA, with a Ti normaliser check.
+  methods: [Robust regression, CLR PCA, Enrichment factor, Igeo, Sensitivity analysis]
   highlights:
-    - "Analysed 12 elements in 300+ samples across 5 crop species"
+    - "Zn, Cd, Ni enrichment robust to normaliser choice"
+    - "Pb signal did not replicate with Ti and is reported as unconfirmed"
+  image: /assets/img/code-pb-residual-map.jpg
+  image_alt: "US map of Pb residuals"
+  repo: soil-metal-enrichment
 
-- id: agarwood
-  title: "Fungal associations of resin-forming agarwood"
-  period: "2025 – present"
-  status: ongoing
-  tracks: [micro]
-  context: "Research Associate · SUST"
-  summary: "Isolation of fungi from resin-forming Aquilaria trees to study fungus–plant associations."
-  methods: [Field survey, Soil sampling, Tree inventory, Aseptic isolation, Morphological screening]
-  highlights:
-    - "Isolated fungi from resinous wood and helped inoculate living agarwood trees (results pending)"
-    - "Surveyed 11 agarwood plantations alone in about 10 days"
-    - "Soil sampling and tree inventory in plots covering 5% of plantation area"
-    - "Sites: Sitakunda Eco Park (Chattogram); Kaiacchera Tea Estate (Fatikchhari, Chattogram); Karnafuli Tea Estate (Khagrachari); Kaptai National Park; Borduara Forest Beat (Bandarban); Holudia Forest Beat (Bandarban); Harbang (Chakaria, Cox's Bazar); Fasiakhali Wildlife Sanctuary (Cox's Bazar); Sagordighi Beat, Dholapara Range (Tangail); Dokhola Range (Madhupur, Tangail); Jolchatra (Madhupur, Tangail)"
-
-# 2 mycorrhizal culture card (species names pending your confirmation)
-- id: mycorrhizal-dipterocarp
-  title: "Mycorrhizal fungi of dipterocarp forest trees"
-  period: "2024"
-  status: ""
-  tracks: [micro, bridge]
-  context: "Culture work · SUST"
+- id: metal-genes
+  problem: soil-water
+  disciplines: [ecology]
+  finding: "A 4% excess of metal-resistance genes is not confirmed once sampling site is accounted for"
+  title: "Metal-resistance genes and contaminated environments"
+  period: "2026"
+  status: complete
+  context: "Reproducible comparative-genomics study · Python"
   summary: >-
-    Cultured fungi from fruit bodies associated with telsur (<em>Hopea odorata</em>)
-    and garjan (<em>Dipterocarpus</em>) on MMN medium.
-  methods: [Fruit-body tissue culture, MMN medium, Aseptic culture]
-  links:
-    - label: "2023 poster: mycorrhizal carbon sequestration"
-      url: /publications.html#poster-mycorrhizal-2023
+    Scans 84 Pseudomonas genomes against 485 metal-resistance genes with DIAMOND and
+    tests whether contaminated-site isolates carry more of them, with errors clustered
+    by sampling site and by Mash-derived clade.
+  methods: [DIAMOND, Mash, BacMet 2.0, Poisson GLM, Cluster-robust SE]
+  highlights:
+    - "Rate ratio 1.039: p = 0.030 with HC1-robust errors, 0.119 clustered by site, 0.076 by clade"
+    - "Reported as not confirmed in this sample, not as no effect"
+  image: /assets/img/code-mrg-gene-content.jpg
+  image_alt: "Metal-resistance genes per 1,000 proteins in reference and contaminated Pseudomonas genomes"
+  repo: metal-resistance-genes-environment
 
+- id: ec50-methods
+  problem: soil-water
+  disciplines: [mycology]
+  finding: "Richer dose designs cut EC50 error about fourfold"
+  title: "Dose–response modelling done properly"
+  period: "2026"
+  status: complete
+  context: "Reproducible methods study · R"
+  summary: >-
+    Validates EC50 fitting against a published result, then uses labelled synthetic
+    data and 12,000 simulations to show how dose and replicate design drive EC50 precision.
+  methods: [LL.4, AIC, Bootstrap CI, Simulation study]
+  highlights:
+    - "Reproduces published ryegrass ED50 exactly (3.058)"
+    - "RMSE of log-EC50: 0.21 → 0.055 from cheapest to richest design"
+  image: /assets/img/code-ec50-curves.jpg
+  image_alt: "Synthetic dose–response curves"
+  repo: dose-response-ec50
+
+# ══ 02 · Plant stress and disease ══════════════════════════════════════
 - id: spore-detection
-  featured: true
+  problem: plant-disease
+  disciplines: [pathology, mycology, rsgis]
+  finding: "A model that finds six classes of fungal spores at mAP50 0.82"
   title: "Pathogenic fungal spore detection from microscopy"
   period: "2026 – present"
   status: ongoing
-  tracks: [geo, micro, bridge]
   context: "CredoSense · Dhaka, Bangladesh"
   summary: >-
     Machine-learning and computer-vision models that detect pathogenic fungi in
@@ -120,39 +171,56 @@
   highlights:
     - "YOLO model on 4,000 annotated spores, 6 classes; mAP50 0.82"
 
-- id: gis-mcda
-  title: "Multi-sensor GIS site selection for contamination sampling"
-  period: "2024 – 2025"
-  status: complete
-  tracks: [geo, bridge]
-  context: "MSc thesis · ArcMap 10.8 · Google Earth Engine · R"
-  summary: >-
-    Multi-criteria suitability model fusing atmospheric, thermal, vegetation,
-    terrain and hydrology layers on a common 500 m grid over a 10-year window,
-    with sensitivity analysis.
-  methods: [Google Earth Engine, ArcMap Spatial Analyst, MCDA, Sentinel-2, Sentinel-5P, Landsat LST, MAIAC AOD, VIIRS, SRTM]
-  highlights:
-    - "Night lights, LST, AOD, haze, NO₂, CO, SO₂ and low-NDVI frequency layers"
-    - "DEM, slope, flow accumulation and water-occurrence layers"
-  image: /assets/img/fig-atmos-layers.jpg
-  image_alt: "Grid of nine choropleth rasters: VIIRS night lights, Landsat LST, MAIAC AOD and Sentinel-5P gases"
-
 - id: pest-detection
+  problem: plant-disease
+  disciplines: [pathology, rsgis]
+  finding: "Eight greenhouse pests detected at mAP50 0.76"
   title: "Greenhouse pest object detection"
   period: "2026 – present"
   status: ongoing
-  tracks: [geo]
   context: "CredoSense"
   summary: "Object-detection models for greenhouse pests trained on curated open-source image datasets."
   methods: [Object detection, Annotation, Evaluation]
   highlights:
     - "8 pest classes, 2,500 images; mAP50 0.76"
 
+- id: credosense-lab
+  problem: plant-disease
+  disciplines: [physiology]
+  finding: "Twelve elements measured in more than 300 samples from five crop species"
+  title: "Plant nutrient and pigment analytics"
+  period: "2026 – present"
+  status: ongoing
+  context: "CredoSense · Dhaka, Bangladesh"
+  summary: >-
+    Microwave-assisted digestion and ICP-OES quantification of macro- and
+    micronutrients; chlorophyll and carotenoid extraction by spectrophotometry.
+  methods: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction]
+  highlights:
+    - "Analysed 12 elements in 300+ samples across 5 crop species"
+
+- id: abroma-leaf-spot
+  problem: plant-disease
+  disciplines: [pathology, mycology]
+  finding: "Two fungi found behind the leaf spot of ulatkambal"
+  title: "Leaf spot disease of ulatkambal (<em>Abroma augusta</em>)"
+  period: ""        # TODO add the year
+  status: complete
+  context: "BSc · SUST"
+  summary: >-
+    Three months of isolation and re-isolation from diseased leaves to find the
+    fungi that cause the leaf spot.
+  methods: [Isolation, Re-isolation, Aseptic culture]
+  highlights:
+    - "Two causal fungi identified"
+
 - id: yolo-leaf
+  problem: plant-disease
+  disciplines: [rsgis]
+  finding: "A leaf detector that runs in the web browser"
   title: "YOLO11s leaf detector with TensorFlow.js export"
   period: "Dec 2024 – Feb 2025"
   status: complete
-  tracks: [geo]
   context: "Python & Data Science training · IICT-SUST"
   summary: >-
     Transfer-learned YOLO11s for 2-class leaf detection (1,107 train / 46 val images,
@@ -162,33 +230,30 @@
     - "Validation: mAP50 0.43, mAP50-95 0.36, recall 0.80 on 46 images (136 instances)"
   repo: PDS-12-Project
 
-- id: urban-green
-  title: "Urban green-space suitability, North-eastern Sylhet"
-  period: "2024 – 2025"
-  status: complete
-  tracks: [geo]
-  context: "Co-author · manuscript in review"
-  summary: "GIS multi-criteria analysis to identify suitable sites for new urban green space."
-  methods: [GIS-MCDA, Suitability mapping]
-
-- id: karnaphuli
-  title: "Land-cover change, Karnaphuli Range (Kaptai)"
-  period: "2023"
-  status: complete
-  tracks: [geo]
-  context: "Coursework · SUST"
-  summary: "Satellite image analysis of land-use and land-cover change across a ~560 ha forest range."
-  methods: [Image classification, Change detection]
+# ══ 03 · Degraded forests and carbon ═══════════════════════════════════
+- id: agarwood
+  problem: forests-carbon
+  disciplines: [mycology, ecology]
+  finding: "Eleven agarwood plantations surveyed; fungi isolated from resinous wood"
+  title: "Fungal associations of resin-forming agarwood"
+  period: "2025 – present"
+  status: ongoing
+  context: "Research Associate · SUST"
+  summary: "Isolation of fungi from resin-forming Aquilaria trees to study fungus–plant associations."
+  methods: [Field survey, Soil sampling, Tree inventory, Aseptic isolation, Morphological screening]
   highlights:
-    - "Landsat 8 imagery, supervised classification in ArcMap, 2013–2023"
+    - "Isolated fungi from resinous wood and helped inoculate living agarwood trees (results pending)"
+    - "Surveyed 11 agarwood plantations alone in about 10 days"
+    - "Soil sampling and tree inventory in plots covering 5% of plantation area"
+    - "Sites: Sitakunda Eco Park (Chattogram); Kaiacchera Tea Estate (Fatikchhari, Chattogram); Karnafuli Tea Estate (Khagrachari); Kaptai National Park; Borduara Forest Beat (Bandarban); Holudia Forest Beat (Bandarban); Harbang (Chakaria, Cox's Bazar); Fasiakhali Wildlife Sanctuary (Cox's Bazar); Sagordighi Beat, Dholapara Range (Tangail); Dokhola Range (Madhupur, Tangail); Jolchatra (Madhupur, Tangail)"
 
-# ── Software and reproducible studies (also on the Code page) ──
 - id: divi
-  featured: true
+  problem: forests-carbon
+  disciplines: [rsgis, ecology]
+  finding: "A drone toolkit that plans, checks and maps a flight offline"
   title: "Dīvi: offline drone mapping and canopy analysis"
   period: "2026 – present"
   status: ongoing
-  tracks: [geo, bridge]
   context: "Open-source software · Python · AGPL-3.0"
   summary: >-
     Plans DJI Fly missions with terrain-aware resolution and overlap prediction,
@@ -205,64 +270,66 @@
   image_fit: contain
   repo: Divi
 
-- id: soil-enrichment
-  title: "Anthropogenic enrichment of toxic elements in US soils"
-  period: "2026"
-  status: complete
-  tracks: [micro, geo]
-  context: "Reproducible study · USGS DS-801 · R"
+- id: mycorrhizal-dipterocarp
+  problem: forests-carbon
+  disciplines: [mycology, ecology]
+  finding: "Fungi associated with telsur and garjan brought into culture"
+  title: "Mycorrhizal fungi of dipterocarp forest trees"
+  period: "2024"
+  status: ""
+  context: "Culture work · SUST"
   summary: >-
-    Separates geological background from human enrichment for 7 elements at 4,857
-    sites using robust element–Al regression, enrichment factors, Igeo and
-    compositional PCA, with a Ti normaliser check.
-  methods: [Robust regression, CLR PCA, Enrichment factor, Igeo, Sensitivity analysis]
-  highlights:
-    - "Zn, Cd, Ni enrichment robust to normaliser choice"
-    - "Pb signal did not replicate with Ti and is reported as unconfirmed"
-  image: /assets/img/code-pb-residual-map.jpg
-  image_alt: "US map of Pb residuals"
-  repo: soil-metal-enrichment
+    Cultured fungi from fruit bodies associated with telsur (<em>Hopea odorata</em>)
+    and garjan (<em>Dipterocarpus</em>) on MMN medium.
+  methods: [Fruit-body tissue culture, MMN medium, Aseptic culture]
 
-- id: metal-genes
-  title: "Metal-resistance genes and contaminated environments"
-  period: "2026"
-  status: complete
-  tracks: [micro]
-  context: "Reproducible comparative-genomics study · Python"
+- id: gas-exchange
+  problem: forests-carbon
+  disciplines: [physiology]
+  finding: "Photosynthesis and water use measured at the leaf with a calibrated chamber"
+  title: "Leaf gas exchange: carbon uptake and water use"
+  period: ""        # TODO add the period
+  status: ""
+  context: "CredoSense · Dhaka, Bangladesh"
   summary: >-
-    Scans 84 Pseudomonas genomes against 485 metal-resistance genes with DIAMOND and
-    tests whether contaminated-site isolates carry more of them, with errors clustered
-    by sampling site and by Mash-derived clade.
-  methods: [DIAMOND, Mash, BacMet 2.0, Poisson GLM, Cluster-robust SE]
+    Collected data with the CS-LC7000 leaf chamber paired with an LI-840A gas
+    analyser, calibrated the chamber sensors and the device equations, and computed
+    photosynthesis, transpiration, stomatal conductance and water-use efficiency.
+  methods: [CS-LC7000 leaf chamber, LI-840A, Sensor calibration, R, Excel]
   highlights:
-    - "Rate ratio 1.039: p = 0.030 with HC1-robust errors, 0.119 clustered by site, 0.076 by clade"
-    - "Reported as not confirmed in this sample, not as no effect"
-  image: /assets/img/code-mrg-gene-content.jpg
-  image_alt: "Metal-resistance genes per 1,000 proteins in reference and contaminated Pseudomonas genomes"
-  repo: metal-resistance-genes-environment
+    - "Trained 16 junior labmates in the data analysis (Excel and R)"
 
-- id: ec50-methods
-  title: "Dose–response modelling done properly"
-  period: "2026"
+- id: satchari-plots
+  problem: forests-carbon
+  disciplines: [ecology]
+  finding: "All timber species counted in forest plots at Satchari National Park"
+  title: "Vegetation plot survey, Satchari National Park"
+  period: ""        # TODO add the year
   status: complete
-  tracks: [micro]
-  context: "Reproducible methods study · R"
-  summary: >-
-    Validates EC50 fitting against a published result, then uses labelled synthetic
-    data and 12,000 simulations to show how dose and replicate design drive EC50 precision.
-  methods: [LL.4, AIC, Bootstrap CI, Simulation study]
+  context: "Field survey"
+  summary: "Laid plots, identified the plants and counted all timber species in them."
+  methods: [Plot layout, Plant identification, Tree count]
+
+- id: karnaphuli
+  problem: forests-carbon
+  disciplines: [rsgis, ecology]
+  finding: "Ten years of land-cover change across the Karnaphuli Range"
+  title: "Land-cover change, Karnaphuli Range (Kaptai)"
+  period: "2023"
+  status: complete
+  context: "Coursework · SUST"
+  summary: "Satellite image analysis of land-use and land-cover change across a ~560 ha forest range."
+  methods: [Image classification, Change detection]
   highlights:
-    - "Reproduces published ryegrass ED50 exactly (3.058)"
-    - "RMSE of log-EC50: 0.21 → 0.055 from cheapest to richest design"
-  image: /assets/img/code-ec50-curves.jpg
-  image_alt: "Synthetic dose–response curves"
-  repo: dose-response-ec50
+    - "Landsat 8 imagery, supervised classification in ArcMap, 2013–2023"
 
 - id: soil-respiration
+  problem: forests-carbon
+  disciplines: [ecology]
+  finding: "Biome changes how soil respiration responds to temperature, but not how well it is predicted"
   title: "Climate controls on global soil respiration"
   period: "2026"
   status: complete
-  tracks: [geo]
   context: "Reproducible study · SRDB · R"
   summary: >-
     Mixed-effects model of annual soil respiration against temperature, precipitation
@@ -273,3 +340,42 @@
   image: /assets/img/code-rs-temperature.jpg
   image_alt: "Predicted soil respiration against temperature by biome"
   repo: climate-controls-soil-respiration
+
+# ══ 04 · Cities and wildlife ═══════════════════════════════════════════
+- id: urban-green
+  problem: cities-wildlife
+  disciplines: [rsgis, ecology]
+  finding: "Where North-eastern Sylhet could add green space"
+  title: "Urban green-space suitability, North-eastern Sylhet"
+  period: "2024 – 2025"
+  status: complete
+  context: "Co-author · manuscript in review"
+  summary: "GIS multi-criteria analysis to identify suitable sites for new urban green space."
+  methods: [GIS-MCDA, Suitability mapping]
+
+- id: camera-trap
+  problem: cities-wildlife
+  disciplines: [ecology, rsgis]
+  finding: "Carnivores recorded using a university campus as a refuge"
+  title: "Camera traps for urban carnivores"
+  period: ""        # TODO add the year
+  status: complete
+  context: "Co-author · manuscript in review"
+  summary: >-
+    Camera-trap study on a biodiversity-rich university campus. I chose the camera
+    sites for nocturnal carnivores from the distribution of food resources, then
+    analysed the sightings against food sources and vegetation in GIS.
+  methods: [Camera traps, Site selection, GIS analysis]
+
+- id: khadimnagar
+  problem: cities-wildlife
+  disciplines: [ecology]
+  finding: "What 22 forest stakeholders know about protected-area rules"
+  title: "Protected-area rules at Khadimnagar National Park"
+  period: "Jan 2024"
+  status: complete
+  context: "USAID Bangladesh Ecosystems / Protibesh Activity · internship"
+  summary: >-
+    Mixed-methods study of 22 office bearers and People's Forum members on what they
+    know about the Protected Area Management Rules, 2017, analysed in R.
+  methods: [Interviews, Mixed methods, R]

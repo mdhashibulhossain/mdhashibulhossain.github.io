@@ -1,13 +1,15 @@
 {%- comment -%} Analysis repo card. Expects `r` (from _data/repos.yml). github.js fills live stats. {%- endcomment -%}
 {% assign gh = site.data.profile.links.github_user %}
 {% assign base = "https://github.com/" | append: gh | append: "/" | append: r.name %}
-<article class="repo repo-analysis" id="repo-{{ r.name }}" data-repo="{{ gh }}/{{ r.name }}" data-track-item="{{ r.track }}">
+{% assign pj = site.data.projects | where: "repo", r.name | first %}
+{% assign ppb = site.data.problems | where: "id", pj.problem | first %}
+<article class="repo repo-analysis" id="repo-{{ r.name }}" data-repo="{{ gh }}/{{ r.name }}" data-track-item="{{ ppb.id }}">
   {% if r.figure %}
   <a class="repo-fig" href="{{ base }}" tabindex="-1" aria-hidden="true"><img src="{{ r.figure | relative_url }}" alt="{{ r.figure_alt }}" loading="lazy"></a>
   {% endif %}
   <div class="repo-body">
     <p class="meta">
-      <span class="track-chip chip-{{ r.track }}">{% if r.track == "micro" %}Microbiology{% else %}Geospatial{% endif %}</span>
+      {% if ppb %}<a class="track-chip" href="{{ ppb.url | relative_url }}">{{ ppb.n }} {{ ppb.short }}</a>{% endif %}
       <span class="mono" data-field="language">{{ r.language }}</span>
       {% if r.license %}<span class="mono">{{ r.license }}</span>{% endif %}
       {% if r.scripts %}<span class="mono">{{ r.scripts }} scripts</span>{% endif %}
@@ -32,6 +34,7 @@
       <div><dt>Forks</dt><dd data-field="forks">–</dd></div>
       <div><dt>Last push</dt><dd data-field="updated">–</dd></div>
     </dl>
+    {% if pj %}<p class="pub-from small"><span class="col-label">Part of the project</span> <a href="{{ ppb.url | relative_url }}#{{ pj.id }}">{{ pj.finding | default: pj.title }}</a></p>{% endif %}
     <p class="actions">
       <a class="btn btn-solid" href="{{ base }}">Repository</a>
       {% for l in r.links %}<a class="btn btn-quiet" href="{{ base }}{{ l.path }}">{{ l.label }}</a>{% endfor %}

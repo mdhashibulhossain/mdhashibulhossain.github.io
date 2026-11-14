@@ -12,7 +12,8 @@ description: "This page does not exist on Md Hashibul Hossain's research portfol
     <p class="lede">The page may have moved. These are the main sections:</p>
     <p class="actions">
       <a class="btn btn-solid" href="{{ '/' | relative_url }}">Home</a>
-      <a class="btn" href="{{ '/research.html' | relative_url }}">Research</a>
+      {% for pb in site.data.problems %}<a class="btn" href="{{ pb.url | relative_url }}">{{ pb.n }} {{ pb.short }}</a>{% endfor %}
+      <a class="btn" href="{{ '/methods.html' | relative_url }}">Methods</a>
       <a class="btn" href="{{ '/publications.html' | relative_url }}">Publications</a>
       <a class="btn" href="{{ '/cv.html' | relative_url }}">CV</a>
     </p>
