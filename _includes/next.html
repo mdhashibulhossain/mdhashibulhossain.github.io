@@ -2,7 +2,8 @@
 {% if page.next_url %}
 <nav class="next-band" aria-label="Keep reading">
   <div class="wrap">
-    <a class="next-link" href="{{ page.next_url | relative_url }}">
+    {% assign nid = page.next_url | remove: "/" | remove: ".html" %}
+    <a class="next-link pc-{{ nid }}" href="{{ page.next_url | relative_url }}">
       <span class="eyebrow">{{ page.next_kicker | default: "Keep reading" }}</span>
       <strong>{{ page.next_label }}</strong>
       <span class="next-arrow" aria-hidden="true">→</span>

@@ -19,4 +19,5 @@ To remove a photo: delete the file from this folder.
 To add a caption: open _data/photos.yml and fill in the caption for that slot.
 
 Keep photos fast: resize to about 1600 px wide and under 500 KB before uploading.
-Landscape photos work best. The site crops them to fit, keeping the centre.
+Home strip photos (home-1 to home-4) are cropped to portrait 4:5 and problem photos to a
+wide strip, keeping the centre. Project photos keep their own shape.

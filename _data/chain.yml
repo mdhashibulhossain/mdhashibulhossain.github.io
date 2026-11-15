@@ -1,36 +1,38 @@
-# "From fungus to satellite" chain on the home page (hero + section).
+# "From fungus to satellite" chain on the home page.
 # `link` is the relationship to the next level; `evidence` links point to proof.
 - id: fungus
   scale: "10 µm"
   name: "Fungus"
   kind: micro
   line: "Spores, hyphae, metal tolerance"
-  url: /microbiology.html
+  url: /soil-water.html
   question: "Which fungi tolerate and remove heavy metals, and which ones attack plants?"
   link: "colonise roots, infect leaves, cycle nutrients"
   evidence:
     - label: "Metal tolerance & bioremediation (MSc)"
-      url: /microbiology.html#msc-thesis
+      url: /soil-water.html#msc-thesis
     - label: "27 landfill isolates"
-      url: /microbiology.html#landfill-isolates
+      url: /soil-water.html#landfill-isolates
     - label: "Spore detection from microscopy"
-      url: /geospatial.html#spore-detection
+      url: /plant-disease.html#spore-detection
 
 - id: plant
   scale: "10 cm"
   name: "Plant"
   kind: micro
   line: "Roots, leaves, pigments, nutrients"
-  url: /research.html#physiology
+  url: /plant-disease.html
   question: "How do fungi and metal stress change plant health, pigments and nutrition?"
   link: "plants add up to canopy and cover"
   evidence:
     - label: "Pigments & ICP-OES nutrients"
-      url: /microbiology.html#credosense-lab
-    - label: "Plant pathology & agarwood fungi"
-      url: /research.html#pathology
+      url: /plant-disease.html#credosense-lab
+    - label: "Leaf spot of ulatkambal: two causal fungi"
+      url: /plant-disease.html#abroma-leaf-spot
+    - label: "Leaf gas exchange: photosynthesis and water use"
+      url: /forests-carbon.html#gas-exchange
     - label: "Mycorrhizal fungi of dipterocarps"
-      url: /microbiology.html#mycorrhizal-dipterocarp
+      url: /forests-carbon.html#mycorrhizal-dipterocarp
     - label: "Mycorrhizae & soil carbon (poster)"
       url: /publications.html#poster-mycorrhizal-2023
 
@@ -39,47 +41,47 @@
   name: "Canopy"
   kind: geo
   line: "Tree crowns and vegetation cover from drones"
-  url: /code.html#divi
+  url: /forests-carbon.html#divi
   question: "Can low-cost drones measure canopy structure and change reliably?"
   link: "canopy shapes soil carbon and habitat"
   evidence:
     - label: "Dīvi: canopy height and tree crowns from drones"
-      url: /code.html#divi
+      url: /forests-carbon.html#divi
     - label: "YOLO11 leaf detection"
-      url: /geospatial.html#yolo-leaf
+      url: /plant-disease.html#yolo-leaf
     - label: "i-Tree urban tree inventory"
-      url: /cv.html#training
+      url: /methods.html#training
 
 - id: ecosystem
   scale: "1 km"
   name: "Ecosystem"
   kind: bridge
   line: "Soil carbon, green space, wildlife"
-  url: /research.html#urban
+  url: /cities-wildlife.html
   question: "How do climate and land use shape soil carbon flux, green space and biodiversity?"
   link: "patterns become visible from orbit"
   evidence:
     - label: "Global soil respiration, 1,247 studies"
-      url: /code.html#repo-climate-controls-soil-respiration
+      url: /forests-carbon.html#soil-respiration
     - label: "Urban green-space suitability"
-      url: /publications.html#ms-urban-green-sylhet
+      url: /cities-wildlife.html#urban-green
     - label: "Carnivore refugia: camera-trap siting & GIS"
-      url: /publications.html#ms-carnivore-refugia
+      url: /cities-wildlife.html#camera-trap
     - label: "Protected-area field study (USAID)"
-      url: /cv.html#usaid
+      url: /cities-wildlife.html#khadimnagar
 
 - id: satellite
   scale: "100 km"
   name: "Satellite"
   kind: geo
   line: "Vegetation, land cover and pollution from orbit"
-  url: /geospatial.html
+  url: /methods.html#rsgis
   question: "Where should field and lab work go, and how do findings scale to landscapes?"
   link: ""
   evidence:
     - label: "6-sensor MCDA incl. low-NDVI vegetation"
-      url: /geospatial.html#gis-mcda
+      url: /soil-water.html#gis-mcda
     - label: "Land-cover change, Karnaphuli"
-      url: /geospatial.html#karnaphuli
+      url: /forests-carbon.html#karnaphuli
     - label: "US soil metal enrichment, 4,857 sites"
-      url: /code.html#repo-soil-metal-enrichment
+      url: /soil-water.html#soil-enrichment

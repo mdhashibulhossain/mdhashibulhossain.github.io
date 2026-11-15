@@ -1,11 +1,15 @@
 # The four environmental problems the site is organised around.
 # Every project in _data/projects.yml points to one of these with `problem: <id>`.
+# illus: which drawing sits in the page header (ids from _data/interests.yml)
+# scale: the range shown on the scale bar under the header
 # `found` and `stat` link to a project on the same page with `project: <project id>`.
 
 - id: soil-water
   n: "01"
   url: /soil-water.html
   short: "Soil & water"
+  illus: mycoremediation
+  scale: "10 µm hyphae → 500 m grid"
   title: "Contaminated soil and water"
   solution: "Fungal clean-up"
   question: "Can fungi clean metals out of contaminated soil and water?"
@@ -15,8 +19,8 @@
     measure how much metal they tolerate and remove, and use satellite data to
     decide where to sample.
   stat:
-    value: "7 of 27"
-    label: "landfill fungi stayed viable at 500 mg/L chromium and arsenic"
+    value: "11×"
+    label: "more arsenic tolerated by landfill isolate DMFT2 than by the lab strain A. niger (EC50 about 874 vs 79 mg/L)"
     project: landfill-isolates
   measured:
     - "Fungal growth on metal-amended plates: tolerance index and EC50"
@@ -27,7 +31,11 @@
   found:
     - text: "7 of 27 landfill isolates stayed viable on 500 mg/L chromium and arsenic"
       project: landfill-isolates
-    - text: "T. asperellum was the most tolerant of three fungi to lead, mercury and arsenic"
+    - text: "Landfill isolate DMFT2 tolerated lead and arsenic more than ten times better than A. niger"
+      project: landfill-isolates
+    - text: "Two fungi removed about 80–90% of cadmium and lead from water at 50 mg/L"
+      project: msc-thesis
+    - text: "T. asperellum kept half its growth at 500 ppm lead, the most tolerant of three fungi"
       project: bsc-tolerance
     - text: "Zinc, cadmium and nickel enrichment in US soils holds under a second normaliser; the lead signal does not"
       project: soil-enrichment
@@ -42,6 +50,8 @@
   n: "02"
   url: /plant-disease.html
   short: "Plant disease"
+  illus: pathology
+  scale: "5 µm spores → 1 leaf"
   title: "Plant stress and disease"
   solution: "Early detection"
   question: "Can we catch plant disease and stress before the damage shows?"
@@ -50,21 +60,18 @@
     the damage is done. I train models that find fungal spores and pests in
     images, and I measure the nutrients and pigments that show a plant is under stress.
   stat:
-    value: "0.82"
-    label: "mAP50 for a model that finds six classes of fungal spores in microscope images"
-    project: spore-detection
+    value: "2"
+    label: "fungi isolated as the cause of ulatkambal leaf spot, after three months of isolation and re-isolation"
+    project: abroma-leaf-spot
   measured:
-    - "Fungal spores in microscope images: 4,000 annotated, six classes"
-    - "Greenhouse pests: 8 classes, 2,500 images"
-    - "12 elements in 300+ plant samples by ICP-OES"
-    - "Chlorophyll and carotenoids by spectrophotometry"
     - "Isolation and re-isolation of leaf-spot fungi"
+    - "Seed susceptibility to fungi"
+    - "Fungal spores in microscope images, with object-detection models"
+    - "Greenhouse pests, with object-detection models"
+    - "Plant nutrients by ICP-OES after microwave digestion"
+    - "Chlorophyll and carotenoids by spectrophotometry"
   found:
-    - text: "The spore model reaches mAP50 0.82 across six classes"
-      project: spore-detection
-    - text: "The pest model reaches mAP50 0.76 across eight classes"
-      project: pest-detection
-    - text: "Two fungi cause the leaf spot of ulatkambal"
+    - text: "Two fungi isolated as the cause of ulatkambal leaf spot (species not yet identified)"
       project: abroma-leaf-spot
     - text: "A leaf detector exported to run in a web browser (recall 0.80)"
       project: yolo-leaf
@@ -77,6 +84,8 @@
   n: "03"
   url: /forests-carbon.html
   short: "Forests & carbon"
+  illus: mycorrhiza
+  scale: "1 mm roots → 10 km scene"
   title: "Degraded forests and carbon"
   solution: "Restoration and monitoring"
   question: "How do we restore forests and check that it is working?"
@@ -112,6 +121,8 @@
   n: "04"
   url: /cities-wildlife.html
   short: "Cities & wildlife"
+  illus: urban
+  scale: "1 m trap site → 10 km city"
   title: "Cities and wildlife"
   solution: "Green-space planning"
   question: "Where should a city add green space, and what already lives in it?"

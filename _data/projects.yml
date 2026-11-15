@@ -34,13 +34,14 @@
     - "Factorial assays of up to 210 plates in one day (7 fungi × 2 metals × 5 concentrations × 3 replicates)"
     - "Prepared and counted spore suspensions to inoculate soil in an ongoing study of the 7 isolates"
     - "Planned safety screen: brine-shrimp lethality and seed susceptibility"
+    - "Best isolate, DMFT2: at 200 mg/L only 17% inhibited by lead and 37% by arsenic; EC50 ≈ 825 mg/L lead and ≈ 874 mg/L arsenic, against ≈ 52 and ≈ 79 mg/L for A. niger"
   image: /assets/img/fig-study-area.jpg
   image_alt: "Satellite map of Lalmatia waste dump with sampling points and locator maps of Sylhet"
 
 - id: msc-thesis
   problem: soil-water
   disciplines: [mycology]
-  finding: "Two fungi tested against four metals, from the plate to the soil microcosm"
+  finding: "Two fungi removed about 80–90% of cadmium and lead from water at 50 mg/L"
   title: "Heavy-metal tolerance, bioaccumulation and bioremediation by filamentous fungi"
   period: "2024 – 2026"
   status: complete
@@ -51,9 +52,11 @@
     and soil microcosms.
   methods: [PDA tolerance assay, ImageJ, EC50 / LL.4, CAT · SOD · GR, ICP-OES, PCA, NMDS, two-way ANOVA]
   highlights:
-    - "Tolerance index and growth inhibition across 4 metals and full concentration series"
-    - "Antioxidant enzyme responses summarised with PCA and NMDS"
-    - "Biomass accumulation and % removal measured in water and soil microcosms"
+    - "Removal fell to about 50–70% at 500 mg/L as binding sites saturated"
+    - "Biomass held about 8–9 mg/g lead and about 5 mg/g arsenic; <em>T. asperellum</em> held more of every metal"
+    - "Chromium(VI) was the harshest metal: A. niger EC50 ≈ 12.5 mg/L, fully inhibited by 200 mg/L"
+    - "In soil spiked at about 200 mg/kg, lead fell about 40–45% over 90 days; arsenic fell least (about 20%)"
+    - "Antioxidant enzymes (CAT, SOD, GR) rose under moderate stress and dropped at the highest doses"
   image: /assets/img/fig-thesis-pipeline.jpg
   image_alt: "Two-column workflow: laboratory pipeline from tolerance assays to soil bioremediation, and field discovery pipeline from GIS site selection to isolate screening"
 
@@ -89,8 +92,9 @@
     100–500 ppm, growth measured at 24, 48 and 72 h.
   methods: [Factorial ANOVA, Tukey HSD, Shapiro–Wilk, R 4.3]
   highlights:
-    - "T. asperellum ranked most tolerant"
-    - "R. stolonifer proposed as a biomonitoring candidate"
+    - "<em>T. asperellum</em> kept about half its growth (tolerance index 0.51) at 500 ppm lead"
+    - "<em>R. stolonifer</em> stopped growing at every dose, so it was proposed as a biomonitoring candidate"
+    - "Mercury at 500 ppm stopped all three fungi"
   repo: dose-time-metallotolerance-fungi
   links:
     - label: "Project report (PDF)"
@@ -156,10 +160,11 @@
   repo: dose-response-ec50
 
 # ══ 02 · Plant stress and disease ══════════════════════════════════════
+# CredoSense work: describe the work only. Results, metrics, dataset sizes,
+# sample counts and instrument models are confidential and stay off the site.
 - id: spore-detection
   problem: plant-disease
   disciplines: [pathology, mycology, rsgis]
-  finding: "A model that finds six classes of fungal spores at mAP50 0.82"
   title: "Pathogenic fungal spore detection from microscopy"
   period: "2026 – present"
   status: ongoing
@@ -168,26 +173,20 @@
     Machine-learning and computer-vision models that detect pathogenic fungi in
     microscopic spore images.
   methods: [Object detection, Annotation, Dataset curation, Python]
-  highlights:
-    - "YOLO model on 4,000 annotated spores, 6 classes; mAP50 0.82"
 
 - id: pest-detection
   problem: plant-disease
   disciplines: [pathology, rsgis]
-  finding: "Eight greenhouse pests detected at mAP50 0.76"
   title: "Greenhouse pest object detection"
   period: "2026 – present"
   status: ongoing
   context: "CredoSense"
-  summary: "Object-detection models for greenhouse pests trained on curated open-source image datasets."
+  summary: "Object-detection models for greenhouse pests: dataset curation, annotation and evaluation."
   methods: [Object detection, Annotation, Evaluation]
-  highlights:
-    - "8 pest classes, 2,500 images; mAP50 0.76"
 
 - id: credosense-lab
   problem: plant-disease
   disciplines: [physiology]
-  finding: "Twelve elements measured in more than 300 samples from five crop species"
   title: "Plant nutrient and pigment analytics"
   period: "2026 – present"
   status: ongoing
@@ -196,15 +195,13 @@
     Microwave-assisted digestion and ICP-OES quantification of macro- and
     micronutrients; chlorophyll and carotenoid extraction by spectrophotometry.
   methods: [ICP-OES, Microwave digestion, UV-Vis, Pigment extraction]
-  highlights:
-    - "Analysed 12 elements in 300+ samples across 5 crop species"
 
 - id: abroma-leaf-spot
   problem: plant-disease
   disciplines: [pathology, mycology]
-  finding: "Two fungi found behind the leaf spot of ulatkambal"
+  finding: "Two fungi isolated as the cause of ulatkambal leaf spot"
   title: "Leaf spot disease of ulatkambal (<em>Abroma augusta</em>)"
-  period: ""        # TODO add the year
+  period: "2022"
   status: complete
   context: "BSc · SUST"
   summary: >-
@@ -212,7 +209,8 @@
     fungi that cause the leaf spot.
   methods: [Isolation, Re-isolation, Aseptic culture]
   highlights:
-    - "Two causal fungi identified"
+    - "Two fungi consistently re-isolated from diseased leaves"
+    - "Species not yet identified"
 
 - id: yolo-leaf
   problem: plant-disease
@@ -286,25 +284,24 @@
 - id: gas-exchange
   problem: forests-carbon
   disciplines: [physiology]
-  finding: "Photosynthesis and water use measured at the leaf with a calibrated chamber"
   title: "Leaf gas exchange: carbon uptake and water use"
-  period: ""        # TODO add the period
+  period: "2026"
   status: ""
   context: "CredoSense · Dhaka, Bangladesh"
   summary: >-
-    Collected data with the CS-LC7000 leaf chamber paired with an LI-840A gas
-    analyser, calibrated the chamber sensors and the device equations, and computed
-    photosynthesis, transpiration, stomatal conductance and water-use efficiency.
-  methods: [CS-LC7000 leaf chamber, LI-840A, Sensor calibration, R, Excel]
+    Collect leaf gas-exchange data with a leaf chamber and gas analyser, calibrate
+    the chamber sensors and the instrument equations, and compute photosynthesis,
+    transpiration, stomatal conductance and water-use efficiency.
+  methods: [Leaf chamber, Infrared gas analyser, Sensor calibration, R, Excel]
   highlights:
-    - "Trained 16 junior labmates in the data analysis (Excel and R)"
+    - "Train junior labmates in the data analysis (Excel and R)"
 
 - id: satchari-plots
   problem: forests-carbon
   disciplines: [ecology]
   finding: "All timber species counted in forest plots at Satchari National Park"
   title: "Vegetation plot survey, Satchari National Park"
-  period: ""        # TODO add the year
+  period: "2025"
   status: complete
   context: "Field survey"
   summary: "Laid plots, identified the plants and counted all timber species in them."
@@ -358,7 +355,7 @@
   disciplines: [ecology, rsgis]
   finding: "Carnivores recorded using a university campus as a refuge"
   title: "Camera traps for urban carnivores"
-  period: ""        # TODO add the year
+  period: "2024"
   status: complete
   context: "Co-author · manuscript in review"
   summary: >-

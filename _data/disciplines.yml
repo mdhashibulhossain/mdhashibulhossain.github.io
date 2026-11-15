@@ -1,8 +1,10 @@
 # The five disciplines. They are the tools; the problems are the goal.
+# illus: the drawing beside each discipline (ids from _data/interests.yml)
 # Projects list the disciplines they use with `disciplines: [id, ...]`.
 
 - id: mycology
   name: "Mycology"
+  illus: mycoremediation
   line: "Isolating, growing and stress-testing fungi"
   items:
     - "Aseptic culture, isolation streaking, serial dilution"
@@ -14,6 +16,7 @@
 
 - id: pathology
   name: "Plant pathology"
+  illus: pathology
   line: "Finding which organism causes the damage"
   items:
     - "Isolation and re-isolation of leaf-spot fungi"
@@ -24,6 +27,7 @@
 
 - id: physiology
   name: "Plant physiology"
+  illus: physiology
   line: "Measuring how a plant responds to stress"
   items:
     - "Leaf gas exchange: photosynthesis, transpiration, stomatal conductance, water-use efficiency"
@@ -34,6 +38,7 @@
 
 - id: ecology
   name: "Ecology & environment"
+  illus: mycorrhiza
   line: "Sampling soil, plants and animals in the field"
   items:
     - "Vegetation plots and tree inventory"
@@ -45,6 +50,7 @@
 
 - id: rsgis
   name: "Remote sensing, GIS & computer vision"
+  illus: geocv
   line: "Mapping and detecting from images"
   items:
     - "Google Earth Engine; Sentinel-2 / 5P, Landsat LST, MAIAC AOD, VIIRS, SRTM"

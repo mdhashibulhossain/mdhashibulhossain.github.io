@@ -35,20 +35,51 @@ cities-wildlife:
 home-1:
   where: "Home page, 'In the field and lab' strip, 1st photo"
   idea: "You at the lab bench or the ICP-OES"
-  caption: ""
-  alt: ""
+  caption: "Sampling soil and water at the Lalmatia landfill, Sylhet"
+  alt: "MD standing on the landfill holding a sample cooler, wearing gloves and a mask"
 home-2:
   where: "Home page, 'In the field and lab' strip, 2nd photo"
   idea: "Fieldwork: sampling, plot survey or plantation"
-  caption: ""
-  alt: ""
+  caption: "Plating metal-amended media in the laminar-flow hood, SUST"
+  alt: "MD in a lab coat and gloves working inside a laminar-flow hood"
 home-3:
   where: "Home page, 'In the field and lab' strip, 3rd photo"
   idea: "Close-up: plates, cultures or a micrograph"
-  caption: ""
-  alt: ""
+  caption: "Fungal isolates recovered from landfill soil"
+  alt: "Grid of Petri dishes with different fungal colonies on a black background"
 home-4:
   where: "Home page, 'In the field and lab' strip, 4th photo"
   idea: "Drone, laptop with a map, or presenting a poster"
-  caption: ""
-  alt: ""
+  caption: "ICP-OES used to measure metals in soil, water and fungal biomass"
+  alt: "ICP-OES instrument with its autosampler on a lab bench"
+
+# ── Project photos (file name = project id, or id-2 for a second photo) ──
+landfill-isolates:
+  where: "Soil & water page, landfill isolates project"
+  caption: "The seven shortlisted isolates, DMFT1–DMFT7, on PDA"
+  alt: "Seven Petri dishes labelled DMFT-1 to DMFT-7 with different fungal colonies"
+landfill-isolates-2:
+  where: "Soil & water page, landfill isolates project (second photo)"
+  caption: "Soil auger at a sampling point, Lalmatia landfill"
+  alt: "Soil auger pushed into ground among shrubs and plastic waste"
+msc-thesis:
+  where: "Soil & water page, MSc thesis project"
+  caption: "The two test fungi on PDA: (a) <em>Aspergillus niger</em>, (b) <em>Trichoderma asperellum</em>"
+  alt: "Two Petri dishes: a dark A. niger colony and a green T. asperellum colony"
+msc-thesis-2:
+  where: "Soil & water page, MSc thesis project (second photo)"
+  caption: "Bioremediation set-up: water flasks, soil microcosms, incubation and biomass plates"
+  alt: "Four lab photos: flasks in a hood, funnels with soil, an incubator and small dishes of biomass"
+bsc-tolerance:
+  where: "Soil & water page, BSc tolerance project"
+  caption: "The three test fungi on PDA: <em>Aspergillus niger</em>, <em>Rhizopus stolonifer</em> and <em>Trichoderma asperellum</em>"
+  alt: "Three Petri dishes with fungal colonies"
+bsc-tolerance-2:
+  where: "Soil & water page, BSc tolerance project (second photo)"
+  caption: "<em>T. asperellum</em> on PDA with arsenic at 0, 100, 200 and 500 ppm"
+  alt: "Four Petri dishes showing fungal growth shrinking as arsenic concentration rises"
+gis-mcda:
+  where: "Soil & water page, GIS site selection project"
+  caption: "Final suitability map that picked the Lalmatia sampling site"
+  alt: "Map of site suitability scores for metal-spread risk, with an inset of the selected area"
+

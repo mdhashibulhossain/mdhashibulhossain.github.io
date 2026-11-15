@@ -4,18 +4,24 @@ layout: default
 {% assign pb = site.data.problems | where: "id", page.problem | first %}
 {% assign projects = site.data.projects | where: "problem", pb.id %}
 {% assign statp = site.data.projects | where: "id", pb.stat.project | first %}
+{% assign i = site.data.interests | where: "id", pb.illus | first %}
+<div class="pc-{{ pb.id }}">
 <section class="track-hero problem-hero">
   <div class="wrap ph-grid">
     <div class="ph-text">
       <p class="eyebrow">Problem {{ pb.n }} of 04 · {{ pb.title }}</p>
       <h1>{{ pb.question }}</h1>
       <p class="lede">{{ pb.problem }}</p>
+      {% assign bar_label = pb.scale %}{% include scale-bar.html %}
     </div>
+    <div class="ph-side">
+    {% if i %}<div class="ph-illus">{% include illustration.html %}</div>{% endif %}
     <a class="ph-stat" href="#{{ statp.id }}">
       <span class="eyebrow">The approach · {{ pb.solution }}</span>
       <span class="metric-value">{{ pb.stat.value }}</span>
       <span class="metric-label">{{ pb.stat.label }}</span>
     </a>
+    </div>
   </div>
   <div class="wrap">
     <nav class="jump" aria-label="On this page">
@@ -84,3 +90,4 @@ layout: default
 </section>
 
 {{ content }}
+</div>

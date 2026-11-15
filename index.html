@@ -51,7 +51,7 @@ next_label: "Contaminated soil and water: can fungi clean it?"
   <div class="problems">
     {% for pb in site.data.problems %}
     {% assign n = site.data.projects | where: "problem", pb.id | size %}
-    <a class="problem-tile" href="{{ pb.url | relative_url }}">
+    <a class="problem-tile pc-{{ pb.id }}" href="{{ pb.url | relative_url }}">
       {% assign slot = pb.id %}{% assign photo_class = "photo-tile" %}{% assign photo_alt = pb.title %}{% include photo.html %}
       <span class="pt-n">{{ pb.n }}</span>
       <span class="eyebrow">{{ pb.solution }}</span>
@@ -65,6 +65,27 @@ next_label: "Contaminated soil and water: can fungi clean it?"
   </div>
 </section>
 
+<!-- 2b · FUNGUS TO SATELLITE: how the five paths connect ─────────── -->
+<section class="wrap section" id="chain">
+  <div class="section-head">
+    <h2>From fungus to satellite</h2>
+    <p class="muted">The same question at five scales. Each level opens the work behind it.</p>
+  </div>
+  <ol class="chain">
+    {% for c in site.data.chain %}
+    <li class="chain-step k-{{ c.kind }}">
+      <a class="chain-head" href="{{ c.url | relative_url }}">
+        {% include chain-icon.html %}
+        <span><span class="mono hc-scale">{{ c.scale }}</span><strong>{{ c.name }}</strong></span>
+      </a>
+      <p class="chain-q">{{ c.question }}</p>
+      <ul class="evidence">{% for e in c.evidence %}<li><a href="{{ e.url | relative_url }}">{{ e.label }}</a></li>{% endfor %}</ul>
+      {% if c.link != "" %}<p class="chain-link mono"><span aria-hidden="true">→</span> {{ c.link }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
 <!-- 3 · RESULTS: each number opens its evidence ───────────────────── -->
 <section class="wrap section" id="results">
   <div class="section-head">
@@ -72,10 +93,10 @@ next_label: "Contaminated soil and water: can fungi clean it?"
     <span class="hint">Each number opens the project behind it</span>
   </div>
   <ul class="metrics" aria-label="Key results">
-    <li><a class="metric" href="{{ '/soil-water.html#landfill-isolates' | relative_url }}"><span class="metric-value">7<small>of 27</small></span><span class="metric-label">landfill fungi stay viable at 500 mg/L chromium and arsenic</span></a></li>
-    <li><a class="metric" href="{{ '/plant-disease.html#spore-detection' | relative_url }}"><span class="metric-value">0.82<small>mAP50</small></span><span class="metric-label">spore-detection model on 4,000 annotated spores, six classes</span></a></li>
-    <li><a class="metric" href="{{ '/soil-water.html#gis-mcda' | relative_url }}"><span class="metric-value">6<small>sensors</small></span><span class="metric-label">satellite layers fused on a 500 m grid to choose the sampling site</span></a></li>
-    <li><a class="metric" href="{{ '/forests-carbon.html#divi' | relative_url }}"><span class="metric-value">1,053<small>tests</small></span><span class="metric-label">behind Dīvi, my open-source drone mapping toolkit</span></a></li>
+    <li class="pc-soil-water"><a class="metric" href="{{ '/soil-water.html#landfill-isolates' | relative_url }}"><span class="metric-value">7<small>of 27</small></span><span class="metric-label">landfill fungi stay viable at 500 mg/L chromium and arsenic</span></a></li>
+    <li class="pc-forests-carbon"><a class="metric" href="{{ '/forests-carbon.html#agarwood' | relative_url }}"><span class="metric-value">11<small>plantations</small></span><span class="metric-label">agarwood plantations surveyed alone in about 10 days</span></a></li>
+    <li class="pc-soil-water"><a class="metric" href="{{ '/soil-water.html#gis-mcda' | relative_url }}"><span class="metric-value">6<small>sensors</small></span><span class="metric-label">satellite layers fused on a 500 m grid to choose the sampling site</span></a></li>
+    <li class="pc-forests-carbon"><a class="metric" href="{{ '/forests-carbon.html#divi' | relative_url }}"><span class="metric-value">1,053<small>tests</small></span><span class="metric-label">behind Dīvi, my open-source drone mapping toolkit</span></a></li>
   </ul>
   <p class="results-more"><a href="{{ '/publications.html' | relative_url }}">3 manuscripts in review, 1 conference paper with a DOI</a> <span class="muted">·</span> <a href="{{ '/code.html' | relative_url }}">4 reproducible studies with open code</a> <span class="muted">·</span> <a href="{{ '/cv.html#msc' | relative_url }}">MSc CGPA 3.80 / 4.00, With Distinction</a></p>
 </section>

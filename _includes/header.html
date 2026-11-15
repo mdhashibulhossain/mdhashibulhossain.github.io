@@ -9,7 +9,7 @@
       <div class="nav-problems">
         <span class="nav-label">The problems</span>
         {% for item in site.data.nav %}{% if item.group == "problems" %}
-        <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url %} is-current{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}><span class="nav-n">{{ item.n }}</span> {{ item.title }}</a>
+        {% assign pid = item.url | remove: "/" | remove: ".html" %}<a href="{{ item.url | relative_url }}" class="nav-link pc-{{ pid }}{% if page.url == item.url %} is-current{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}><span class="nav-n">{{ item.n }}</span> {{ item.title }}</a>
         {% endif %}{% endfor %}
       </div>
       <div class="nav-site">

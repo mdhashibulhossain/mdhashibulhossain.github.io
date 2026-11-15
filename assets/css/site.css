@@ -3,7 +3,7 @@
    Print-magazine system:
      · one canvas colour, no cards, no fills, no shadows, no gradients, no blur
      · structure from a 12-column grid, 1px rules and generous white space
-     · Playfair Display for headings and pull quotes, Inter for reading and labels
+     · Bodoni Moda for headings and pull quotes, Inter for reading and labels
      · sharp corners everywhere (2px at most on tiny labels)
    Theme: light on :root; dark via prefers-color-scheme (unless data-theme="light")
    and via :root[data-theme="dark"], which assets/js/site.js sets on <html>.
@@ -16,14 +16,20 @@
   --muted: #5a5954;          /* secondary text (7:1 on paper) */
   --rule: #d9d6cf;           /* hairlines */
   --rule-strong: #141414;    /* section rules */
-  --accent: #1b4332;         /* forest green: links, markers */
-  --micro: #1b4332;          /* track labels only, never fills */
-  --geo: #33526b;
-  --bridge: #6f5640;
+  --accent: #1d5a3c;         /* forest green: links, markers */
+  --micro: #24724a;          /* drawings: living things */
+  --geo: #2c5f80;            /* drawings: maps and images */
+  --bridge: #8a5a2b;         /* drawings: soil and roots */
+  /* One colour per problem. Used only for short bars, numbers, labels and
+     thin rules, never for fills or large areas. All pass 5:1 on paper. */
+  --c-soil-water: #a14a1c;      /* sienna */
+  --c-plant-disease: #8f6400;   /* ochre */
+  --c-forests-carbon: #24724a;  /* forest green */
+  --c-cities-wildlife: #1d6683; /* lake blue */
   --todo: #9a3412;
   --on-ink: #faf9f6;
 
-  --f-head: "Playfair Display", "Didot", "Bodoni 72", Georgia, serif;
+  --f-head: "Bodoni Moda", "Bodoni 72", "Didot", Georgia, serif;
   --f-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-code: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
@@ -41,13 +47,15 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #121311; --ink: #ecebe6; --muted: #a3a29b; --rule: #34352f; --rule-strong: #ecebe6;
-    --accent: #7cc8a0; --micro: #7cc8a0; --geo: #93b6d1; --bridge: #c9b18f; --todo: #f59e6b;
+    --accent: #7cc8a0; --micro: #7cc8a0; --geo: #93b6d1; --bridge: #d4b088; --todo: #f59e6b;
+    --c-soil-water: #eda57a; --c-plant-disease: #e2bf62; --c-forests-carbon: #7cc8a0; --c-cities-wildlife: #7cc0dc;
     --on-ink: #121311; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #121311; --ink: #ecebe6; --muted: #a3a29b; --rule: #34352f; --rule-strong: #ecebe6;
-  --accent: #7cc8a0; --micro: #7cc8a0; --geo: #93b6d1; --bridge: #c9b18f; --todo: #f59e6b;
+  --accent: #7cc8a0; --micro: #7cc8a0; --geo: #93b6d1; --bridge: #d4b088; --todo: #f59e6b;
+    --c-soil-water: #eda57a; --c-plant-disease: #e2bf62; --c-forests-carbon: #7cc8a0; --c-cities-wildlife: #7cc0dc;
   --on-ink: #121311; color-scheme: dark;
 }
 @media (max-width: 760px) { :root { --gap: 2rem; } }
@@ -845,9 +853,9 @@ a.track-chip:hover { text-decoration: underline; }
 .photo-tile { margin-bottom: var(--s-3); }
 .photo-tile img { aspect-ratio: 3 / 2; }
 .photo-tile figcaption { display: none; }
-.photo-project img { aspect-ratio: 4 / 3; }
+.photo-project img { aspect-ratio: auto; }   /* project photos keep their own shape */
 .photo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--s-5) var(--s-4); }
-.photo-strip img { aspect-ratio: 4 / 3; }
+.photo-strip img { aspect-ratio: 4 / 5; }
 @media (max-width: 600px) { .photo-banner img { aspect-ratio: 3 / 2; } }
 
 /* ── "Keep reading" band at the foot of every page ── */
@@ -933,3 +941,66 @@ a.track-chip:hover { text-decoration: underline; }
 }
 @media (max-width: 860px) { .project.has-image .project-figs { grid-column: 1 / -1; } }
 @media (max-width: 600px) { .results-more { display: grid; gap: .5rem; } .results-more > .muted { display: none; } }
+
+/* ════════════════════════════════════════════════════════════════════
+   Problem colours. A container with .pc-<problem id> sets --pc; every rule
+   below falls back to the accent (or ink) where no problem applies.
+   Signature mark: a short 3px bar above numbers and labels.
+   ════════════════════════════════════════════════════════════════════ */
+.pc-soil-water { --pc: var(--c-soil-water); }
+.pc-plant-disease { --pc: var(--c-plant-disease); }
+.pc-forests-carbon { --pc: var(--c-forests-carbon); }
+.pc-cities-wildlife { --pc: var(--c-cities-wildlife); }
+
+/* header: numbered problem bar */
+.nav-problems .nav-n { color: var(--pc, var(--accent)); }
+.nav-problems .nav-link.is-current { border-bottom-color: var(--pc, var(--ink)); }
+
+/* home: problem tiles and results */
+.pt-n { color: var(--pc, var(--ink)); }
+.pt-n::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--pc, var(--ink)); margin-bottom: var(--s-4); }
+.problem-tile .eyebrow { color: var(--pc, var(--accent)); }
+.problem-tile:hover h3 { text-decoration-color: var(--pc, currentColor); }
+.metrics > li[class*="pc-"] .metric::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--pc); }
+.metrics > li[class*="pc-"] a.metric:hover .metric-value { color: var(--pc); }
+
+/* problem pages */
+.problem-hero { border-top: 3px solid var(--pc, transparent); }
+.problem-hero .eyebrow, .ph-stat .eyebrow { color: var(--pc, var(--accent)); }
+.ph-stat .metric-value { color: var(--pc, var(--ink)); }
+.ph-stat:hover .metric-value { color: var(--ink); }
+.problem-hero .scale-bar { color: var(--pc, var(--ink)); }
+.ph-side { grid-column: 9 / -1; display: grid; gap: var(--s-5); align-content: end; min-width: 0; padding-left: calc(var(--gap) / 2); border-left: 1px solid var(--rule); }
+.ph-side .ph-stat { grid-column: auto; padding-left: 0; border-left: 0; }
+.ph-illus .illus { max-width: 7.5rem; }
+@media (max-width: 760px) {
+  .ph-side { grid-column: 1 / -1; padding-left: 0; border-left: 0; padding-top: var(--s-5); border-top: 1px solid var(--rule); grid-template-columns: auto minmax(0, 1fr); align-items: end; column-gap: var(--s-5); }
+  .ph-side .ph-stat { padding-top: 0; border-top: 0; }
+  .ph-illus .illus { max-width: 5.5rem; }
+}
+[class*="pc-"] .brief .cap-title { border-bottom: 2px solid var(--pc); }
+[class*="pc-"] .kicker { color: var(--pc); }
+[class*="pc-"] .link-list { border-top-color: var(--pc); }
+[class*="pc-"] .project-list { border-top-color: var(--pc); }
+
+/* methods page */
+.matrix thead .mx-n { color: var(--pc, var(--ink)); }
+.matrix thead th[class*="pc-"] { border-bottom: 3px solid var(--pc); }
+.disc-problem .mono { color: var(--pc, var(--accent)); }
+.disc-illus .illus { max-width: 6rem; }
+
+/* next band */
+.next-link .eyebrow { color: var(--pc, var(--accent)); }
+.next-arrow { color: var(--pc, var(--ink)); }
+
+/* fungus → satellite chain and journey: colour by kind */
+.chain > li.chain-step { border-top: 3px solid var(--c, var(--ink)); padding-top: var(--s-5); }
+.chain .hc-scale { color: var(--c, var(--muted)); }
+.chain-link { color: var(--muted); }
+.j-micro { --c: var(--micro); } .j-geo { --c: var(--geo); } .j-bridge { --c: var(--bridge); }
+.journey a::before { border-color: var(--c, var(--ink)); }
+.journey a:hover::before { background: var(--c, var(--ink)); }
+
+
+/* Scale labels keep their case: "µm" in capitals becomes "ΜM", and SI units are lower case. */
+.hc-scale, .scale-label, .m-scale { text-transform: none; letter-spacing: .06em; font-size: .78rem; }

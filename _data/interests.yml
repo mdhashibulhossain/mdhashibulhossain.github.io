@@ -8,9 +8,9 @@
   question: "Which fungi tolerate and remove arsenic, cadmium, chromium and lead, and which physiological responses let them do it?"
   done:
     - label: "MSc thesis: 4 metals, EC50, antioxidant enzymes, water and soil microcosms"
-      url: /microbiology.html#msc-thesis
+      url: /soil-water.html#msc-thesis
     - label: "27 landfill isolates, 7 viable at 500 ppm Cr/As"
-      url: /microbiology.html#landfill-isolates
+      url: /soil-water.html#landfill-isolates
     - label: "Conference paper, RMSTU 2025 (DOI)"
       url: /publications.html#conf-rmstu-2025
     - label: "Code: metal-resistance genes in 84 bacterial genomes"
@@ -27,9 +27,9 @@
   question: "Can fungal spores and early symptoms be detected from images reliably enough to replace manual counts?"
   done:
     - label: "Spore-image detection models, CredoSense"
-      url: /geospatial.html#spore-detection
+      url: /plant-disease.html#spore-detection
     - label: "Fungal isolation from agarwood trees"
-      url: /microbiology.html#agarwood
+      url: /forests-carbon.html#agarwood
     - label: "Biocontrol of fungal pathogens, SUST"
       url: /cv.html#research-associate
     - label: "Seed-susceptibility tests against fungi (2024)"
@@ -44,9 +44,9 @@
   question: "How do metal stress and nutrition change pigment, enzyme and nutrient profiles in plants?"
   done:
     - label: "Plant nutrient and pigment analytics, CredoSense"
-      url: /microbiology.html#credosense-lab
+      url: /plant-disease.html#credosense-lab
     - label: "CAT, SOD and GR profiling under metal stress"
-      url: /microbiology.html#msc-thesis
+      url: /soil-water.html#msc-thesis
   next: "Link ICP-OES nutrient profiles to image-derived plant traits."
 
 - id: mycorrhiza
@@ -57,7 +57,7 @@
   question: "How much do mycorrhizal fungi contribute to carbon storage in forest soils?"
   done:
     - label: "Mycorrhizal fungi of telsur and garjan cultured on MMN medium"
-      url: /microbiology.html#mycorrhizal-dipterocarp
+      url: /forests-carbon.html#mycorrhizal-dipterocarp
     - label: "Poster: mycorrhizal role in soil carbon sequestration (2023)"
       url: /publications.html#poster-mycorrhizal-2023
     - label: "Code: climate controls on global soil respiration (1,247 studies)"
@@ -72,13 +72,13 @@
   question: "How can satellite layers and deep learning point field and lab work to the places and samples that matter?"
   done:
     - label: "6-sensor MCDA site selection on a 500 m grid"
-      url: /geospatial.html#gis-mcda
+      url: /soil-water.html#gis-mcda
     - label: "Dīvi drone mapping and canopy toolkit"
       url: /code.html#divi
     - label: "YOLO11s leaf detector exported to TensorFlow.js"
-      url: /geospatial.html#yolo-leaf
+      url: /plant-disease.html#yolo-leaf
     - label: "Land-cover change, Karnaphuli Range"
-      url: /geospatial.html#karnaphuli
+      url: /forests-carbon.html#karnaphuli
   next: "Scale lab-derived indicators to landscapes with Earth observation."
 
 - id: urban

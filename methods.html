@@ -30,7 +30,7 @@ next_label: "PhD direction: what I want to do with these tools"
       <thead>
         <tr>
           <th scope="col"><span class="sr-only">Discipline</span></th>
-          {% for pb in PB %}<th scope="col"><a href="{{ pb.url | relative_url }}"><span class="mx-n">{{ pb.n }}</span><span class="mx-t">{{ pb.short }}</span></a></th>{% endfor %}
+          {% for pb in PB %}<th scope="col" class="pc-{{ pb.id }}"><a href="{{ pb.url | relative_url }}"><span class="mx-n">{{ pb.n }}</span><span class="mx-t">{{ pb.short }}</span></a></th>{% endfor %}
         </tr>
       </thead>
       <tbody>
@@ -51,6 +51,7 @@ next_label: "PhD direction: what I want to do with these tools"
 <section class="wrap section discipline" id="{{ d.id }}">
   <div class="disc-grid">
     <div class="disc-what">
+      {% assign i = site.data.interests | where: "id", d.illus | first %}{% if i %}<div class="disc-illus">{% include illustration.html %}</div>{% endif %}
       <p class="eyebrow">Discipline {{ forloop.index }} of 5</p>
       <h2>{{ d.name }}</h2>
       <p class="lede">{{ d.line }}.</p>
@@ -60,7 +61,7 @@ next_label: "PhD direction: what I want to do with these tools"
       <p class="col-label">Used in</p>
       {% for pb in PB %}{% assign ps = site.data.projects | where: "problem", pb.id | where: "disciplines", d.id %}{% if ps.size > 0 %}
       <div class="disc-row" id="{{ d.id }}-{{ pb.id }}">
-        <a class="disc-problem" href="{{ pb.url | relative_url }}"><span class="mono">{{ pb.n }}</span> {{ pb.title }}</a>
+        <a class="disc-problem pc-{{ pb.id }}" href="{{ pb.url | relative_url }}"><span class="mono">{{ pb.n }}</span> {{ pb.title }}</a>
         <ul class="evidence">{% for p in ps %}<li><a href="{{ pb.url | relative_url }}#{{ p.id }}">{{ p.finding | default: p.title }}</a></li>{% endfor %}</ul>
       </div>
       {% endif %}{% endfor %}
