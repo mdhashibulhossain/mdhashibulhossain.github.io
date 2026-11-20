@@ -165,7 +165,7 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
     <section class="cv-sec" id="leadership">
       <h2>Leadership &amp; service</h2>
       <ul class="cv-rows">
-        {% for l in C.leadership %}<li><span class="cv-when mono">{{ l.period }}</span><span><strong>{{ l.role }}</strong><span class="muted"> · {{ l.org }}</span></span></li>{% endfor %}
+        {% for l in C.leadership %}<li><span class="cv-when mono">{{ l.period }}</span><span><strong>{{ l.role }}</strong><span class="muted"> · {{ l.org }}</span>{% if l.detail %}<span class="cv-detail">{{ l.detail }}</span>{% endif %}</span></li>{% endfor %}
       </ul>
     </section>
 

@@ -11,7 +11,7 @@ next_label: "Contaminated soil and water: can fungi clean it?"
 {% assign P = site.data.profile %}
 {% assign CV = site.data.cv %}
 
-<!-- 1 · LEAD: who, the one goal, the four problems, proof ────────── -->
+<!-- 1 · LEAD: who, the goal, the four problems, the five scales, proof ── -->
 <section class="lead">
   <div class="wrap lead-grid">
     <div class="lead-text">
@@ -40,8 +40,20 @@ next_label: "Contaminated soil and water: can fungi clean it?"
       </p>
     </div>
 
-    {% assign slot = "home-1" %}{% assign photo_class = "lead-photo" %}{% assign photo_alt = "Md Hashibul Hossain sampling at a landfill" %}
-    {% include photo.html %}
+    <div class="lead-chain">
+      <p class="col-label">From fungus to satellite</p>
+      <ol class="hero-chain" aria-label="From fungus to satellite: five scales of my work">
+        {% for c in site.data.chain %}
+        <li class="hc-{{ c.kind }}">
+          <a href="#chain-{{ c.id }}">
+            {% include chain-icon.html %}
+            <span class="hc-text"><span class="mono hc-scale">{{ c.scale }}</span><strong>{{ c.name }}</strong><span class="hc-line">{{ c.line }}</span></span>
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+      <a class="lead-goal" href="#chain"><span class="col-label">One goal</span><strong>Environmental solutions</strong></a>
+    </div>
   </div>
 
   <div class="wrap">
@@ -62,7 +74,7 @@ next_label: "Contaminated soil and water: can fungi clean it?"
   </div>
   <ol class="chain">
     {% for c in site.data.chain %}
-    <li class="chain-step k-{{ c.kind }}">
+    <li class="chain-step k-{{ c.kind }}" id="chain-{{ c.id }}">
       <a class="chain-head" href="{{ c.url | relative_url }}">
         {% include chain-icon.html %}
         <span><span class="mono hc-scale">{{ c.scale }}</span><strong>{{ c.name }}</strong></span>
@@ -94,12 +106,13 @@ next_label: "Contaminated soil and water: can fungi clean it?"
   </ol>
 </section>
 
-<!-- 5 · PHOTO STRIP: home-2 … home-4 (home-1 leads the page) ─────── -->
-{% capture strip %}{% for k in (2..4) %}{% assign slot = "home-" | append: k %}{% assign photo_class = "photo-strip" %}{% assign photo_alt = "Md Hashibul Hossain at work" %}{% include photo.html %}{% endfor %}{% endcapture %}
+<!-- 5 · PHOTO STRIP: home-1 … home-4, plus a link to the gallery once it has photos ── -->
+{% capture strip %}{% for k in (1..4) %}{% assign slot = "home-" | append: k %}{% assign photo_class = "photo-strip" %}{% assign photo_alt = "Md Hashibul Hossain at work" %}{% include photo.html %}{% endfor %}{% endcapture %}
 {% assign strip_t = strip | strip %}
 {% if strip_t != "" %}
 <section class="wrap section" id="field">
-  <div class="section-head"><h2>In the field and lab</h2></div>
+  {% include gallery-count.html %}
+  <div class="section-head"><h2>In the field and lab</h2>{% if gallery_n > 0 %}<a class="muted" href="{{ '/gallery.html' | relative_url }}">All field, lab and rescue photos →</a>{% endif %}</div>
   <div class="photo-row">{{ strip }}</div>
 </section>
 {% endif %}

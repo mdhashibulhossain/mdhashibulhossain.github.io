@@ -16,6 +16,7 @@
         {% for item in site.data.nav %}{% if item.group == "site" %}
         <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url %} is-current{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
         {% endif %}{% endfor %}
+        {% include gallery-count.html %}{% if gallery_n > 0 %}<a href="{{ '/gallery.html' | relative_url }}" class="nav-link{% if page.url == '/gallery.html' %} is-current{% endif %}">Field &amp; lab</a>{% endif %}
         <a class="nav-cta" href="{{ '/cv.html#contact' | relative_url }}">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Theme">◐</button>
       </div>

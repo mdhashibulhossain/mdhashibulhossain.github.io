@@ -1032,10 +1032,16 @@ a.track-chip:hover { text-decoration: underline; }
 .lead-who strong { color: var(--ink); font-weight: 600; }
 .lead-open { color: var(--accent); font-weight: 600; }
 
-/* field photo: fills the right columns at the height of the text */
-.lead-photo { grid-column: 8 / -1; margin: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: var(--s-2); min-height: 0; }
-.lead-photo img { width: 100%; height: 100%; min-height: 22rem; object-fit: cover; object-position: 50% 35%; display: block; }
-.lead-photo figcaption { font-size: .78rem; color: var(--muted); }
+/* illustrated fungus → satellite chain in the right columns */
+.lead-chain { grid-column: 8 / -1; display: grid; align-content: start; gap: var(--s-3); min-width: 0; padding-left: calc(var(--gap) / 2); border-left: 1px solid var(--rule); }
+.lead-chain .hero-chain { grid-column: auto; padding: 0; border-left: 0; border-top: 1px solid var(--rule-strong); }
+.lead-chain .hero-chain a { grid-template-columns: 52px minmax(0, 1fr); padding: .8rem 0; }
+.lead-chain .chain-icon { width: 52px; height: 52px; }
+.lead-chain .hc-micro { --c: var(--micro); } .lead-chain .hc-geo { --c: var(--geo); } .lead-chain .hc-bridge { --c: var(--bridge); }
+.lead-chain .hc-scale { color: var(--c, var(--muted)); font-weight: 600; }
+.lead-goal { display: grid; gap: .2rem; padding-top: var(--s-4); border-top: 1px solid var(--rule-strong); text-decoration: none; }
+.lead-goal strong { font: italic 400 clamp(1.4rem, 1.1rem + .9vw, 1.9rem)/1.1 var(--f-head); color: var(--accent); }
+.lead-goal:hover strong { text-decoration: underline; text-underline-offset: .15em; text-decoration-thickness: 1px; }
 
 .lead-metrics { margin-top: var(--s-6); border-top: 1px solid var(--rule-strong); padding-block: var(--s-5) var(--s-7); }
 .lead-metrics .metric-value { font-size: clamp(2.4rem, 1.8rem + 1.8vw, 3.6rem); }
@@ -1044,17 +1050,33 @@ a.track-chip:hover { text-decoration: underline; }
 
 @media (max-width: 1100px) {
   .lead-text { grid-column: 1 / span 7; }
-  .lead-photo { grid-column: 8 / -1; }
+  .lead-chain { grid-column: 8 / -1; }
   .lead-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .lead { padding-top: var(--s-6); }
   .lead-grid { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-6); }
-  .lead-text, .lead-photo { grid-column: 1 / -1; }
-  .lead-photo img { min-height: 0; height: auto; aspect-ratio: 4 / 3; }
+  .lead-text, .lead-chain { grid-column: 1 / -1; }
+  .lead-chain { padding-left: 0; border-left: 0; }
   .lp-s { display: none; }
   .lead-problems a { grid-template-columns: 2rem minmax(0, 1fr); }
   .lead-problems a::before { width: 2rem; }
 }
 @media (max-width: 480px) { .lead-metrics { grid-template-columns: minmax(0, 1fr); } }
+
+/* CV: one-line description under a leadership row */
+.cv-detail { display: block; font-size: .88rem; color: var(--muted); line-height: 1.5; margin-top: .15rem; }
+
+/* Gallery: one block per site; text on the left, photos edge to edge on the right */
+.gal-block { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: var(--s-5); padding-block: var(--s-6); border-top: 1px solid var(--rule); }
+.gal-block:first-of-type { border-top: 3px solid var(--pc, var(--ink)); }
+.gal-head { grid-column: 1 / span 4; display: grid; gap: var(--s-3); align-content: start; min-width: 0; }
+.gal-head h3 { font-size: 1.5rem; }
+.gal-where { font-size: .78rem; color: var(--pc, var(--muted)); }
+.gal-links { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .9rem; }
+.gal-grid { grid-column: 5 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: var(--s-4); min-width: 0; }
+.gal-photo { margin: 0; display: grid; gap: var(--s-2); }
+.gal-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.gal-photo figcaption { font-size: .8rem; color: var(--muted); }
+@media (max-width: 760px) { .gal-head, .gal-grid { grid-column: 1 / -1; } }
 

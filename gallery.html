@@ -1,0 +1,55 @@
+---
+layout: default
+title: "Field & lab"
+permalink: /gallery.html
+description: "Photos of Md Hashibul Hossain's fieldwork in Bangladeshi forests, lab work, and animal rescue with G-Rescue."
+next_url: /methods.html
+next_kicker: "Next · the toolkit"
+next_label: "Methods: five disciplines behind the four problems"
+sitemap: false
+---
+{% include gallery-count.html %}
+<section class="track-hero">
+  <div class="wrap">
+    <p class="eyebrow">Field, lab and rescue</p>
+    <h1>Where the work happens</h1>
+    <p class="lede">Forests I have sampled, the bench where the fungi were tested, and animals I have rescued with G-Rescue.</p>
+  </div>
+</section>
+
+{% if gallery_n == 0 %}
+<section class="wrap section"><p class="muted">Photos are being added.</p></section>
+{% endif %}
+
+{% for g in site.data.gallery %}
+{% capture group_html %}
+  {% for blk in g.blocks %}
+  {% capture imgs %}{% for ph in blk.photos %}{% assign want = "/assets/photos/gallery/" | append: ph.file %}{% for f in site.static_files %}{% if f.path == want %}
+    <figure class="photo gal-photo">
+      <img src="{{ f.path | relative_url }}" alt="{{ ph.caption | default: blk.name | strip_html }}" loading="lazy" decoding="async">
+      {% if ph.caption and ph.caption != "" %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}
+    </figure>{% endif %}{% endfor %}{% endfor %}{% endcapture %}
+  {% assign imgs_t = imgs | strip %}
+  {% if imgs_t != "" %}
+  {% assign pj = site.data.projects | where: "id", blk.project | first %}
+  {% assign ppb = site.data.problems | where: "id", blk.problem | first %}
+  <article class="gal-block pc-{{ blk.problem }}" id="{{ blk.id }}">
+    <div class="gal-head">
+      <h3>{{ blk.name }}</h3>
+      <p class="mono gal-where">{{ blk.where }}</p>
+      <p>{{ blk.did }}</p>
+      <p class="gal-links">{% if pj %}<a href="{{ ppb.url | relative_url }}#{{ pj.id }}">The project →</a>{% endif %}{% if ppb %}<a href="{{ ppb.url | relative_url }}">{{ ppb.n }} {{ ppb.title }} →</a>{% endif %}</p>
+    </div>
+    <div class="gal-grid">{{ imgs }}</div>
+  </article>
+  {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign group_t = group_html | strip %}
+{% if group_t != "" %}
+<section class="wrap section" id="{{ g.id }}">
+  <div class="section-head"><h2>{{ g.title }}</h2><p class="muted">{{ g.intro }}</p></div>
+  {{ group_html }}
+</section>
+{% endif %}
+{% endfor %}

@@ -1,0 +1,3 @@
+{%- comment -%} Sets gallery_n = number of photos in assets/photos/gallery/. {%- endcomment -%}
+{%- assign gallery_n = 0 -%}
+{%- for f in site.static_files -%}{%- if f.path contains "/assets/photos/gallery/" -%}{%- unless f.extname == ".txt" or f.extname == ".md" -%}{%- assign gallery_n = gallery_n | plus: 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}

@@ -1,0 +1,87 @@
+# Field, lab and rescue photo gallery (page: /gallery.html, menu label "Field & lab").
+#
+# Photos live in assets/photos/gallery/ . Each block lists its photo files by name.
+# A block shows only when at least one of its files exists, the page and its menu link
+# appear only when the gallery has at least one photo, so nothing empty is ever shown.
+#
+#   photos:
+#     - file: satchari-1.jpg
+#       caption: "Laying a vegetation plot"      # optional
+#
+# project: an id from _data/projects.yml (adds a link to that project)
+# problem: an id from _data/problems.yml (colours the block)
+
+- id: field
+  title: "In the field"
+  intro: "Forests and sites I have sampled, surveyed or mapped."
+  blocks:
+    - id: satchari
+      name: "Satchari National Park"
+      where: "Habiganj, Sylhet Division · hill forest"
+      did: "Laid vegetation plots, identified the plants and counted every timber species."
+      project: satchari-plots
+      problem: forests-carbon
+      photos: []
+    - id: agarwood
+      name: "Agarwood plantations"
+      where: "11 sites in Chattogram, the Chittagong Hill Tracts, Cox's Bazar and Tangail"
+      did: "Surveyed 11 plantations alone in about ten days; soil sampling and tree inventory."
+      project: agarwood
+      problem: forests-carbon
+      photos: []
+    - id: madhupur
+      name: "Madhupur sal forest"
+      where: "Tangail"
+      did: "Sal-forest fieldwork and agarwood sites at Dokhola and Jolchatra."
+      problem: forests-carbon
+      photos: []
+    - id: cht
+      name: "Chittagong Hill Tracts"
+      where: "Kaptai, Bandarban, Khagrachari · hill forest"
+      did: "Hill-forest fieldwork; land-cover change of the Karnaphuli Range."
+      project: karnaphuli
+      problem: forests-carbon
+      photos: []
+    - id: sundarbans
+      name: "Sundarbans"
+      where: "Khulna · mangrove forest"
+      did: "Mangrove fieldwork."
+      problem: forests-carbon
+      photos: []
+    - id: landfill
+      name: "Lalmatia landfill"
+      where: "Sylhet"
+      did: "Root-zone soil and water sampling at a GIS-selected site."
+      project: landfill-isolates
+      problem: soil-water
+      photos: []
+    - id: campus
+      name: "Camera traps on a university campus"
+      where: "SUST, Sylhet"
+      did: "Chose trap sites for nocturnal carnivores from food-resource distribution."
+      project: camera-trap
+      problem: cities-wildlife
+      photos: []
+
+- id: lab
+  title: "In the lab"
+  intro: "Culture work, metal assays and instruments."
+  blocks:
+    - id: lab-work
+      name: "Lab work"
+      where: "Dept. of Forestry & Environmental Science, SUST"
+      did: "Isolation, metal-tolerance assays, bioremediation microcosms and ICP-OES."
+      project: msc-thesis
+      problem: soil-water
+      photos: []
+
+- id: rescue
+  title: "G-Rescue"
+  intro: "Animal rescue with the G-Rescue wing of Green Explore Society, SUST."
+  blocks:
+    - id: g-rescue
+      name: "Animal rescue and first aid"
+      where: "Green Explore Society, SUST"
+      did: "Rescued sick cats and dogs and injured wild birds, mostly owls and hawks, and gave first aid to many animals."
+      problem: cities-wildlife
+      photos: []
