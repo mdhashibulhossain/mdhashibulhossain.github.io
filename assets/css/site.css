@@ -1026,9 +1026,15 @@ a.track-chip:hover { text-decoration: underline; }
 .lp-s { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--pc); white-space: nowrap; }
 .lead-problems a:hover .lp-q { text-decoration: underline; text-decoration-color: var(--pc); text-underline-offset: .18em; text-decoration-thickness: 1px; }
 
-.lead-who { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--s-4); align-items: center; margin-top: var(--s-2); }
-.lead-who .portrait { width: 4.25rem; height: 4.25rem; object-fit: cover; object-position: 50% 20%; }
-.lead-who p { font-size: .95rem; line-height: 1.55; color: var(--muted); max-width: 52ch; }
+/* Portrait beside three set lines of text; the photo is exactly three lines tall.
+   One value (--who-fs) drives both, so they always match. */
+.lead-who { --who-fs: clamp(1.05rem, .78rem + .62vw, 1.42rem); --who-lh: 1.42; --frame-pad: 5px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--s-5); align-items: center; margin-top: var(--s-3); }
+.portrait-frame { position: relative; display: block; padding: var(--frame-pad); border: 1px solid var(--accent); background: var(--paper); }
+.portrait-frame::before { content: ""; position: absolute; left: -1px; top: -4px; width: 2.5rem; height: 3px; background: var(--accent); }
+.lead-who .portrait { --ph: calc(3 * var(--who-fs) * var(--who-lh)); width: var(--ph); height: var(--ph); object-fit: cover; object-position: 50% 20%; display: block; }
+.lead-who p { font-size: var(--who-fs); line-height: var(--who-lh); color: var(--muted); margin: 0; }
+.lead-who p > strong, .lead-who p > span { display: block; }
 .lead-who strong { color: var(--ink); font-weight: 600; }
 .lead-open { color: var(--accent); font-weight: 600; }
 
@@ -1049,8 +1055,9 @@ a.track-chip:hover { text-decoration: underline; }
 .metrics > li.pc-none .metric::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--ink); }
 
 @media (max-width: 1100px) {
-  .lead-text { grid-column: 1 / span 7; }
-  .lead-chain { grid-column: 8 / -1; }
+  .lead-grid { row-gap: var(--s-7); }
+  .lead-text, .lead-chain { grid-column: 1 / -1; }
+  .lead-chain { padding-left: 0; border-left: 0; }
   .lead-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
@@ -1079,4 +1086,11 @@ a.track-chip:hover { text-decoration: underline; }
 .gal-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
 .gal-photo figcaption { font-size: .8rem; color: var(--muted); }
 @media (max-width: 760px) { .gal-head, .gal-grid { grid-column: 1 / -1; } }
+
+/* phones: photo above the three lines, larger, still framed */
+@media (max-width: 600px) {
+  .lead-who { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-4); --who-fs: 1.08rem; }
+  .portrait-frame { justify-self: start; }
+  .lead-who .portrait { --ph: 7.5rem; }
+}
 

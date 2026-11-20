@@ -30,8 +30,8 @@ next_label: "Contaminated soil and water: can fungi clean it?"
       </ol>
 
       <div class="lead-who">
-        {% if P.photo != "" %}<img class="portrait" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="400" height="400">{% endif %}
-        <p><strong>MSc (Thesis) in Forestry, SUST · With Distinction.</strong> Junior Research Scientist at CredoSense, Dhaka. <span class="lead-open">{{ P.available }}</span></p>
+        {% if P.photo != "" %}<span class="portrait-frame"><img class="portrait" src="{{ P.photo | relative_url }}" alt="Portrait of {{ P.name }}" width="400" height="400"></span>{% endif %}
+        <p><strong>MSc (Thesis) in Forestry, SUST · With Distinction</strong><span>Junior Research Scientist, CredoSense, Dhaka</span><span class="lead-open">{{ P.available }}</span></p>
       </div>
       <p class="actions">
         <a class="btn btn-solid" href="{{ '/research.html' | relative_url }}">PhD direction</a>
