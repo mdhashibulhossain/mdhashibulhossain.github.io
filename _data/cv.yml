@@ -16,7 +16,7 @@ education:
   - id: msc
     degree: "MSc (Thesis) in Forestry"
     org: "Shahjalal University of Science & Technology (SUST), Sylhet"
-    period: "Session 2022 – 2024"
+    period: "Mar 2024 – Jan 2026"
     year: "2026"
     grade: "CGPA 3.80 / 4.00 · With Distinction · result published Feb 2026"
     details:
@@ -27,7 +27,7 @@ education:
   - id: bsc
     degree: "BSc (Honours) in Forestry"
     org: "Shahjalal University of Science & Technology (SUST), Sylhet"
-    period: "Session 2018 – 2022"
+    period: "Feb 2019 – Feb 2024"
     year: "2024"
     grade: "CGPA 3.43 / 4.00 · result published May 2024"
     details:
@@ -162,7 +162,7 @@ referees:
 
 # Home-page timeline, oldest first. Each step links to its CV entry.
 journey:
-  - year: "2018"
+  - year: "2019"
     label: "BSc Forestry, SUST"
     note: "Mycology, pathology, remote sensing coursework"
     url: /cv.html#bsc

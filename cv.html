@@ -131,10 +131,10 @@ description: "CV of Md Hashibul Hossain: MSc (Thesis) in Forestry With Distincti
       <ol class="cv-pubs">
         {% for pub in site.data.publications %}
         <li><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">
-          {{ pub.authors | replace: "Hossain, M.H.", "<strong>Hossain, M.H.</strong>" }}{% if pub.year != "" %} ({{ pub.year }}).{% endif %}
+          {% if pub.authors != "" %}{{ pub.authors | replace: "Hossain, M.H.", "<strong>Hossain, M.H.</strong>" }}{% else %}<strong>Hossain, M.H.</strong> (co-author){% endif %}{% if pub.year != "" %} ({{ pub.year }}).{% endif %}
           <em>{{ pub.title }}.</em>
           {% if pub.venue != "" %}{{ pub.venue }}.{% endif %}
-          {% if pub.status == "in-review" %}<span class="status status-in-review">In review</span>{% endif %}
+          {% if pub.status == "in-review" %}<span class="status status-in-review">In review</span>{% elsif pub.status == "in-prep" %}<span class="status status-in-prep">In preparation</span>{% endif %}
           {% if pub.doi != "" %}<span class="mono">doi:{{ pub.doi }}</span>{% endif %}
         </a></li>
         {% endfor %}

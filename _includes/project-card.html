@@ -47,7 +47,7 @@
     <dl class="connected" aria-label="Connected work">
       {% for pub in p_pubs %}
       <div><dt>{% if pub.type == "article" %}Manuscript{% elsif pub.type == "conference" %}Conference paper{% elsif pub.type == "poster" %}Poster{% else %}Report{% endif %}</dt>
-        <dd><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">{{ pub.title }}</a>{% if pub.status == "in-review" %} <span class="muted">· in review</span>{% elsif pub.year != "" %} <span class="muted">· {{ pub.year }}</span>{% endif %}</dd></div>
+        <dd><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">{{ pub.title }}</a>{% if pub.status == "in-review" %} <span class="muted">· in review</span>{% elsif pub.status == "in-prep" %} <span class="muted">· in preparation</span>{% elsif pub.year != "" %} <span class="muted">· {{ pub.year }}</span>{% endif %}</dd></div>
       {% endfor %}
       {% if p.repo %}
       <div><dt>Code</dt>

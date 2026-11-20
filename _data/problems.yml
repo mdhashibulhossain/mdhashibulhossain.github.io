@@ -61,17 +61,18 @@
     images, and I measure the nutrients and pigments that show a plant is under stress.
   stat:
     value: "2"
-    label: "fungi isolated as the cause of ulatkambal leaf spot, after three months of isolation and re-isolation"
+    label: "fungi isolated as the cause of a leaf spot of <em>Abroma augusta</em>, after three months of isolation, reinoculation and reisolation"
     project: abroma-leaf-spot
   measured:
-    - "Isolation and re-isolation of leaf-spot fungi"
+    - "Isolation, reinoculation and reisolation of leaf-spot fungi"
+    - "Pathogenicity of three <em>Colletotrichum</em> species on <em>Dalbergia sissoo</em> (data analysis)"
     - "Seed susceptibility to fungi"
     - "Fungal spores in microscope images, with object-detection models"
     - "Greenhouse pests, with object-detection models"
     - "Plant nutrients by ICP-OES after microwave digestion"
     - "Chlorophyll and carotenoids by spectrophotometry"
   found:
-    - text: "Two fungi isolated as the cause of ulatkambal leaf spot (species not yet identified)"
+    - text: "Two fungi isolated as the cause of a leaf spot of <em>Abroma augusta</em> (species not yet identified)"
       project: abroma-leaf-spot
     - text: "A leaf detector exported to run in a web browser (recall 0.80)"
       project: yolo-leaf

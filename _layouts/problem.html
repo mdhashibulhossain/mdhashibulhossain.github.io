@@ -69,7 +69,7 @@ layout: default
 
 {% capture pubs_html %}{% for pub in site.data.publications %}{% assign pp = site.data.projects | where: "id", pub.project | first %}{% if pp.problem == pb.id %}
   <li><a href="{{ '/publications.html' | relative_url }}#{{ pub.id }}">
-    <span class="meta"><span class="status status-{{ pub.status }}">{% if pub.status == "in-review" %}In review{% elsif pub.status == "presented" %}Presented{% elsif pub.status == "published" %}Published{% else %}Report{% endif %}</span><span class="mono">{{ pub.type }}{% if pub.year != "" %} · {{ pub.year }}{% endif %}</span></span>
+    <span class="meta"><span class="status status-{{ pub.status }}">{% if pub.status == "in-review" %}In review{% elsif pub.status == "in-prep" %}In preparation{% elsif pub.status == "presented" %}Presented{% elsif pub.status == "published" %}Published{% else %}Report{% endif %}</span><span class="mono">{{ pub.type }}{% if pub.year != "" %} · {{ pub.year }}{% endif %}</span></span>
     <strong>{{ pub.title }}</strong>
   </a></li>{% endif %}{% endfor %}{% endcapture %}
 {% capture code_html %}{% for p in projects %}{% if p.repo %}{% assign r = site.data.repos | where: "name", p.repo | first %}

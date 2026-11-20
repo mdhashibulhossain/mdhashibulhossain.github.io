@@ -199,18 +199,31 @@
 - id: abroma-leaf-spot
   problem: plant-disease
   disciplines: [pathology, mycology]
-  finding: "Two fungi isolated as the cause of ulatkambal leaf spot"
-  title: "Leaf spot disease of ulatkambal (<em>Abroma augusta</em>)"
+  finding: "Two fungi isolated as the cause of a leaf spot of <em>Abroma augusta</em>"
+  title: "Leaf spot disease of <em>Abroma augusta</em>"
   period: "2022"
   status: complete
   context: "BSc · SUST"
   summary: >-
-    Three months of isolation and re-isolation from diseased leaves to find the
-    fungi that cause the leaf spot.
-  methods: [Isolation, Re-isolation, Aseptic culture]
+    Three months of isolating fungi from leaf-spot lesions, reinoculating healthy
+    leaves and reisolating the same fungi, to find what causes the disease.
+  methods: [Isolation, Reinoculation, Reisolation, Aseptic culture]
   highlights:
-    - "Two fungi consistently re-isolated from diseased leaves"
+    - "Two fungi isolated, reinoculated and reisolated from the lesions"
     - "Species not yet identified"
+
+- id: colletotrichum-sissoo
+  problem: plant-disease
+  disciplines: [pathology, mycology]
+  title: "Pathogenicity of three <em>Colletotrichum</em> species on <em>Dalbergia sissoo</em>"
+  period: ""        # TODO add the year
+  status: ongoing
+  context: "SUST · manuscript in preparation for <em>Phytopathology</em>"
+  summary: >-
+    Pathogenicity study of <em>C. gloeosporioides</em>, <em>C. siamense</em> and
+    <em>C. fragariae</em> on <em>Dalbergia sissoo</em>. My part: partial
+    conceptualisation, monitoring, the complete data analysis and review of the manuscript.
+  methods: [Pathogenicity assay, Statistical analysis, Manuscript review]
 
 - id: yolo-leaf
   problem: plant-disease

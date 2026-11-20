@@ -27,8 +27,10 @@
   evidence:
     - label: "Pigments & ICP-OES nutrients"
       url: /plant-disease.html#credosense-lab
-    - label: "Leaf spot of ulatkambal: two causal fungi"
+    - label: "Leaf spot of <em>Abroma augusta</em>: two causal fungi"
       url: /plant-disease.html#abroma-leaf-spot
+    - label: "<em>Colletotrichum</em> on <em>Dalbergia sissoo</em>: complete data analysis"
+      url: /plant-disease.html#colletotrichum-sissoo
     - label: "Leaf gas exchange: photosynthesis and water use"
       url: /forests-carbon.html#gas-exchange
     - label: "Mycorrhizal fungi of dipterocarps"

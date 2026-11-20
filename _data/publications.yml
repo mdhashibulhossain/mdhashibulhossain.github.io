@@ -1,6 +1,6 @@
 # project: the id of the project (in _data/projects.yml) this output came from; the card links to it.
 # type: article | conference | poster | report
-# status: published | in-review | presented | report
+# status: published | in-review | in-prep | presented | report
 # Leave doi/pdf/researchgate empty ("") when you do not have them; the card hides that button.
 # When a manuscript is accepted: change status to published, add year, venue and doi.
 
@@ -14,6 +14,20 @@
   year: ""
   track: micro
   first_author: true
+  doi: ""
+  researchgate: ""
+  pdf: ""
+
+- id: ms-colletotrichum-sissoo
+  project: colletotrichum-sissoo
+  type: article
+  status: in-prep
+  title: "Pathogenicity of Colletotrichum gloeosporioides, C. siamense and C. fragariae on Dalbergia sissoo (working title)"
+  authors: ""      # TODO add the author list, e.g. "Surname, A., Hossain, M.H., & Surname, B."
+  role: "Partial conceptualisation and monitoring; did the complete data analysis; reviewed the manuscript."
+  venue: "Target journal: Phytopathology"
+  year: ""
+  track: micro
   doi: ""
   researchgate: ""
   pdf: ""
